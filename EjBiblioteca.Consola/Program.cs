@@ -12,9 +12,8 @@ namespace EjBiblioteca.Consola
     {
         static void Main(string[] args)
         {
-
+            // Tomas
             // traemos por consola todo el listado de ejemplares
-
             BibliotecaNegocio biblioteca = new BibliotecaNegocio();
 
             Ejemplar ejemInstancia = new Ejemplar(110, "hola como estas");
@@ -28,6 +27,19 @@ namespace EjBiblioteca.Consola
 
 
             string asd = Console.ReadLine();
+
+
+
+            // Sabri
+
+
+
+
+
+            // Juanse
+
+
+
 
         }
     }
