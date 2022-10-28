@@ -26,6 +26,13 @@ namespace EjBiblioteca.Datos
             return resultado;
         }
 
+        public List<Ejemplar> GetEjemplaresPorLibro(int idLibro)
+        {
+            string json2 = WebHelper.Get("Ejemplares/" + idLibro); // trae un texto en formato json de una web
+            List<Ejemplar> resultado = MapList(json2);
+            return resultado;
+        }
+
         private List<Ejemplar> MapList(string json)
         {
             List<Ejemplar> lst = JsonConvert.DeserializeObject<List<Ejemplar>>(json); // deserializacion

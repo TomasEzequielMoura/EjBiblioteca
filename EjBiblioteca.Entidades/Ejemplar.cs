@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades
 {
-
     // armado de ejemplar con datos que corresponde pero solo para pruebas iniciales
     public class Ejemplar
     {

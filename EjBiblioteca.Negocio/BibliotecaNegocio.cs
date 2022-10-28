@@ -19,12 +19,18 @@ namespace EjBiblioteca.Negocio
             _ejemplarDatos = new EjemplarDatos();
         }
 
-        public List<Ejemplar> GetTodosEjemplares()
+        public List<Ejemplar> TraerTodosEjemplares()
         {
             List<Ejemplar> list = _ejemplarDatos.GetEjemplares();
 
             return list;
         }
 
+        public List<Ejemplar> TraerTodosLosEjemplaresPorLibro(int idLibro)
+        {
+            List<Ejemplar> list = _ejemplarDatos.GetEjemplaresPorLibro(idLibro);
+
+            return list;
+        }
     }
 }
