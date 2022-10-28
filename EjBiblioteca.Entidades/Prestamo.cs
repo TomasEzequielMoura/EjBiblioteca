@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades
 {
+    // Sabri
+
     public class Prestamo
     {
     }

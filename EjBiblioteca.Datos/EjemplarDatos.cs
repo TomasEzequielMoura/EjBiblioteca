@@ -12,6 +12,8 @@ using EjBiblioteca.Entidades;
 
 namespace EjBiblioteca.Datos
 {
+    // Tomas
+
     public class EjemplarDatos
     {
 
@@ -19,7 +21,7 @@ namespace EjBiblioteca.Datos
 
         public List<Ejemplar> GetEjemplares()
         {
-            string json2 = WebHelper.Get(""); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Ejemplares/"); // trae un texto en formato json de una web
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }

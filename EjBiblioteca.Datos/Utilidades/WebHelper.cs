@@ -21,7 +21,7 @@ namespace EjBiblioteca.Datos.Utilidades
         {
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
-            rutaBase = "https://cai-api.azurewebsites.net/api/v1/Biblioteca/Ejemplares/";
+            rutaBase = "https://cai-api.azurewebsites.net/api/v1/Biblioteca/";
             //rutaBase = ConfigurationManager.AppSettings["URL_API"];
 
             client.Headers.Add("ContentType", "application/json");

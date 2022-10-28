@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Datos
 {
-    class LibroDatos
+    // Juanse
+
+    public class LibroDatos
     {
     }
 }
