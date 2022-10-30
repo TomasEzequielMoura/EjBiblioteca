@@ -10,5 +10,6 @@ namespace EjBiblioteca.Entidades
 
     public class Libro
     {
+
     }
 }
