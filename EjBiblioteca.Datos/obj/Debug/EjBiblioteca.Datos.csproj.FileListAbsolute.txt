@@ -9,3 +9,14 @@ E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplica
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.dll
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.pdb
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.dll
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.pdb
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.AssemblyReference.cache
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CoreCompileInputs.cache
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
+D:\GitHub\CAI\20222C\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb
