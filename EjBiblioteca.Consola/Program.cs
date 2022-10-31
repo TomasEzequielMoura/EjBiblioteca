@@ -43,6 +43,12 @@ namespace EjBiblioteca.Consola
                         case "2":
                             TraerEjemplaresPorLibro();
                             break;
+                        case "3":
+                            InsertarEjemplar();
+                            break;
+                        case "4":
+                            ActualizarEjemplar();
+                            break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);
@@ -72,11 +78,12 @@ namespace EjBiblioteca.Consola
         {
             List<Ejemplar> list = InstanciaBiblioteca.TraerTodosEjemplares();
 
+            Console.WriteLine("\r\nLista de Ejemplares:");
+
             foreach (var item in list)
             {
                 Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
             }
-
         }
 
         // traemos por consola todo el listado de ejemplares para un libro
@@ -86,13 +93,60 @@ namespace EjBiblioteca.Consola
 
             List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
 
-            foreach (var item in list)
+            if (list.Count > 0)
             {
-                Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                }
             }
-
+            else {
+                Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
+            }
         }
 
+        public static void InsertarEjemplar()
+        {
+            int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+            Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
+            string observaciones = Console.ReadLine();
+            double precio = ValidarHelper.IngresarNumero<double>("el precio del ejemplar");
+            DateTime fechaAlta = ValidarHelper.IngresarFecha("la fecha de alta");
+            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
+
+            //List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
+
+            //if (list.Count > 0)
+            //{
+            //    foreach (var item in list)
+            //    {
+            //        Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
+            //}
+        }
+
+        public static void ActualizarEjemplar()
+        {
+            int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+
+            List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
+
+            if (list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
+            }
+        }
 
         // Sabri
 

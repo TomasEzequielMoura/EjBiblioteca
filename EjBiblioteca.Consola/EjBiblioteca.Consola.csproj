@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuHelper.cs" />
+    <Compile Include="ProgramHelper\MenuHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidarHelper.cs" />
+    <Compile Include="ProgramHelper\ValidarHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
