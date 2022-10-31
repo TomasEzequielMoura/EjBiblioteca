@@ -107,45 +107,30 @@ namespace EjBiblioteca.Consola
 
         public static void InsertarEjemplar()
         {
+            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
             int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
             string observaciones = Console.ReadLine();
             double precio = ValidarHelper.IngresarNumero<double>("el precio del ejemplar");
             DateTime fechaAlta = ValidarHelper.IngresarFecha("la fecha de alta");
-            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
 
-            //List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
+            Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta, id);
 
-            //if (list.Count > 0)
-            //{
-            //    foreach (var item in list)
-            //    {
-            //        Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
-            //}
+            InstanciaBiblioteca.AltaEjemplar(instanciaEjemplarInsert);
         }
 
         public static void ActualizarEjemplar()
         {
+            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
             int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+            Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
+            string observaciones = Console.ReadLine();
+            double precio = ValidarHelper.IngresarNumero<double>("el precio del ejemplar");
+            DateTime fechaAlta = ValidarHelper.IngresarFecha("la fecha de alta");
 
-            List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
+            Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta, id);
 
-            if (list.Count > 0)
-            {
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
-                }
-            }
-            else
-            {
-                Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
-            }
+            InstanciaBiblioteca.ActualizarEjemplar(instanciaEjemplarInsert);
         }
 
         // Sabri

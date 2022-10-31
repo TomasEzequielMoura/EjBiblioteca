@@ -42,7 +42,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(ejem); //serializacion -> json
 
-            string json = WebHelper.Post("cliente", obj);
+            string json = WebHelper.Post("Ejemplares/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
@@ -53,7 +53,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(ejem);
 
-            string json = WebHelper.Put("cliente", obj);
+            string json = WebHelper.Put("Ejemplares/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 

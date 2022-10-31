@@ -39,20 +39,15 @@ namespace EjBiblioteca.Negocio
             return list;
         }
 
-        public void AltaEjemplar(Ejemplar ejem, string descripcion)
+        public void AltaEjemplar(Ejemplar ejem)
         {
-            // validar cliente no nulo
-            // validar cliente no tenga cuenta
-
-            Ejemplar ejemplarAlta = new Ejemplar(ejem.Id, descripcion);
-
-            ABMResult transaction = _ejemplarDatos.Insertar(ejemplarAlta);
+            ABMResult transaction = _ejemplarDatos.Insertar(ejem);
 
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
         }
 
-        private void ActualizarEjemplar(Ejemplar ejem)
+        public void ActualizarEjemplar(Ejemplar ejem)
         {
             ABMResult transaction = _ejemplarDatos.Actualizar(ejem);
 

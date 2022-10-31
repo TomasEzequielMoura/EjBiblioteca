@@ -30,6 +30,23 @@ namespace EjBiblioteca.Entidades
             _observaciones = observaciones;
         }
 
+        public Ejemplar(int idLibro, string observaciones, double precio, DateTime fechaAlta)
+        {
+            _idLibro = idLibro;
+            _observaciones = observaciones;
+            _precio = precio;
+            _fechaAlta = fechaAlta;
+        }
+
+        public Ejemplar(int idLibro, string observaciones, double precio, DateTime fechaAlta, int id)
+        {
+            _idLibro = idLibro;
+            _observaciones = observaciones;
+            _precio = precio;
+            _fechaAlta = fechaAlta;
+            _id = id;
+        }
+
         public Ejemplar(int id, int idLibro, string observaciones, double precio, DateTime fechaAlta)
         {
             _id = id;

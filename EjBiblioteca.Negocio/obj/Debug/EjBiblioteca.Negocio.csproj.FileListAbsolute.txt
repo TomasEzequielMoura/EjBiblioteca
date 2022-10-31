@@ -8,7 +8,6 @@ E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplica
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\Newtonsoft.Json.xml
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.AssemblyReference.cache
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CoreCompileInputs.cache
-E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CopyComplete
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.dll
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.pdb
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Negocio.dll
@@ -24,3 +23,4 @@ C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBi
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CopyComplete
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.dll
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.pdb
+E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CopyComplete
