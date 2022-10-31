@@ -82,7 +82,7 @@ namespace EjBiblioteca.Negocio
 
             List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro);
             //ver como sacar el id libro de la lista de ejemplares que traje
-            List<Prestamo> list = _prestamoDatos.GetPestamosPorLibro(idLibro);
+            List<Prestamo> list = _prestamoDatos.GetPrestamos();
 
             return list;
         }
