@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMResult.cs" />
     <Compile Include="Ejemplar.cs" />
     <Compile Include="Libro.cs" />
     <Compile Include="Persona\Cliente.cs" />
