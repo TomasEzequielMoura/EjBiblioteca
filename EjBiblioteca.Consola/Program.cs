@@ -1,5 +1,6 @@
 ﻿using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
+using EjBiblioteca.Negocio.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,11 +60,11 @@ namespace EjBiblioteca.Consola
                             break;
                     }
                 }
-                //catch (ErrorAlHacerTareaException ex)
-                //{
-                //    Console.WriteLine("\r\nVolver a empezar");
-                //    Console.WriteLine("\r\n" + ex.Message);
-                //}
+                catch (ErrorAlHacerTareaException ex)
+                {
+                    Console.WriteLine("\r\nVolver a empezar");
+                    Console.WriteLine("\r\n" + ex.Message);
+                }
                 catch (Exception ex)
                 {
                     Console.WriteLine("\r\nVolver a empezar");

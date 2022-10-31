@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BibliotecaNegocio.cs" />
+    <Compile Include="Exceptions\EjemplarInexistente.cs" />
+    <Compile Include="Exceptions\EjemplarYaExistente.cs" />
+    <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
+    <Compile Include="Exceptions\LibroInexistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

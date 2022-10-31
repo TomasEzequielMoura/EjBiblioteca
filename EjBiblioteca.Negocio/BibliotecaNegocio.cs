@@ -1,5 +1,6 @@
 ﻿using EjBiblioteca.Datos;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Negocio.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,10 +50,25 @@ namespace EjBiblioteca.Negocio
 
         public void ActualizarEjemplar(Ejemplar ejem)
         {
-            ABMResult transaction = _ejemplarDatos.Actualizar(ejem);
+            List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
-            if (!transaction.IsOk)
-                throw new Exception(transaction.Error);
+            bool flag = false;
+
+            foreach (var item in list)
+            {
+                if (item.Id == ejem.Id) {
+                    flag = true;
+                }
+            }
+            if (flag == true) {
+                ABMResult transaction = _ejemplarDatos.Actualizar(ejem);
+
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
+            }
+            else {
+                throw new EjemplarInexistente();
+            }
         }
 
         //NEGOCIO PRESTAMOS 
