@@ -20,27 +20,9 @@ namespace EjBiblioteca.Datos
             List<Prestamo> resultado = MapList(json2);
             return resultado;
         }
-        public List<Prestamo> GetPestamosPorCliente(int idCliente)
-        {
-            string json2 = WebHelper.Get("Prestamos/" + idCliente); // trae un texto en formato json de una web
-            List<Prestamo> resultado = MapList(json2);
-            return resultado;
-        }
-
-        //TODO: Buscar préstamos con idLibro
+   //falta POST(modify), DELETE, PUT(insert)
 
 
-        public List<Prestamo> GetPestamosPorLibro(int idLibro)
-        {
-            //List<Ejemplar> ListaEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro);
-
-            //tomar el id de los libros y mandarlo como parametro abajo
-            //foreach con un if y armar una lista
-
-            string json2 = WebHelper.Get("Prestamos/" + idLibro); // trae un texto en formato json de una web
-            List<Prestamo> resultado = MapList(json2);
-            return resultado;
-        }
 
         private List<Prestamo> MapList(string json)
         {

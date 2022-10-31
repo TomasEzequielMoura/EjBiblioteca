@@ -68,12 +68,14 @@ namespace EjBiblioteca.Negocio
             return list;
         }
 
-        public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
-        {
-            List<Prestamo> list = _prestamoDatos.GetPestamosPorCliente(idCliente);
 
-            return list;
-        }
+        //TODO: Armar reporte por cliente
+        //public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
+        //{
+        //    List<Prestamo> list = _prestamoDatos.GetPestamos(idCliente);
+
+        //    return list;
+        //}
 
         public List<Prestamo> TraerPestamosPorLibro(int idLibro)
         {

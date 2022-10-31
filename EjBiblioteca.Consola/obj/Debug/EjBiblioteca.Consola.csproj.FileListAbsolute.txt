@@ -14,3 +14,19 @@ E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplica
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.exe
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.pdb
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.CopyComplete
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Consola.exe.config
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Consola.exe
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Consola.pdb
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Entidades.dll
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Negocio.dll
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Datos.dll
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\Newtonsoft.Json.dll
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Entidades.pdb
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Negocio.pdb
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\EjBiblioteca.Datos.pdb
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\bin\Debug\Newtonsoft.Json.xml
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.AssemblyReference.cache
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.CoreCompileInputs.cache
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.CopyComplete
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.exe
+C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.pdb
