@@ -12,6 +12,7 @@ namespace EjBiblioteca.Negocio
     {
         // generamos un bibliotecaNegocio muy basico para arrancar y primeras llamadas a la API
         private EjemplarDatos _ejemplarDatos;
+        private PrestamoDatos _prestamoDatos;
 
         //private LibroDatos _libroDatos;
         //private PrestamoDatos _prestamoDatos;
@@ -23,6 +24,7 @@ namespace EjBiblioteca.Negocio
             //_prestamoDatos = new EjemplarDatos();
         }
 
+        //NEGOCIO EJEMPLARES 
         public List<Ejemplar> TraerTodosEjemplares()
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodos();
@@ -56,6 +58,31 @@ namespace EjBiblioteca.Negocio
 
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
+        }
+
+        //NEGOCIO PRESTAMOS 
+        public List<Prestamo> TraerTodosPrestamos()
+        {
+            List<Prestamo> list = _prestamoDatos.GetPrestamos();
+
+            return list;
+        }
+
+        public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
+        {
+            List<Prestamo> list = _prestamoDatos.GetPestamosPorCliente(idCliente);
+
+            return list;
+        }
+
+        public List<Prestamo> TraerPestamosPorLibro(int idLibro)
+        {
+
+            List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro);
+            //ver como sacar el id libro de la lista de ejemplares que traje
+            List<Prestamo> list = _prestamoDatos.GetPestamosPorLibro(idLibro);
+
+            return list;
         }
     }
 }

@@ -87,8 +87,5 @@ namespace EjBiblioteca.Entidades
         }
 
         //TODO: Metodos para la clase prestamos
-
-
-
     }
 }

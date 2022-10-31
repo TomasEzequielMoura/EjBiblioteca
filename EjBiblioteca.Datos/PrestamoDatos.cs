@@ -13,16 +13,31 @@ namespace EjBiblioteca.Datos
 
     public class PrestamoDatos
     {
-        //Prueba llamado a API de los Préstamos
+        //Llamado a API de los Préstamos
         public List<Prestamo> GetPrestamos()
         {
-            string json2 = WebHelper.Get("listado de prestamos"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Prestamos/"); // trae un texto en formato json de una web
             List<Prestamo> resultado = MapList(json2);
             return resultado;
         }
         public List<Prestamo> GetPestamosPorCliente(int idCliente)
         {
-            string json2 = WebHelper.Get("Prestamos por cliente/" + idCliente); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Prestamos/" + idCliente); // trae un texto en formato json de una web
+            List<Prestamo> resultado = MapList(json2);
+            return resultado;
+        }
+
+        //TODO: Buscar préstamos con idLibro
+
+
+        public List<Prestamo> GetPestamosPorLibro(int idLibro)
+        {
+            //List<Ejemplar> ListaEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro);
+
+            //tomar el id de los libros y mandarlo como parametro abajo
+            //foreach con un if y armar una lista
+
+            string json2 = WebHelper.Get("Prestamos/" + idLibro); // trae un texto en formato json de una web
             List<Prestamo> resultado = MapList(json2);
             return resultado;
         }
