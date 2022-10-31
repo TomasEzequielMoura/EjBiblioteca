@@ -9,31 +9,6 @@ namespace EjBiblioteca.Consola
     public static class ValidarHelper
     {
 
-        public static T IngresarNumero<T>(string input)
-        {
-            string value;
-            int salidaCodigoInt = 0;
-            double salidaCodigoDouble = 0;
-            bool flag;
-
-            do
-            {
-                Console.WriteLine($"\r\nIngrese {input}:");
-                value = Console.ReadLine();
-
-                if (typeof(T) == typeof(int))
-                {
-                    flag = ValidarEntero(value, ref salidaCodigoInt);
-                }
-                else if (typeof(T) == typeof(double)) flag = ValidarDouble(value, ref salidaCodigoDouble);
-                else flag = true;
-            } while (flag == false);
-
-            T valueReturn = (T)Convert.ChangeType(value, typeof(T));
-
-            return valueReturn;
-        }
-
         public static bool ValidarEntero(string numero, ref int salida)
         {
             bool flag = false;
@@ -54,7 +29,7 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
-        private static bool ValidarDouble(string registro, ref double salida)
+        public static bool ValidarDouble(string registro, ref double salida)
         {
             bool flag = false;
 
@@ -78,25 +53,7 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
-        public static DateTime IngresarFecha(string input)
-        {
-            string value;
-            DateTime salidaCodigoDateTime = new DateTime(2012, 12, 31, 16, 45, 0);
-            bool flag;
-
-            do
-            {
-                Console.WriteLine($"\r\nIngrese {input}:");
-                value = Console.ReadLine();
-                flag = ValidarFecha(value, ref salidaCodigoDateTime);
-            } while (flag == false);
-
-            DateTime valueReturn = DateTime.Parse(value);
-
-            return valueReturn;
-        }
-
-        private static bool ValidarFecha(string stringValue, ref DateTime salida)
+        public static bool ValidarFecha(string stringValue, ref DateTime salida)
         {
             bool flag = false;
 
@@ -111,5 +68,6 @@ namespace EjBiblioteca.Consola
 
             return flag;
         }
+
     }
 }

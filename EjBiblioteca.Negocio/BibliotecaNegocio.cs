@@ -42,10 +42,28 @@ namespace EjBiblioteca.Negocio
 
         public void AltaEjemplar(Ejemplar ejem)
         {
-            ABMResult transaction = _ejemplarDatos.Insertar(ejem);
+            List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
-            if (!transaction.IsOk)
-                throw new Exception(transaction.Error);
+            bool flag = false;
+
+            foreach (var item in list)
+            {
+                if (item.Id == ejem.Id && item.IdLibro == ejem.IdLibro)
+                {
+                    flag = true;
+                }
+            }
+
+            if (flag == true)
+            {
+                ABMResult transaction = _ejemplarDatos.Insertar(ejem);
+
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
+            }
+            else
+                throw new EjemplarExistente();
+
         }
 
         public void ActualizarEjemplar(Ejemplar ejem)
@@ -56,7 +74,7 @@ namespace EjBiblioteca.Negocio
 
             foreach (var item in list)
             {
-                if (item.Id == ejem.Id) {
+                if (item.Id == ejem.Id && item.IdLibro == ejem.IdLibro) {
                     flag = true;
                 }
             }
@@ -66,9 +84,8 @@ namespace EjBiblioteca.Negocio
                 if (!transaction.IsOk)
                     throw new Exception(transaction.Error);
             }
-            else {
+            else 
                 throw new EjemplarInexistente();
-            }
         }
 
         //NEGOCIO PRESTAMOS 

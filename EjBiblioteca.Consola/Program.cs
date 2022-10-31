@@ -1,4 +1,5 @@
-﻿using EjBiblioteca.Entidades;
+﻿using EjBiblioteca.Consola.ProgramHelper;
+using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
 using EjBiblioteca.Negocio.Exceptions;
 using System;
@@ -81,16 +82,23 @@ namespace EjBiblioteca.Consola
 
             Console.WriteLine("\r\nLista de Ejemplares:");
 
-            foreach (var item in list)
+            if (list.Count > 0)
             {
-                Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\r\nNo se han encontrado ejemplares");
             }
         }
 
         // traemos por consola todo el listado de ejemplares para un libro
         public static void TraerEjemplaresPorLibro()
         {
-            int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+            int idLibro = InputHelper.IngresarNumero<int>("el numero del libro");
 
             List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
 
@@ -108,30 +116,33 @@ namespace EjBiblioteca.Consola
 
         public static void InsertarEjemplar()
         {
-            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
-            int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+            int id = InputHelper.IngresarNumero<int>("el numero del ejemplar");
+            int idLibro = InputHelper.IngresarNumero<int>("el numero del libro");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
             string observaciones = Console.ReadLine();
-            double precio = ValidarHelper.IngresarNumero<double>("el precio del ejemplar");
-            DateTime fechaAlta = ValidarHelper.IngresarFecha("la fecha de alta");
+            double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
+            DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso();
 
             Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta, id);
 
             InstanciaBiblioteca.AltaEjemplar(instanciaEjemplarInsert);
+
+            Console.WriteLine("\r\nEjemplar modificado!\r\nResultado final:\r\nId Ejemplar: " + id + "\r\nId Libro: " + idLibro + "\r\nObservaciones: " + observaciones + "\r\nPrecio: " + precio + "\r\nFecha Alta: " + fechaAlta);
         }
 
         public static void ActualizarEjemplar()
         {
-            int id = ValidarHelper.IngresarNumero<int>("el numero del ejemplar");
-            int idLibro = ValidarHelper.IngresarNumero<int>("el numero del libro");
+            int id = InputHelper.IngresarNumero<int>("el numero del ejemplar");
+            int idLibro = InputHelper.IngresarNumero<int>("el numero del libro");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
             string observaciones = Console.ReadLine();
-            double precio = ValidarHelper.IngresarNumero<double>("el precio del ejemplar");
-            DateTime fechaAlta = ValidarHelper.IngresarFecha("la fecha de alta");
+            double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
 
-            Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta, id);
+            Ejemplar instanciaEjemplarInsert = new Ejemplar(id, idLibro, observaciones, precio);
 
             InstanciaBiblioteca.ActualizarEjemplar(instanciaEjemplarInsert);
+
+            Console.WriteLine("\r\nEjemplar " + id + " modificado!\r\nResultado final:\r\nId Ejemplar: " + id + "\r\nId Libro: " + idLibro + "\r\nObservaciones: " + observaciones + "\r\nPrecio: " + precio);
         }
 
         // Sabri

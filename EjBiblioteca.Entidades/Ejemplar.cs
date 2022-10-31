@@ -47,13 +47,12 @@ namespace EjBiblioteca.Entidades
             _id = id;
         }
 
-        public Ejemplar(int id, int idLibro, string observaciones, double precio, DateTime fechaAlta)
+        public Ejemplar(int id, int idLibro, string observaciones, double precio)
         {
             _id = id;
             _idLibro = idLibro;
             _observaciones = observaciones;
             _precio = precio;
-            _fechaAlta = fechaAlta;
         }
 
         public int Id { get => _id; set => _id = value; }
