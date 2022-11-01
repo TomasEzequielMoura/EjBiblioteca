@@ -46,6 +46,7 @@
     <Compile Include="ProgramHelper\InputHelper.cs" />
     <Compile Include="ProgramHelper\MenuHelper.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramHelper\OutputHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProgramHelper\ValidarHelper.cs" />
   </ItemGroup>

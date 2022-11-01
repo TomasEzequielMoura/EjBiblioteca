@@ -51,6 +51,9 @@ namespace EjBiblioteca.Consola
                         case "4":
                             ActualizarEjemplar();
                             break;
+                        case "5":
+                            ContarEjemplaresPorLibro();
+                            break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);
@@ -63,13 +66,12 @@ namespace EjBiblioteca.Consola
                 }
                 catch (ErrorAlHacerTareaException ex)
                 {
-                    Console.WriteLine("\r\nVolver a empezar");
                     Console.WriteLine("\r\n" + ex.Message);
+                    Console.WriteLine("\r\nGenere otra consuta");
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("\r\nVolver a empezar");
-                    Console.WriteLine("\r\n" + ex.Message);
                     Console.WriteLine("\r\nOcurrio un error, intente mas tarde");
                 }
             } while (tareaARealizar.ToUpper() != "X");
@@ -80,19 +82,25 @@ namespace EjBiblioteca.Consola
         {
             List<Ejemplar> list = InstanciaBiblioteca.TraerTodosEjemplares();
 
+            var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
+
             Console.WriteLine("\r\nLista de Ejemplares:");
+
+            OutputHelper.PrintLine();
+            OutputHelper.PrintRow("ID Ejemplar", "ID Libro", "Observaciones", "Precio", "Fecha Alta");
+            OutputHelper.PrintLine();
 
             if (list.Count > 0)
             {
-                foreach (var item in list)
+                foreach (var item in listaOrdenadaPorId)
                 {
-                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                    OutputHelper.PrintLine();
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString(), item.FechaAlta.ToString());
                 }
+                OutputHelper.PrintLine();
             }
             else
-            {
-                Console.WriteLine("\r\nNo se han encontrado ejemplares");
-            }
+                throw new NoExistenEjemplares();
         }
 
         // traemos por consola todo el listado de ejemplares para un libro
@@ -102,32 +110,41 @@ namespace EjBiblioteca.Consola
 
             List<Ejemplar> list = InstanciaBiblioteca.TraerTodosLosEjemplaresPorLibro(Convert.ToInt32(idLibro));
 
+            var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
+
+            OutputHelper.PrintLine();
+            OutputHelper.PrintRow("ID Ejemplar", "ID Libro", "Observaciones", "Precio", "Fecha Alta");
+            OutputHelper.PrintLine();
+
             if (list.Count > 0)
             {
-                foreach (var item in list)
+                foreach (var item in listaOrdenadaPorId)
                 {
-                    Console.WriteLine(item.Id + " " + item.IdLibro + " " + item.Observaciones + " " + item.Precio + " " + item.FechaAlta);
+                    OutputHelper.PrintLine();
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString(), item.FechaAlta.ToString());
                 }
+                OutputHelper.PrintLine();
             }
-            else {
+            else
+            {
                 Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el ID: " + idLibro);
             }
         }
 
         public static void InsertarEjemplar()
         {
-            int id = InputHelper.IngresarNumero<int>("el numero del ejemplar");
+            //int id = InputHelper.IngresarNumero<int>("el numero del ejemplar");
             int idLibro = InputHelper.IngresarNumero<int>("el numero del libro");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
             string observaciones = Console.ReadLine();
             double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
             DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso();
 
-            Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta, id);
+            Ejemplar instanciaEjemplarInsert = new Ejemplar(idLibro, observaciones, precio, fechaAlta);
 
             InstanciaBiblioteca.AltaEjemplar(instanciaEjemplarInsert);
 
-            Console.WriteLine("\r\nEjemplar modificado!\r\nResultado final:\r\nId Ejemplar: " + id + "\r\nId Libro: " + idLibro + "\r\nObservaciones: " + observaciones + "\r\nPrecio: " + precio + "\r\nFecha Alta: " + fechaAlta);
+            Console.WriteLine("\r\nEjemplar Insertado!\r\nResultado final:" + "\r\nId Libro: " + idLibro + "\r\nObservaciones: " + observaciones + "\r\nPrecio: " + precio + "\r\nFecha Alta: " + fechaAlta);
         }
 
         public static void ActualizarEjemplar()
@@ -144,6 +161,20 @@ namespace EjBiblioteca.Consola
 
             Console.WriteLine("\r\nEjemplar " + id + " modificado!\r\nResultado final:\r\nId Ejemplar: " + id + "\r\nId Libro: " + idLibro + "\r\nObservaciones: " + observaciones + "\r\nPrecio: " + precio);
         }
+
+        //public static void ContarEjemplaresPorLibro()
+        //{
+        //    List<Ejemplar> list = InstanciaBiblioteca.TraerTodosEjemplares();
+
+        //    var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
+
+        //    var results = listaOrdenadaPorId.GroupBy(
+        //        p => p.IdLibro,
+        //        p => p.Id,
+        //        (key, g) => new { IdLibro = key, Id = g.ToList() });
+
+        //    Console.WriteLine(results);
+        //}
 
         // Sabri
 

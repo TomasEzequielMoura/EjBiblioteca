@@ -29,3 +29,4 @@ C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBi
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.CopyComplete
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.exe
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.pdb
+E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Consola\obj\Debug\EjBiblioteca.Consola.csproj.CopyComplete
