@@ -52,7 +52,7 @@ namespace EjBiblioteca.Consola
                             ActualizarEjemplar();
                             break;
                         case "5":
-                            ContarEjemplaresPorLibro();
+                            //ContarEjemplaresPorLibro();
                             break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
