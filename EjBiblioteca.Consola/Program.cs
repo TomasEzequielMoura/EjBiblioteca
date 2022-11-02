@@ -54,6 +54,9 @@ namespace EjBiblioteca.Consola
                         case "5":
                             //ContarEjemplaresPorLibro();
                             break;
+                        case "6":
+                            TraerPrestamos();
+                            break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);

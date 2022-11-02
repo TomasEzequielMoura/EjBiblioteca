@@ -22,7 +22,7 @@ namespace EjBiblioteca.Negocio
         {
             _ejemplarDatos = new EjemplarDatos();
             //_libroDatos = new EjemplarDatos();
-            //_prestamoDatos = new EjemplarDatos();
+            _prestamoDatos = new PrestamoDatos();
         }
 
         //NEGOCIO EJEMPLARES 
@@ -89,14 +89,7 @@ namespace EjBiblioteca.Negocio
         }
 
         //NEGOCIO PRESTAMOS 
-        public List<Prestamo> TraerTodosPrestamos()
-        {
-            List<Prestamo> list = _prestamoDatos.GetPrestamos();
-
-            return list;
-        }
-
-
+    
         //TODO: Armar reporte por cliente
         //public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
         //{
@@ -107,7 +100,7 @@ namespace EjBiblioteca.Negocio
 
         public List<Prestamo> TraerPrestamos()
         {
-            List<Prestamo> list = _prestamoDatos.GetPrestamos();
+            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
             return list;
         }
@@ -118,7 +111,7 @@ namespace EjBiblioteca.Negocio
             List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro); //ver como sacar el id libro de la lista de ejemplares que traje
             //con el id de libro, tengo que hacer la consulta de los prestamos
             //for each?
-            List<Prestamo> list = _prestamoDatos.GetPrestamos();
+            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
             return list;
         }

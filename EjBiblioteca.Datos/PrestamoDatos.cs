@@ -15,7 +15,7 @@ namespace EjBiblioteca.Datos
     public class PrestamoDatos
     {
         //Llamado a API de los Préstamos
-        public List<Prestamo> GetPrestamos()
+        public List<Prestamo> TraerTodosPrestamos()
         {
             string json2 = WebHelper.Get("Prestamos/"); // trae un texto en formato json de una web
             List<Prestamo> resultado = MapList(json2);
