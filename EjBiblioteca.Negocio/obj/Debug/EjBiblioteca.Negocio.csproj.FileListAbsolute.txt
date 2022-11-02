@@ -23,3 +23,16 @@ C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBi
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CopyComplete
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.dll
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Negocio.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Negocio.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Datos.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Entidades.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Datos.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\EjBiblioteca.Entidades.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.AssemblyReference.cache
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.csproj.CopyComplete
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Negocio\obj\Debug\EjBiblioteca.Negocio.pdb

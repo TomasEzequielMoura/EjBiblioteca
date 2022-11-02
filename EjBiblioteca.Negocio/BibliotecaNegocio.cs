@@ -105,14 +105,23 @@ namespace EjBiblioteca.Negocio
         //    return list;
         //}
 
-        public List<Prestamo> TraerPestamosPorLibro(int idLibro)
+        public List<Prestamo> TraerPrestamos()
         {
-
-            List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro);
-            //ver como sacar el id libro de la lista de ejemplares que traje
             List<Prestamo> list = _prestamoDatos.GetPrestamos();
 
             return list;
         }
+
+        public List<Prestamo> TraerPestamosPorLibro(int idLibro)
+        {
+
+            List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro); //ver como sacar el id libro de la lista de ejemplares que traje
+            //con el id de libro, tengo que hacer la consulta de los prestamos
+            //for each?
+            List<Prestamo> list = _prestamoDatos.GetPrestamos();
+
+            return list;
+        }
+
     }
 }

@@ -179,6 +179,25 @@ namespace EjBiblioteca.Consola
         // Sabri
 
 
+        //se consulta el listado completo de prestamos
+        public static void TraerPrestamos()
+        {
+            List<Prestamo> listprestamos = InstanciaBiblioteca.TraerPrestamos();
+
+            Console.WriteLine("\r\nLista de Préstamos:");
+
+            if (listprestamos.Count > 0)
+            {
+                foreach (var item in listprestamos)
+                {
+                    Console.WriteLine(item.Id + " " + item.IdCliente + " " + item.IdEjemplar + " " + item.Plazo + " " + item.FechaAlta + " " + item.FechaBaja + " " + item.FechaBajaReal);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\r\nNo se han encontrado préstamos");
+            }
+        }
 
 
 

@@ -20,3 +20,14 @@ C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBibl
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.pdb
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.AssemblyReference.cache
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CoreCompileInputs.cache
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
+C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb
