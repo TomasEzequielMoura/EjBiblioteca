@@ -42,31 +42,31 @@ namespace EjBiblioteca.Negocio
 
         public void AltaEjemplar(Ejemplar ejem)
         {
-            List<Ejemplar> list = _ejemplarDatos.TraerTodos();
+            if (ejem.FechaAlta < DateTime.Today.AddDays(1)) {
 
-            bool flag = false;
+                List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
-            foreach (var item in list)
-            {
-                if (item.Id == ejem.Id && item.IdLibro == ejem.IdLibro)
+                bool flag = true;
+
+                // TODO: VALIDAR QUE EL LIBRO EXISTA
+
+                if (flag == true)
                 {
-                    flag = true;
+                    ABMResult transaction = _ejemplarDatos.Insertar(ejem);
+
+                    if (!transaction.IsOk)
+                        throw new Exception(transaction.Error);
                 }
+                else
+                    throw new LibroInexistente();
             }
-
-            if (flag == true)
-            {
-                ABMResult transaction = _ejemplarDatos.Insertar(ejem);
-
-                if (!transaction.IsOk)
-                    throw new Exception(transaction.Error);
+            else {
+                throw new FechaMayorActualException();
             }
-            else
-                throw new EjemplarExistente();
 
         }
 
-        public void ActualizarEjemplar(Ejemplar ejem)
+        public void ModificarEjemplar(Ejemplar ejem)
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
@@ -74,7 +74,7 @@ namespace EjBiblioteca.Negocio
 
             foreach (var item in list)
             {
-                if (item.Id == ejem.Id && item.IdLibro == ejem.IdLibro) {
+                if (item.Id == ejem.Id) {
                     flag = true;
                 }
             }
