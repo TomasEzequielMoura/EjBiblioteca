@@ -132,7 +132,6 @@ namespace EjBiblioteca.Negocio
             {
                 if (item.Id == idLibro)
                 {
-                    libro.Id = item.Id;
                     libro.Titulo = item.Titulo;
                     libro.Autor = item.Autor;
                     libro.Edicion = item.Edicion;

@@ -22,13 +22,11 @@ namespace EjBiblioteca.Consola
 
             MenuHelper.DesplegarBienvenida();
             string tareaARealizar = "";
-
             do
             {
                 try
                 {
                     bool flag = false;
-
                     MenuHelper.DesplegarOpcionesMenu();
                     tareaARealizar = Console.ReadLine();
 
