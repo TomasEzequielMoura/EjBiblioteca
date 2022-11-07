@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades
 {
-    // armado de ejemplar con datos que corresponde pero solo para pruebas iniciales
     public class Ejemplar
     {
         private int _id;
@@ -62,7 +61,7 @@ namespace EjBiblioteca.Entidades
             _precio = precio;
         }
 
-        public int Id { get => _id; set => _id = value; }
+        public int Id { get => _id; }
         public int IdLibro { get => _idLibro; set => _idLibro = value; }
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
         public double Precio { get => _precio; set => _precio = value; }
@@ -70,7 +69,13 @@ namespace EjBiblioteca.Entidades
 
         public override string ToString()
         {
-            return $"{this.Id}) {this.IdLibro} $ {this.Precio}";
+            if (this.IdLibro != 0)
+            {
+                return $"ID del Libro: {this.IdLibro}\r\nObservaciones: {this.Observaciones}\r\nPrecio: {this.Precio}\r\nFechaAlta: {this.FechaAlta}";
+            }
+            else {
+                return $"Observaciones: {this.Observaciones}\r\nPrecio: {this.Precio}";
+            }
         }
     }
 }

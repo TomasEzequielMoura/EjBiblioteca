@@ -58,5 +58,23 @@ namespace EjBiblioteca.Consola.ProgramHelper
             DateTime fechaAlta = new DateTime(anio, mes, dia);
             return fechaAlta;
         }
+
+        public static string confirmacionABM(string aValidar, string accion)
+        {
+            string value;
+            bool flag;
+
+            Console.WriteLine($"\r\nUsted va a {accion} el {aValidar} anterior");
+            Console.WriteLine("¿Esta seguro que desea dar de alta de este libro?");
+
+            do
+            {
+                Console.WriteLine($"\r\nIngrese: \r\n'S' para confirmar \r\n'N' para cancelar");
+                value = Console.ReadLine();
+                flag = ValidarHelper.ValidarConfirmacion(value.ToUpper());
+            } while (flag == false);
+
+            return value;
+        }
     }
 }

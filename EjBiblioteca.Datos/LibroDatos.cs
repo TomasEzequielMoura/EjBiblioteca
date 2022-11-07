@@ -16,13 +16,12 @@ namespace EjBiblioteca.Datos
 
     public class LibroDatos
     {
-        public List<Libro> TraerLibros()
+        public List<Libro> TraerTodos()
         {
-            string json2 = WebHelper.Get("Libros/"); // trae un texto en formato json de una web    
+            string json2 = WebHelper.Get("Libros/"); // trae un texto en formato json de una web
             List<Libro> resultado = MapList(json2);
             return resultado;
         }
-
 
         private List<Libro> MapList(string json)
         {
@@ -30,41 +29,29 @@ namespace EjBiblioteca.Datos
             return lst;
         }
 
+        public ABMResult Insertar(Libro libro)
+        {
+            NameValueCollection obj = ReverseMap(libro); //serializacion -> json
 
-        //public TransactionResult Insertar(Libro libro)
-        //{
-        //    NameValueCollection obj = ReverseMap(cliente); //serializacion -> json
+            string json = WebHelper.Post("Libros/", obj);
 
-        //    string json = WebHelper.Post("Libros/", obj);
+            ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
-        //    TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
+            return lst;
+        }
 
-        //    return lst;
-        //}
-
-        //public TransactionResult Actualizar(Libro libro)
-        //{
-        //    NameValueCollection obj = ReverseMap(cliente);
-
-        //    string json = WebHelper.Put("Libros/", obj);
-
-        //    TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
-
-        //    return lst;
-        //}
-        //private NameValueCollection ReverseMap(Libro libro)
-        //{
-        //    NameValueCollection n = new NameValueCollection();
-        //    n.Add("id", libro.id.ToString());
-        //    n.Add("Titulo", libro.Titulo);
-        //    n.Add("Autor", libro.Autor);
-        //    n.Add("Edición", libro.Edicion);
-        //    n.Add("Editorial", libro.Editorial);
-        //    n.Add("Paginas", libro.Paginas.ToString());
-        //    n.Add("Tema", libro.Tema.ToString());
-        //    n.Add("Usuario", "123");
-        //    return n;
-        //}
-
+        private NameValueCollection ReverseMap(Libro libro)
+        {
+            NameValueCollection n = new NameValueCollection(); 
+            n.Add("Id", libro.Id.ToString());
+            n.Add("Titulo", libro.Titulo);
+            n.Add("Autor", libro.Autor);
+            n.Add("Edicion", libro.Edicion.ToString());
+            n.Add("Editorial", libro.Editorial);
+            n.Add("Paginas", libro.Paginas.ToString());
+            n.Add("Tema", libro.Tema);
+            n.Add("Activo", libro.Activo.ToString());
+            return n;
+        }
     }
 }

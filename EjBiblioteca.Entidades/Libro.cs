@@ -19,8 +19,30 @@ namespace EjBiblioteca.Entidades
         private string _tema;
         private bool _activo;
 
+        public Libro() { }
 
-        public int id { get => _id; set => _id = value; }
+        public Libro(string titulo, string autor, int edicion, string editorial, int paginas, string tema)
+        {
+            _titulo = titulo;
+            _autor = autor;
+            _edicion = edicion;
+            _editorial = editorial;
+            _paginas = paginas;
+            _tema = tema;
+        }
+
+        public Libro(int id, string titulo, string autor, int edicion, string editorial, int paginas, string tema)
+        {
+            _id = id;
+            _titulo = titulo;
+            _autor = autor;
+            _edicion = edicion;
+            _editorial = editorial;
+            _paginas = paginas;
+            _tema = tema;
+        }
+
+        public int Id { get => _id; }
         public string Titulo { get => _titulo; set => _titulo = value; }
         public string Autor { get => _autor; set => _autor = value; }
         public int Edicion { get => _edicion; set => _edicion = value; }
@@ -33,8 +55,7 @@ namespace EjBiblioteca.Entidades
 
         public override string ToString()
         {
-            return this.id + ") " + this.Titulo + ", " + this.Autor;
+            return $"Titulo: {this.Titulo}\r\nAutor: {this.Autor}\r\nEdición: {this.Edicion}\r\nEditorial: {this.Editorial}\r\nPaginas: {this.Paginas}\r\nTema: {this.Tema}";
         }
-
     }
 }

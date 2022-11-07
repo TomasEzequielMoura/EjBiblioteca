@@ -14,14 +14,14 @@ namespace EjBiblioteca.Negocio
         // generamos un bibliotecaNegocio muy basico para arrancar y primeras llamadas a la API
         private EjemplarDatos _ejemplarDatos;
         private PrestamoDatos _prestamoDatos;
+        private LibroDatos _libroDatos;
 
-        //private LibroDatos _libroDatos;
         //private PrestamoDatos _prestamoDatos;
 
         public BibliotecaNegocio()
         {
             _ejemplarDatos = new EjemplarDatos();
-            //_libroDatos = new EjemplarDatos();
+            _libroDatos = new LibroDatos();
             _prestamoDatos = new PrestamoDatos();
         }
 
@@ -30,17 +30,27 @@ namespace EjBiblioteca.Negocio
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
-            return list;
+            if (list.Count > 0)
+            {
+                return list;
+            }
+            else
+                throw new NoExistenEjemplares();
         }
 
         public List<Ejemplar> TraerTodosLosEjemplaresPorLibro(int idLibro)
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodosPorLibro(idLibro);
 
-            return list;
+            if (list.Count > 0)
+            {
+                return list;
+            }
+            else
+                throw new NoExistenEjemplares();
         }
 
-        public void AltaEjemplar(Ejemplar ejem)
+        public void InsertarEjemplar(Ejemplar ejem)
         {
             if (ejem.FechaAlta < DateTime.Today.AddDays(1)) {
 
@@ -66,7 +76,7 @@ namespace EjBiblioteca.Negocio
 
         }
 
-        public void ModificarEjemplar(Ejemplar ejem)
+        public void ActualizarEjemplar(Ejemplar ejem)
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodos();
 
@@ -88,8 +98,60 @@ namespace EjBiblioteca.Negocio
                 throw new EjemplarInexistente();
         }
 
+
+
+        // NEGOCIO LIBROS
+
+        public List<Libro> TraerTodosLibros()
+        {
+            List<Libro> list = _libroDatos.TraerTodos();
+
+            if (list.Count > 0)
+            {
+                return list;
+            }
+            else
+                throw new NoExistenLibros();
+        }
+
+        public void InsertarLibro(Libro libro)
+        {
+            ABMResult transaction = _libroDatos.Insertar(libro);
+
+            if (!transaction.IsOk)
+                throw new Exception(transaction.Error);
+        }
+
+        public Libro TraerLibroPorID(int idLibro)
+        {
+            List<Libro> list = _libroDatos.TraerTodos();
+
+            Libro libro = new Libro();
+            bool flag = false;
+            foreach (var item in list)
+            {
+                if (item.Id == idLibro)
+                {
+                    libro.Id = item.Id;
+                    libro.Titulo = item.Titulo;
+                    libro.Autor = item.Autor;
+                    libro.Edicion = item.Edicion;
+                    libro.Editorial = item.Editorial;
+                    libro.Paginas = item.Paginas;
+                    libro.Tema = item.Tema;
+                    flag = true;
+                }
+            }
+            if (flag == false)
+            {
+                throw new LibroInexistente();
+            }
+            else
+                return libro;
+        }
+
         //NEGOCIO PRESTAMOS 
-    
+
         //TODO: Armar reporte por cliente
         //public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
         //{

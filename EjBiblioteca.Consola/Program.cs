@@ -14,11 +14,11 @@ namespace EjBiblioteca.Consola
 {
     class Program
     {
-        public static BibliotecaNegocio InstanciaBiblioteca;
+        public static BibliotecaNegocio bibliotecaServicio;
 
         static void Main(string[] args)
         {
-            InstanciaBiblioteca = new BibliotecaNegocio();
+            bibliotecaServicio = new BibliotecaNegocio();
 
             MenuHelper.DesplegarBienvenida();
             string tareaARealizar = "";
@@ -35,29 +35,38 @@ namespace EjBiblioteca.Consola
                     switch (tareaARealizar.ToUpper())
                     {
                         case "1":
-                            EjemplaresTasks.TraerEjemplares();
+                            EjemplaresTasks.ListarEjemplares(bibliotecaServicio);
                             break;
                         case "2":
-                            EjemplaresTasks.ContarEjemplaresPorLibro();
+                            EjemplaresTasks.ContarEjemplaresPorLibro(bibliotecaServicio);
                             break;
                         case "3":
-                            EjemplaresTasks.TraerEjemplaresPorLibro();
+                            EjemplaresTasks.ListarEjemplaresPorLibro(bibliotecaServicio);
                             break;
                         case "4":
-                            EjemplaresTasks.InsertarEjemplar();
+                            EjemplaresTasks.AltaEjemplar(bibliotecaServicio);
                             break;
                         case "5":
-                            EjemplaresTasks.ActualizarEjemplar();
+                            EjemplaresTasks.ModificarEjemplar(bibliotecaServicio);
                             break;
                         case "6":
                             TraerPrestamos();
+                            break;
+                        case "8":
+                            LibrosTasks.ListarLibros(bibliotecaServicio);
+                            break;
+                        case "9":
+                            LibrosTasks.AltaLibro(bibliotecaServicio);
+                            break;
+                        case "10":
+                            LibrosTasks.ListarLibroPorID(bibliotecaServicio);
                             break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);
                             break;
                         default:
-                            Console.Write("\r\nERROR. Ingresaste un valor que no existe \r\n");
+                            Console.Write("ERROR. Ingresaste un valor que no existe \r\n");
                             flag = true;
                             break;
                     }
@@ -81,7 +90,7 @@ namespace EjBiblioteca.Consola
         //se consulta el listado completo de prestamos
         public static void TraerPrestamos()
         {
-            List<Prestamo> listprestamos = InstanciaBiblioteca.TraerPrestamos();
+            List<Prestamo> listprestamos = bibliotecaServicio.TraerPrestamos();
 
             Console.WriteLine("\r\nLista de Préstamos:");
 
