@@ -1,6 +1,5 @@
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\bin\Debug\EjBiblioteca.Entidades.dll
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\bin\Debug\EjBiblioteca.Entidades.pdb
-E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.AssemblyReference.cache
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.CoreCompileInputs.cache
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.dll
 E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.pdb
@@ -10,3 +9,4 @@ C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Enti
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.dll
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.pdb
+E:\OneDrive\Escritorio\Tomi\facultad\4TO AÑO\02 - cuatri\Construccion de aplicaciones informaticas\Github\Biblioteca - Proyecto Final\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.AssemblyReference.cache

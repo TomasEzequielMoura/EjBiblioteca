@@ -69,5 +69,19 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
+        public static bool ValidarConfirmacion(string stringConfirmacion)
+        {
+            bool flag = false;
+
+            if (stringConfirmacion == "N" || stringConfirmacion == "S")
+            {
+                flag = true;
+            }
+            else
+                Console.WriteLine("El valor ingresado no corresponde a una 'S' o 'N'.");
+
+            return flag;
+        }
+
     }
 }

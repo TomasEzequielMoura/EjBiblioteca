@@ -17,7 +17,7 @@ namespace EjBiblioteca.Consola
         public static void DesplegarOpcionesMenu()
         {
             Console.Write("\r\nPara continuar, presione el boton correspondiente y precione Enter: \r\n");
-            Console.Write("1. TraerEjemplares \r\n2. TraerEjemplaresPorLibro \r\n3. InsertarEjemplar \r\n4. ActualizarEjemplar\r\n5. ContarEjemplaresPorLibro \r\n6. TraerPrestamos \r\nX. Para salir \r\n");
+            Console.Write("1. Listar Ejemplares \r\n2. Contar Ejemplares Por Libro \r\n3. Listar Ejemplares Por Libro \r\n4. Alta Ejemplar\r\n5. Modificar Ejemplar \r\n6. Listar Prestamos \r\n7. Listar Prestamos por Libro \r\n8. Listar Libros \r\n9. Alta Libro \r\n10. Listar Libro Por ID \r\nX. Para salir \r\n"); 
         }
     }
 }
