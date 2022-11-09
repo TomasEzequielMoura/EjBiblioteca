@@ -22,20 +22,11 @@ namespace EjBiblioteca.Datos
             return resultado;
         }
 
-        //En la consigna no aparece como que puedo desde prestamo traer enviandole un parámtro
-        //public List<Prestamo> TraerPrestamosPorLibro(int idLibro)
-        //{
-        //    string json2 = WebHelper.Get("Prestamos/" + idLibro); // trae un texto en formato json de una web
-        //    List<Prestamo> resultado = MapList(json2);
-        //    return resultado;
-        //}
         private List<Prestamo> MapList(string json)
         {
             List<Prestamo> lst = JsonConvert.DeserializeObject<List<Prestamo>>(json); // deserializacion
             return lst;
         }
-
-
 
         public ABMResult Actualizar(Prestamo prestamo)
         {
@@ -47,7 +38,6 @@ namespace EjBiblioteca.Datos
 
             return lst;
         }
-
 
         public ABMResult Insertar(Prestamo prestamo)
         {
@@ -73,15 +63,14 @@ namespace EjBiblioteca.Datos
 
         private NameValueCollection ReverseMap(Prestamo prestamo)
         {
-
             NameValueCollection n = new NameValueCollection();
             n.Add("Id", prestamo.Id.ToString());
             n.Add("IdCliente", prestamo.IdCliente.ToString());
             n.Add("IdEjemplar", prestamo.IdEjemplar.ToString());
             n.Add("Plazo", prestamo.Plazo.ToString());
-            n.Add("FechaAlta", prestamo.FechaAlta.ToString("yyyy-MM-dd"));
-            n.Add("FechaBaja", prestamo.FechaBaja.ToString("yyyy-MM-dd"));
-            n.Add("FechaBajaReal", prestamo.FechaBajaReal.ToString("yyyy-MM-dd"));
+            n.Add("FechaAlta", prestamo.FechaPrestamo.ToString("yyyy-MM-dd"));
+            n.Add("FechaBaja", prestamo.FechaDevolucionTentativa.ToString("yyyy-MM-dd"));
+            n.Add("FechaBajaReal", prestamo.FechaDevolucionReal.ToString("yyyy-MM-dd"));
             return n;
         }
     }

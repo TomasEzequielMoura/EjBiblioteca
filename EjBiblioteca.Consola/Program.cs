@@ -48,7 +48,10 @@ namespace EjBiblioteca.Consola
                             EjemplaresTasks.ModificarEjemplar(bibliotecaServicio);
                             break;
                         case "6":
-                            TraerPrestamos();
+                            PrestamosTasks.ListarPrestamos(bibliotecaServicio);
+                            break;
+                        case "7":
+                            PrestamosTasks.ListarPrestamosPorLibro(bibliotecaServicio);
                             break;
                         case "8":
                             LibrosTasks.ListarLibros(bibliotecaServicio);
@@ -81,36 +84,5 @@ namespace EjBiblioteca.Consola
                 }
             } while (tareaARealizar.ToUpper() != "X");
         }
-
-        // Sabri
-
-
-        //se consulta el listado completo de prestamos
-        public static void TraerPrestamos()
-        {
-            List<Prestamo> listprestamos = bibliotecaServicio.TraerPrestamos();
-
-            Console.WriteLine("\r\nLista de Préstamos:");
-
-            if (listprestamos.Count > 0)
-            {
-                foreach (var item in listprestamos)
-                {
-                    Console.WriteLine(item.Id + " " + item.IdCliente + " " + item.IdEjemplar + " " + item.Plazo + " " + item.FechaAlta + " " + item.FechaBaja + " " + item.FechaBajaReal);
-                }
-            }
-            else
-            {
-                Console.WriteLine("\r\nNo se han encontrado préstamos");
-            }
-        }
-
-
-
-        // Juanse
-
-
-
-
     }
 }

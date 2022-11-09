@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace EjBiblioteca.Entidades
 {
     // Sabri
@@ -17,9 +15,9 @@ namespace EjBiblioteca.Entidades
         private int _idCliente;
         private int _idEjemplar;
         private int _plazo;
-        private DateTime _fechaAlta;
-        private DateTime _fechaBaja;
-        private DateTime _fechaBajaReal;
+        private DateTime _fechaPrestamo;
+        private DateTime _fechaDevolucionTentativa;
+        private DateTime _fechaDevolucionReal;
 
         public Prestamo() { }
 
@@ -44,7 +42,7 @@ namespace EjBiblioteca.Entidades
             _idCliente = cliente;
             _idEjemplar = ejemplar;
             _plazo = plazo;
-            _fechaAlta = alta;
+            _fechaPrestamo = alta;
 
         }
         public Prestamo(int id, int cliente, int ejemplar, int plazo, DateTime alta, DateTime baja)
@@ -53,8 +51,8 @@ namespace EjBiblioteca.Entidades
             _idCliente = cliente;
             _idEjemplar = ejemplar;
             _plazo = plazo;
-            _fechaAlta = alta;
-            _fechaBaja = baja;
+            _fechaPrestamo = alta;
+            _fechaDevolucionTentativa = baja;
         }
 
         public Prestamo(int id, int cliente, int ejemplar, int plazo, DateTime alta, DateTime baja, DateTime bajaReal)
@@ -63,9 +61,9 @@ namespace EjBiblioteca.Entidades
             _idCliente = cliente;
             _idEjemplar = ejemplar;
             _plazo = plazo;
-            _fechaAlta = alta;
-            _fechaBaja = baja;
-            _fechaBajaReal = bajaReal;
+            _fechaPrestamo = alta;
+            _fechaDevolucionTentativa = baja;
+            _fechaDevolucionReal = bajaReal;
         }
         public int Id { get => _id; set => _id = value; }
 
@@ -75,11 +73,11 @@ namespace EjBiblioteca.Entidades
 
         public int Plazo { get => _plazo; set => _plazo = value; }
 
-        public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
+        public DateTime FechaPrestamo { get => _fechaPrestamo; set => _fechaPrestamo = value; }
 
-        public DateTime FechaBaja { get => _fechaBaja; set => _fechaBaja = value; }
+        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa; set => _fechaDevolucionTentativa = value; }
 
-        public DateTime FechaBajaReal { get => _fechaBajaReal; set => _fechaBajaReal = value; }
+        public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
 
         public override string ToString()
         {
