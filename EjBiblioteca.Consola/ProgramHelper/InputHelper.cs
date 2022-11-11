@@ -58,6 +58,14 @@ namespace EjBiblioteca.Consola.ProgramHelper
             DateTime fechaAlta = new DateTime(anio, mes, dia);
             return fechaAlta;
         }
+        public static DateTime IngresarFechaPrestPasoAPaso(string input)
+        {
+            int dia = IngresarNumero<int>($"\r\nel día {input}:");
+            int mes = IngresarNumero<int>($"\r\nel mes {input}:");
+            int anio = IngresarNumero<int>($"\r\nel año {input}:");
+            DateTime fecha = new DateTime(anio, mes, dia);
+            return fecha;
+        }
 
         public static string confirmacionABM(string aValidar, string accion)
         {

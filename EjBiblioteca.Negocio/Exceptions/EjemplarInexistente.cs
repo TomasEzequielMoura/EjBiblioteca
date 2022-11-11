@@ -11,4 +11,6 @@ namespace EjBiblioteca.Negocio.Exceptions
         public EjemplarInexistente() : base("El ejemplar no existe") { }
         public EjemplarInexistente(string msg) : base(msg) { }
     }
+
+   
 }

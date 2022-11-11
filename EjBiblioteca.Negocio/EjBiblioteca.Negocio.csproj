@@ -51,6 +51,7 @@
     <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
     <Compile Include="Exceptions\LibroInexistente.cs" />
     <Compile Include="Exceptions\NoExistenLibros.cs" />
+    <Compile Include="PrestamoInexistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

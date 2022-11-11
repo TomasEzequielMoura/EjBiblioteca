@@ -166,6 +166,38 @@ namespace EjBiblioteca.Negocio
             return list;
         }
 
+        public void InsertarPrestamo(Prestamo prest)
+        {
+            ABMResult transaction = _prestamoDatos.Insertar(prest);
+
+            if (!transaction.IsOk)
+                throw new Exception(transaction.Error);
+        }
+
+        public void ActualizarPrestamo(Prestamo prest)
+        {
+            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
+
+            bool flag = false;
+
+            foreach (var item in list)
+            {
+                if (item.Id == prest.Id)
+                {
+                    flag = true;
+                }
+            }
+            if (flag == true)
+            {
+                ABMResult transaction = _prestamoDatos.Actualizar(prest);
+
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
+            }
+            else
+                throw new PrestamoInexistente();
+        }
+
         public List<Prestamo> TraerTodosPrestamosPorLibro() {
 
             List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
