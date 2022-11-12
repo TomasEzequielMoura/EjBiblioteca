@@ -61,7 +61,7 @@ namespace EjBiblioteca.Entidades
             _precio = precio;
         }
 
-        public int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
         public int IdLibro { get => _idLibro; set => _idLibro = value; }
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
         public double Precio { get => _precio; set => _precio = value; }

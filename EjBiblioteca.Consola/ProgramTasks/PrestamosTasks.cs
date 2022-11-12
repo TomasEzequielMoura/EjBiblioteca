@@ -1,6 +1,7 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
+using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace EjBiblioteca.Consola.ProgramTasks
     public class PrestamosTasks
     {
         //se consulta el listado completo de prestamos
-        public static void ListarPrestamos(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarPrestamos(PrestamoNegocio prestamoServicio)
         {
-            List<Prestamo> listprestamos = bibliotecaServicio.TraerPrestamos();
-            var listaOrdenadaPorId = listprestamos.OrderBy(x => x.Id).ToList();
+            List<Prestamo> listPrestamos = prestamoServicio.TraerPrestamos();
+            var listaOrdenadaPorId = listPrestamos.OrderBy(x => x.Id).ToList();
 
             Console.WriteLine("\r\nLista de Préstamos:");
 
@@ -23,7 +24,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             OutputHelper.PrintRow("ID Préstamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Préstamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
             OutputHelper.PrintLine();
 
-            if (listprestamos.Count > 0)
+            if (listPrestamos.Count > 0)
             {
                 foreach (var item in listaOrdenadaPorId)
                 {
@@ -40,13 +41,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
         }
 
         //Dar de alta un préstamo
-        public static void AltaPrestamo(BibliotecaNegocio bibliotecaServicio)
+        public static void AltaPrestamo(PrestamoNegocio prestamoServicio)
         {
             //int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); // chequear si la numeración del préstamo nuevo debe ser automática
             int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             int idEjemplar = InputHelper.IngresarNumero<int>("el ID del ejemplar");
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
-            DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso();
+            DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso(" de alta del préstamo");
 
             Prestamo insertPrestamo = new Prestamo(idCliente, idEjemplar, plazo, fechaPrestamo);
 
@@ -55,22 +56,22 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
             if (confirmacion == "S" || confirmacion == "s")
             {
-                bibliotecaServicio.InsertarPrestamo(insertPrestamo);
+                prestamoServicio.InsertarPrestamo(insertPrestamo);
 
                 Console.WriteLine("\r\nNuevo préstamo ingresado.\r\nResultado final:\r\n" + insertPrestamo.ToString());
             }
         }
 
         //Modificación de préstamo
-        public static void ModificarPrestamo(BibliotecaNegocio bibliotecaServicio)
+        public static void ModificarPrestamo(PrestamoNegocio prestamoServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del préstamo que desea actualizar");
             int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             int idEjemplar = InputHelper.IngresarNumero<int>("el ID del ejemplar");
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
-            DateTime fechaPrestamo = InputHelper.IngresarFechaPrestPasoAPaso(" de alta del préstamo");
-            DateTime fechaDevolucionTentativa = InputHelper.IngresarFechaPrestPasoAPaso(" de devolución tentativa del préstamo");
-            DateTime fechaDevolucionReal = InputHelper.IngresarFechaPrestPasoAPaso(" de devolución real del préstamo");
+            DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso(" de alta del préstamo");
+            DateTime fechaDevolucionTentativa = InputHelper.IngresarFechaPasoAPaso(" de devolución tentativa del préstamo");
+            DateTime fechaDevolucionReal = InputHelper.IngresarFechaPasoAPaso(" de devolución real del préstamo");
 
             Prestamo modificarPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, fechaPrestamo, fechaDevolucionTentativa, fechaDevolucionReal);
 
@@ -80,23 +81,23 @@ namespace EjBiblioteca.Consola.ProgramTasks
             
             if (confirmacion == "S" || confirmacion == "s")
             {
-                bibliotecaServicio.ActualizarPrestamo(modificarPrestamo);
+                prestamoServicio.ActualizarPrestamo(modificarPrestamo);
 
                 Console.WriteLine("\r\nPréstamo " + id + " modificado!\r\n\r\nResultado final:\r\n" + modificarPrestamo.ToString());
             }
         }
 
         //Consultar los préstamos por libro
-        public static void ListarPrestamosPorLibro(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarPrestamosPorLibro(PrestamoNegocio prestamoServicio)
         {
             int idLibro = InputHelper.IngresarNumero<int>("el numero del libro");
 
-            List<Prestamo> list = bibliotecaServicio.TraerTodosPrestamosPorLibro();
+            List<Prestamo> list = prestamoServicio.TraerTodosPrestamosPorLibro(idLibro);
 
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
             OutputHelper.PrintLine();
-            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Prestamo", "Fecha Devolución Tentativa", "Fecha Devolución Real");
+            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
             OutputHelper.PrintLine();
 
             if (list.Count > 0)
@@ -111,6 +112,22 @@ namespace EjBiblioteca.Consola.ProgramTasks
             else
             {
                 Console.WriteLine("\r\nNo se ha encontrado ningun préstamo para el ID: " + idLibro);
+            }
+        }
+
+        public static void BajaPrestamo(PrestamoNegocio prestamoServicio)
+        {
+            int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); 
+
+            Prestamo insertPrestamo = new Prestamo(id);
+
+            Console.WriteLine("\r\nPréstamo a dar de baja:\r\n" + insertPrestamo.Id);
+            string confirmacion = InputHelper.confirmacionABM("préstamo", "eliminar");
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                prestamoServicio.EliminarPrestamo(insertPrestamo);
+                Console.WriteLine("\r\nPréstamo elimando " + insertPrestamo.Id);
             }
         }
     }

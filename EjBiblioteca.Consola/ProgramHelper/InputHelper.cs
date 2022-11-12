@@ -50,15 +50,15 @@ namespace EjBiblioteca.Consola.ProgramHelper
             return valueReturn;
         }
 
-        public static DateTime IngresarFechaPasoAPaso()
-        {
-            int dia = IngresarNumero<int>("el dia de alta del libro");
-            int mes = IngresarNumero<int>("el mes de alta del libro");
-            int anio = IngresarNumero<int>("el año de alta del libro");
-            DateTime fechaAlta = new DateTime(anio, mes, dia);
-            return fechaAlta;
-        }
-        public static DateTime IngresarFechaPrestPasoAPaso(string input)
+        //public static DateTime IngresarFechaPasoAPaso()
+        //{
+        //    int dia = IngresarNumero<int>("el dia de alta del libro");
+        //    int mes = IngresarNumero<int>("el mes de alta del libro");
+        //    int anio = IngresarNumero<int>("el año de alta del libro");
+        //    DateTime fechaAlta = new DateTime(anio, mes, dia);
+        //    return fechaAlta;
+        //}
+        public static DateTime IngresarFechaPasoAPaso(string input)
         {
             int dia = IngresarNumero<int>($"\r\nel día {input}:");
             int mes = IngresarNumero<int>($"\r\nel mes {input}:");
@@ -73,7 +73,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
             bool flag;
 
             Console.WriteLine($"\r\nUsted va a {accion} el {aValidar} anterior");
-            Console.WriteLine("¿Esta seguro que desea dar de alta de este libro?");
+            Console.WriteLine("¿Desea confirmar?");
 
             do
             {

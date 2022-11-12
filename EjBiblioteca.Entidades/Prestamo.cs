@@ -9,6 +9,8 @@ namespace EjBiblioteca.Entidades
     // Sabri
     //Armado datos básicos de Préstamo
 
+    // TODO: matar constructores que nunca se usan
+
     public class Prestamo
     {
         private int _id;
@@ -21,6 +23,10 @@ namespace EjBiblioteca.Entidades
 
         public Prestamo() { }
 
+        public Prestamo(int id)
+        {
+            _id = id;
+        }
         public Prestamo( int cliente, int ejemplar, int plazo, DateTime alta)
         {
           
@@ -91,6 +97,7 @@ namespace EjBiblioteca.Entidades
         public override string ToString()
         {
             return this.Id + ") " + this.IdCliente + ", " + this.IdEjemplar;
+            //return $"Titulo: {this.Titulo}\r\nAutor: {this.Autor}\r\nEdición: {this.Edicion}\r\nEditorial: {this.Editorial}\r\nPaginas: {this.Paginas}\r\nTema: {this.Tema}";
         }
 
         //TODO: Metodos para la clase prestamos

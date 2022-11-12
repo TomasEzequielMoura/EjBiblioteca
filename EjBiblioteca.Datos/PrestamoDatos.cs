@@ -17,7 +17,7 @@ namespace EjBiblioteca.Datos
         //Llamado a API de los Préstamos
         public List<Prestamo> TraerTodosPrestamos()
         {
-            string json2 = WebHelper.Get("Prestamos/"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Biblioteca/Prestamos/"); // trae un texto en formato json de una web
             List<Prestamo> resultado = MapList(json2);
             return resultado;
         }
@@ -32,7 +32,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(prestamo);
 
-            string json = WebHelper.Put("Prestamos/", obj);
+            string json = WebHelper.Put("Biblioteca/Prestamos/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
@@ -43,7 +43,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(prestamo); //serializacion -> json
 
-            string json = WebHelper.Post("Prestamos/", obj);
+            string json = WebHelper.Post("Biblioteca/Prestamos/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
@@ -54,7 +54,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(prestamo);
 
-            string json = WebHelper.Delete("Prestamos/", obj);
+            string json = WebHelper.Delete("Biblioteca/Prestamos/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 

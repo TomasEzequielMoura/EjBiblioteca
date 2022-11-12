@@ -2,6 +2,7 @@
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
 using EjBiblioteca.Negocio.Exceptions;
+using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace EjBiblioteca.Consola.ProgramTasks
     public class LibrosTasks
     {
         // traemos por consola todo el listado de Libros
-        public static void ListarLibros(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarLibros(LibroNegocio libroServicio)
         {
-            List<Libro> list = bibliotecaServicio.TraerTodosLibros();
+            List<Libro> list = libroServicio.TraerTodosLibros();
 
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
@@ -34,7 +35,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
         }
 
         // instertamos el libro que estamos cargando TODO: validadores
-        public static void AltaLibro(BibliotecaNegocio bibliotecaServicio)
+        public static void AltaLibro(LibroNegocio libroServicio)
         {
             Console.WriteLine("\r\nIngrese el titulo del Libro");
             string titulo = Console.ReadLine();
@@ -53,18 +54,18 @@ namespace EjBiblioteca.Consola.ProgramTasks
             string confirmacion = InputHelper.confirmacionABM("libro", "insertar");
 
             if (confirmacion == "S" || confirmacion == "s") {
-                bibliotecaServicio.InsertarLibro(insertLibro);
+                libroServicio.InsertarLibro(insertLibro);
 
                 Console.WriteLine("\r\nLibro Insertado!\r\nResultado final:\r\n" + insertLibro.ToString());
             }
         }
 
         // traemos por consola todo un libro dependiendo ID ingresado
-        public static void ListarLibroPorID(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarLibroPorID(LibroNegocio libroServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del libro");
 
-            Libro libroEncontrado = bibliotecaServicio.TraerLibroPorID(id);
+            Libro libroEncontrado = libroServicio.TraerLibroPorID(id);
 
             Console.WriteLine("\r\nLibro con " + id + " encontrado!\r\nResultado final:\r\n" + libroEncontrado.ToString());
         }

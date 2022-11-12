@@ -18,7 +18,7 @@ namespace EjBiblioteca.Datos
     {
         public List<Libro> TraerTodos()
         {
-            string json2 = WebHelper.Get("Libros/"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Biblioteca/Libros/"); // trae un texto en formato json de una web
             List<Libro> resultado = MapList(json2);
             return resultado;
         }
@@ -33,7 +33,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(libro); //serializacion -> json
 
-            string json = WebHelper.Post("Libros/", obj);
+            string json = WebHelper.Post("Biblioteca/Libros/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 

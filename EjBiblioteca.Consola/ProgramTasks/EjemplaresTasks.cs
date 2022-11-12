@@ -2,6 +2,7 @@
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
 using EjBiblioteca.Negocio.Exceptions;
+using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace EjBiblioteca.Consola.ProgramTasks
     public class EjemplaresTasks
     {
         // traemos por consola todo el listado de ejemplares
-        public static void ListarEjemplares(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarEjemplares(EjemplarNegocio ejemplarServicio)
         {
-            List<Ejemplar> list = bibliotecaServicio.TraerTodosEjemplares();
+            List<Ejemplar> list = ejemplarServicio.TraerTodosEjemplares();
 
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
@@ -33,13 +34,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
             OutputHelper.PrintLine();
         }
 
-        public static void ContarEjemplaresPorLibro(BibliotecaNegocio bibliotecaServicio)
+        public static void ContarEjemplaresPorLibro(EjemplarNegocio ejemplarServicio)
         {
             int count = 0;
 
             int idLibro = InputHelper.IngresarNumero<int>("el ID del libro");
 
-            List<Ejemplar> list = bibliotecaServicio.TraerTodosEjemplares();
+            List<Ejemplar> list = ejemplarServicio.TraerTodosEjemplares();
 
             foreach (var item in list)
             {
@@ -53,11 +54,11 @@ namespace EjBiblioteca.Consola.ProgramTasks
         }
 
         // traemos por consola todo el listado de ejemplares para un libro
-        public static void ListarEjemplaresPorLibro(BibliotecaNegocio bibliotecaServicio)
+        public static void ListarEjemplaresPorLibro(EjemplarNegocio ejemplarServicio)
         {
             int idLibro = InputHelper.IngresarNumero<int>("el ID del libro");
 
-            List<Ejemplar> list = bibliotecaServicio.TraerTodosLosEjemplaresPorLibro(idLibro);
+            List<Ejemplar> list = ejemplarServicio.TraerTodosLosEjemplaresPorLibro(idLibro);
 
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
@@ -73,13 +74,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
             OutputHelper.PrintLine();
         }
 
-        public static void AltaEjemplar(BibliotecaNegocio bibliotecaServicio)
+        public static void AltaEjemplar(EjemplarNegocio ejemplarServicio)
         {
             int idLibro = InputHelper.IngresarNumero<int>("el ID del libro");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
             string observaciones = Console.ReadLine();
             double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
-            DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso();
+            DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del ejemplar");
 
             Ejemplar insertEjemplar = new Ejemplar(idLibro, observaciones, precio, fechaAlta);
 
@@ -88,13 +89,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
             if (confirmacion == "S" || confirmacion == "s")
             {
-                bibliotecaServicio.InsertarEjemplar(insertEjemplar);
+                ejemplarServicio.InsertarEjemplar(insertEjemplar);
 
                 Console.WriteLine("\r\nEjemplar Insertado!\r\nResultado final:\r\n" + insertEjemplar.ToString());
             }
         }
 
-        public static void ModificarEjemplar(BibliotecaNegocio bibliotecaServicio)
+        public static void ModificarEjemplar(EjemplarNegocio ejemplarServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del ejemplar");
             Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
@@ -108,7 +109,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
             if (confirmacion == "S" || confirmacion == "s")
             {
-                bibliotecaServicio.ActualizarEjemplar(modificarEjemplar);
+                ejemplarServicio.ActualizarEjemplar(modificarEjemplar);
 
                 Console.WriteLine("\r\nEjemplar " + id + " modificado!\r\n\r\nResultado final:\r\n" + modificarEjemplar.ToString());
             }

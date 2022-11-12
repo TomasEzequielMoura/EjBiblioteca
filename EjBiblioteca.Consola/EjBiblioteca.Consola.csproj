@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProgramTasks\ClientesTasks.cs" />
     <Compile Include="ProgramTasks\EjemplaresTasks.cs" />
     <Compile Include="ProgramHelper\InputHelper.cs" />
     <Compile Include="ProgramHelper\MenuHelper.cs" />

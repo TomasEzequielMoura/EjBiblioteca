@@ -16,18 +16,17 @@ namespace EjBiblioteca.Datos
 
     public class EjemplarDatos
     {
-
         // Prueba de llamado a API de todos los ejemplares
         public List<Ejemplar> TraerTodos()
         {
-            string json2 = WebHelper.Get("Ejemplares/"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Biblioteca/Ejemplares/"); // trae un texto en formato json de una web
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
 
         public List<Ejemplar> TraerTodosPorLibro(int idLibro)
         {
-            string json2 = WebHelper.Get("Ejemplares/" + idLibro); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("Biblioteca/Ejemplares/" + idLibro); // trae un texto en formato json de una web
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
@@ -42,7 +41,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(ejem); //serializacion -> json
 
-            string json = WebHelper.Post("Ejemplares/", obj);
+            string json = WebHelper.Post("Biblioteca/Ejemplares/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
@@ -53,7 +52,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(ejem);
 
-            string json = WebHelper.Put("Ejemplares/", obj);
+            string json = WebHelper.Put("Biblioteca/Ejemplares/", obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 

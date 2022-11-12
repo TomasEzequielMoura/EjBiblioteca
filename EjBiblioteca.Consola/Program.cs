@@ -9,16 +9,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using EjBiblioteca.Consola.ProgramTasks;
 using EjBiblioteca.Consola.ProgramHelper;
+using EjBiblioteca.Negocio.NegocioTasks;
 
 namespace EjBiblioteca.Consola
 {
     class Program
     {
-        public static BibliotecaNegocio bibliotecaServicio;
+        public static EjemplarNegocio ejemplarServicio;
+        public static LibroNegocio libroServicio;
+        public static PrestamoNegocio prestamoServicio;
+        public static ClienteNegocio clienteServicio;
 
         static void Main(string[] args)
         {
-            bibliotecaServicio = new BibliotecaNegocio();
+            ejemplarServicio = new EjemplarNegocio();
+            libroServicio = new LibroNegocio();
+            prestamoServicio = new PrestamoNegocio();
+            clienteServicio = new ClienteNegocio();
 
             MenuHelper.DesplegarBienvenida();
             string tareaARealizar = "";
@@ -33,40 +40,46 @@ namespace EjBiblioteca.Consola
                     switch (tareaARealizar.ToUpper())
                     {
                         case "1":
-                            EjemplaresTasks.ListarEjemplares(bibliotecaServicio);
+                            EjemplaresTasks.ListarEjemplares(ejemplarServicio);
                             break;
                         case "2":
-                            EjemplaresTasks.ContarEjemplaresPorLibro(bibliotecaServicio);
+                            EjemplaresTasks.ContarEjemplaresPorLibro(ejemplarServicio);
                             break;
                         case "3":
-                            EjemplaresTasks.ListarEjemplaresPorLibro(bibliotecaServicio);
+                            EjemplaresTasks.ListarEjemplaresPorLibro(ejemplarServicio);
                             break;
                         case "4":
-                            EjemplaresTasks.AltaEjemplar(bibliotecaServicio);
+                            EjemplaresTasks.AltaEjemplar(ejemplarServicio);
                             break;
                         case "5":
-                            EjemplaresTasks.ModificarEjemplar(bibliotecaServicio);
+                            EjemplaresTasks.ModificarEjemplar(ejemplarServicio);
                             break;
                         case "6":
-                            PrestamosTasks.ListarPrestamos(bibliotecaServicio);
+                            LibrosTasks.ListarLibros(libroServicio);
                             break;
                         case "7":
-                            PrestamosTasks.ListarPrestamosPorLibro(bibliotecaServicio);
+                            LibrosTasks.ListarLibroPorID(libroServicio);
                             break;
                         case "8":
-                            LibrosTasks.ListarLibros(bibliotecaServicio);
+                            LibrosTasks.AltaLibro(libroServicio);
                             break;
                         case "9":
-                            LibrosTasks.AltaLibro(bibliotecaServicio);
+                            PrestamosTasks.ListarPrestamos(prestamoServicio);
                             break;
                         case "10":
-                            LibrosTasks.ListarLibroPorID(bibliotecaServicio);
+                            PrestamosTasks.ListarPrestamosPorLibro(prestamoServicio);
                             break;
                         case "11":
-                            PrestamosTasks.AltaPrestamo(bibliotecaServicio);
+                            PrestamosTasks.AltaPrestamo(prestamoServicio);
                             break;
                         case "12":
-                            PrestamosTasks.ModificarPrestamo(bibliotecaServicio);
+                            PrestamosTasks.ModificarPrestamo(prestamoServicio);
+                            break;
+                        case "13":
+                            PrestamosTasks.BajaPrestamo(prestamoServicio);
+                            break;
+                        case "14":
+                            ClientesTasks.ListarClientes(clienteServicio);
                             break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");

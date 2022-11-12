@@ -47,11 +47,16 @@
     <Compile Include="Exceptions\EjemplarExistente.cs" />
     <Compile Include="Exceptions\FechaMayorActualException.cs" />
     <Compile Include="Exceptions\LibroExistente.cs" />
+    <Compile Include="Exceptions\NoExistenClientes.cs" />
     <Compile Include="Exceptions\NoExistenEjemplares.cs" />
     <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
     <Compile Include="Exceptions\LibroInexistente.cs" />
     <Compile Include="Exceptions\NoExistenLibros.cs" />
-    <Compile Include="PrestamoInexistente.cs" />
+    <Compile Include="Exceptions\PrestamoInexistente.cs" />
+    <Compile Include="NegocioTasks\ClienteNegocio.cs" />
+    <Compile Include="NegocioTasks\EjemplarNegocio.cs" />
+    <Compile Include="NegocioTasks\LibroNegocio.cs" />
+    <Compile Include="NegocioTasks\PrestamoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
