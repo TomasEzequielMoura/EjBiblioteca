@@ -21,6 +21,15 @@ namespace EjBiblioteca.Entidades
 
         public Prestamo() { }
 
+        public Prestamo( int cliente, int ejemplar, int plazo, DateTime alta)
+        {
+          
+            _idCliente = cliente;
+            _idEjemplar = ejemplar;
+            _plazo = plazo;
+            _fechaPrestamo = alta;
+
+        }
         public Prestamo(int id, int cliente, int ejemplar)
         {
             _id = id;

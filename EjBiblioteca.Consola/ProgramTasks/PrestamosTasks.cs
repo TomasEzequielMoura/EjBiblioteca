@@ -42,13 +42,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
         //Dar de alta un préstamo
         public static void AltaPrestamo(BibliotecaNegocio bibliotecaServicio)
         {
-            int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); // chequear si la numeración del préstamo nuevo debe ser automática
+            //int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); // chequear si la numeración del préstamo nuevo debe ser automática
             int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             int idEjemplar = InputHelper.IngresarNumero<int>("el ID del ejemplar");
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
             DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso();
 
-            Prestamo insertPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, fechaPrestamo);
+            Prestamo insertPrestamo = new Prestamo(idCliente, idEjemplar, plazo, fechaPrestamo);
 
             Console.WriteLine("\r\nPréstamo nuevo cargado:\r\n" + insertPrestamo.ToString());
             string confirmacion = InputHelper.confirmacionABM("préstamo", "insertar");

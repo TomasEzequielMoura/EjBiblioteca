@@ -198,36 +198,22 @@ namespace EjBiblioteca.Negocio
                 throw new PrestamoInexistente();
         }
 
-        public List<Prestamo> TraerTodosPrestamosPorLibro() {
+        public List<Prestamo> TraerTodosPrestamosPorLibro()
+        {
 
             List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
+            //se puede hacer una variable en prestamos donde se obtenga el id de libro por ejemplar? para tener ese dato disp para esta consulta
+            
+            return list;
+            
+            
 
-            //    //acá debe ir libro? entiendo que mando ejemplar porque no existe libro en Prestamo 
-            //{
-            //    int ejem = 0;
-            //        List<Ejemplar> listEjemplares = TraerTodosLosEjemplaresPorLibro(idLibro); //ver como sacar el id libro de la lista de ejemplares que traje
-            //                                                                                  //como debería llamar a la lista?
-            //        foreach (Ejemplar ejemplar in listEjemplares)
-            //        {
-            //            ejem = ejemplar.Id;
-            //            Console.WriteLine($"idLibro: {ejemplar.IdLibro}, tiene los ejemplares id:{ejemplar.Id}");
-            //        }
-            //con el id de ejemplar, tengo que hacer la consulta de los prestamos
-            //for each?
-            //TraerPrestamosPorLibro()
-            //List<Ejemplar> listaEjemplar = _ejemplarDatos.TraerTodosLosEjemplares();
 
-            //    foreach (Ejemplar eje in listaEjemplar)
-            //    {
-            //        Ejemplar e = BibliotecaNegocio.Traer(eje.id, eje.idLibro);
-            //        foraech(Prestamo prest in e)
+        }
 
-            //if (e != null)
-            //            Console.WriteLine("El libro " + e.idLibro + " tiene los siguientes préstamos" + prest.id)
-            //    }
-            //List<Prestamo> list = _prestamoDatos.TraerPrestamosPorLibro(ejem);//
-            //foreach
-            //    (Prestamo prest in listEjemplares)
+        public List<Prestamo> TraerPrestamosPorCliente()
+        {
+            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
             return list;
         }
