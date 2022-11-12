@@ -62,6 +62,12 @@ namespace EjBiblioteca.Consola
                         case "10":
                             LibrosTasks.ListarLibroPorID(bibliotecaServicio);
                             break;
+                        case "11":
+                            PrestamosTasks.AltaPrestamo(bibliotecaServicio);
+                            break;
+                        case "12":
+                            PrestamosTasks.ModificarPrestamo(bibliotecaServicio);
+                            break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);
