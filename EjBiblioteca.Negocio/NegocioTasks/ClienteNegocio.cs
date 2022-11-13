@@ -31,5 +31,17 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else
                 throw new NoExistenClientes();
         }
+
+        public void InsertarCliente(Cliente client)
+        {
+            ABMResult transaction = _clienteDatos.Insertar(client);
+
+            // validar que ese ejemplar no este en un prestamo activo y exista
+            // validar que el cliente exista
+
+            if (!transaction.IsOk)
+                throw new Exception(transaction.Error);
+        }
+
     }
 }

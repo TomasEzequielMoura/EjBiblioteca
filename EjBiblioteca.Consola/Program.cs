@@ -81,6 +81,9 @@ namespace EjBiblioteca.Consola
                         case "14":
                             ClientesTasks.ListarClientes(clienteServicio);
                             break;
+                        case "15":
+                            ClientesTasks.AltaClientes(clienteServicio);
+                            break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
                             Thread.Sleep(2500);

@@ -50,14 +50,6 @@ namespace EjBiblioteca.Consola.ProgramHelper
             return valueReturn;
         }
 
-        //public static DateTime IngresarFechaPasoAPaso()
-        //{
-        //    int dia = IngresarNumero<int>("el dia de alta del libro");
-        //    int mes = IngresarNumero<int>("el mes de alta del libro");
-        //    int anio = IngresarNumero<int>("el año de alta del libro");
-        //    DateTime fechaAlta = new DateTime(anio, mes, dia);
-        //    return fechaAlta;
-        //}
         public static DateTime IngresarFechaPasoAPaso(string input)
         {
             int dia = IngresarNumero<int>($"\r\nel día {input}:");
@@ -84,5 +76,54 @@ namespace EjBiblioteca.Consola.ProgramHelper
 
             return value;
         }
+        public static bool IngresarStatus(string input)
+        {
+                      
+            bool flag = false;
+            bool value = false;
+            do
+            {
+                int valor = IngresarNumero<int>($"\r\nIngrese 1 para activo o 0 para inactivo {input}:");
+                if (valor == 1)
+                { 
+                    value = true;
+                    flag = true;
+                }
+                else if (valor == 0)
+                {
+                    value = false;
+                    flag = true;
+                }
+                else 
+                    Console.WriteLine("Valor ingresado incorrecto");
+               
+            } while (flag == false);
+            return value;
+
+        }
+        public static T IngresarNumeroLong<T>(string input)
+        {
+            string value;
+            long salidaCodigoLong = 0;
+            
+            bool flag;
+
+            do
+            {
+                Console.WriteLine($"\r\nIngrese {input}:");
+                value = Console.ReadLine();
+                if (typeof(T) == typeof(long))
+                {
+                    flag = ValidarHelper.ValidarLong(value, ref salidaCodigoLong);
+                }
+                
+                else flag = true;
+            } while (flag == false);
+
+            T valueReturn = (T)Convert.ChangeType(value, typeof(T));
+
+            return valueReturn;
+        }
+
     }
 }
