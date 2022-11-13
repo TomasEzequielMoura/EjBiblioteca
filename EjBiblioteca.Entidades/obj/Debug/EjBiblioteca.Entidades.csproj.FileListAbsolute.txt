@@ -16,3 +16,9 @@ C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\Ej
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.dll
 C:\Users\saamo\Documents\GitHub\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.pdb
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\bin\Debug\EjBiblioteca.Entidades.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\bin\Debug\EjBiblioteca.Entidades.pdb
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.AssemblyReference.cache
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.csproj.CoreCompileInputs.cache
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Entidades\obj\Debug\EjBiblioteca.Entidades.pdb

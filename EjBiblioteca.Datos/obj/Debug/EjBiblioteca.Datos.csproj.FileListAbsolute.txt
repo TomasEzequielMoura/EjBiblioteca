@@ -31,3 +31,14 @@ C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Dato
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
 C:\Users\juani\OneDrive\Documents\Facultad\CAI\TP\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Datos.pdb
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\EjBiblioteca.Entidades.pdb
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.AssemblyReference.cache
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CoreCompileInputs.cache
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.csproj.CopyComplete
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.dll
+D:\GitHub\CAI\20222C\EjBiblioteca\EjBiblioteca.Datos\obj\Debug\EjBiblioteca.Datos.pdb

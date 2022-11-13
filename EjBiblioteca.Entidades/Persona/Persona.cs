@@ -54,7 +54,7 @@ namespace EjBiblioteca.Entidades.Persona
 
         public override string ToString()
         {
-            return $"{this.DNI}) {this.Nombre} $ {this.Apellido}";
+            return $"{this.DNI}) {this.Nombre} , {this.Apellido}";
         }
 
     }

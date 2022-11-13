@@ -29,6 +29,26 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
+        public static bool ValidarLong(string numero, ref long salida)
+        {
+            bool flag = false;
+
+            if (!long.TryParse(numero, out salida))
+            {
+                Console.WriteLine("Usted debe ingresar un número entero.");
+            }
+            else if (salida <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número mayor que cero.");
+            }
+            else
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+
         public static bool ValidarDouble(string registro, ref double salida)
         {
             bool flag = false;

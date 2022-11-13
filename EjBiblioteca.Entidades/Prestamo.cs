@@ -96,7 +96,7 @@ namespace EjBiblioteca.Entidades
 
         public override string ToString()
         {
-            return this.Id + ") " + this.IdCliente + ", " + this.IdEjemplar;
+            return "Id Préstamo: "+this.Id + "\r\nId cliente: " + this.IdCliente + "\r\nId Ejemplar: " + this.IdEjemplar + "\r\nDías de préstamo: " + this.Plazo + "\r\nFecha préstamo: " + this.FechaPrestamo + "\r\nFecha devolución tentativa: " + this.FechaDevolucionTentativa + "\r\nFecha devolución real: " + this.FechaDevolucionReal;
             //return $"Titulo: {this.Titulo}\r\nAutor: {this.Autor}\r\nEdición: {this.Edicion}\r\nEditorial: {this.Editorial}\r\nPaginas: {this.Paginas}\r\nTema: {this.Tema}";
         }
 
