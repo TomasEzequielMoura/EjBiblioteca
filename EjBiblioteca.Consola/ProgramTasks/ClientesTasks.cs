@@ -7,9 +7,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace EjBiblioteca.Consola.ProgramTasks
 {
+
+//    TODO:
+//Validar:
+//Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
+//Igual para la fecha real devolución
+//Posibilidad de no ingresar fecha real de devolución
+
+//* Otros:*
+//https://cai-api.azurewebsites.net/api/v1/cliente/895380
+//Está dando de alta en la base clientes general, pero no en cliente/895380. Esto está en ClienteDatos. Tendríamos que insertar solo en nuestra base?
+
     public class ClientesTasks
     {
         public static void ListarClientes(ClienteNegocio clienteServicio)
