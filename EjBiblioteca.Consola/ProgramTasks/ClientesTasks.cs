@@ -12,11 +12,6 @@ using static System.Net.WebRequestMethods;
 namespace EjBiblioteca.Consola.ProgramTasks
 {
 
-//    TODO:
-//Validar:
-//Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
-//Igual para la fecha real devolución
-//Posibilidad de no ingresar fecha real de devolución
 
 //* Otros:*
 //https://cai-api.azurewebsites.net/api/v1/cliente/895380
@@ -26,8 +21,8 @@ namespace EjBiblioteca.Consola.ProgramTasks
     {
         public static void ListarClientes(ClienteNegocio clienteServicio)
         {
-            List<Cliente> listClientes = clienteServicio.TraerClientes();
-            var listaOrdenadaPorId = listClientes.OrderBy(x => x.IdCliente).ToList();
+            List<Cliente> listClientes = clienteServicio.TraerClientesPorRegistro();
+            var listaOrdenadaPorId = listClientes.OrderBy(x => x.Id).ToList();
 
             Console.WriteLine("\r\nLista de Clientes:");
 
@@ -40,7 +35,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.IdCliente.ToString(), item.DNI.ToString(), item.Nombre, item.Apellido, item.Direccion, item.Mail, item.Telefono.ToString(), item.FechaNacimiento.ToString(), item.FechaAlta.ToString(), item.Activo.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.DNI.ToString(), item.Nombre, item.Apellido, item.Direccion, item.Email, item.Telefono.ToString(), item.FechaNacimiento.ToString(), item.FechaAlta.ToString(), item.Activo.ToString());
                     OutputHelper.PrintLine();
                 }
             }
@@ -48,14 +43,12 @@ namespace EjBiblioteca.Consola.ProgramTasks
             {
                 Console.WriteLine("\r\nNo se han encontrado clientes");
             }
-
         }
 
-        public static void AltaClientes(ClienteNegocio clienteServicio)
+        public static void AltaCliente(ClienteNegocio clienteServicio)
         {
-            
-            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
-            DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
+            //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+            //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
             int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
             Console.WriteLine("\r\nIngrese el nombre del cliente");
@@ -64,11 +57,12 @@ namespace EjBiblioteca.Consola.ProgramTasks
             string apellido = Console.ReadLine();
             Console.WriteLine("\r\nIngrese la dirección del cliente");
             string direccion = Console.ReadLine();
-            long telefono= InputHelper.IngresarNumero<int>("el teléfono del cliente");
+            long telefono= InputHelper.IngresarNumero<long>("el teléfono del cliente");
             Console.WriteLine("\r\nIngrese el mail del cliente");
             string mail = Console.ReadLine();
+            DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
 
-            Cliente insertCliente = new Cliente(idCliente, fechaAlta, activo,dni,nombre,apellido,direccion,telefono,mail);
+            Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
 
             Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
             string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
@@ -78,6 +72,93 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 clienteServicio.InsertarCliente(insertCliente);
 
                 Console.WriteLine("\r\nNuevo cliente ingresado.\r\nResultado final:\r\n" + insertCliente.ToString());
+            }
+        }
+
+        //Modificación de préstamo
+        public static void ModificarCliente(ClienteNegocio clienteServicio)
+        {
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+            //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
+            bool activo = InputHelper.IngresarStatus("el status del cliente");
+            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            Console.WriteLine("\r\nIngrese el nombre del cliente");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("\r\nIngrese el apellido del cliente");
+            string apellido = Console.ReadLine();
+            Console.WriteLine("\r\nIngrese la dirección del cliente");
+            string direccion = Console.ReadLine();
+            long telefono = InputHelper.IngresarNumero<long>("el teléfono del cliente");
+            Console.WriteLine("\r\nIngrese el mail del cliente");
+            string mail = Console.ReadLine();
+            DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
+
+            Cliente modificarCliente = new Cliente(idCliente, activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
+
+            Console.WriteLine("\r\nCliente a modificar:\r\n" + modificarCliente.ToString());
+            string confirmacion = InputHelper.confirmacionABM("cliente", "modificar");
+
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                clienteServicio.ActualizarCliente(modificarCliente);
+
+                Console.WriteLine("\r\nCliente " + idCliente + " modificado!\r\n\r\nResultado final:\r\n" + modificarCliente.ToString());
+            }
+        }
+
+        public static void BajaCliente(ClienteNegocio clienteServicio)
+        {
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+
+            Cliente deleteCliente = new Cliente(idCliente);
+
+            Console.WriteLine("\r\nCliente a dar de baja:\r\n" + deleteCliente.Id);
+            string confirmacion = InputHelper.confirmacionABM("préstamo", "eliminar");
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                clienteServicio.EliminarCliente(deleteCliente);
+                Console.WriteLine("\r\nCliente elimando " + deleteCliente.Id);
+            }
+        }
+
+        public static void ListarClientePorTelefono(ClienteNegocio clienteServicio)
+        {
+            long telefono = InputHelper.IngresarNumero<long>("el telefono del cliente");
+
+            Cliente Cliente = clienteServicio.TraerClientePorTelefono(telefono);
+
+            Console.WriteLine("\r\nCliente encontrado!\r\n" + Cliente.ToString());
+        }
+
+        public static void ModificarClientePorID(ClienteNegocio clienteServicio)
+        {
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+            //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
+            bool activo = InputHelper.IngresarStatus("el status del cliente");
+            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            Console.WriteLine("\r\nIngrese el nombre del cliente");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("\r\nIngrese el apellido del cliente");
+            string apellido = Console.ReadLine();
+            Console.WriteLine("\r\nIngrese la dirección del cliente");
+            string direccion = Console.ReadLine();
+            long telefono = InputHelper.IngresarNumero<long>("el teléfono del cliente");
+            Console.WriteLine("\r\nIngrese el mail del cliente");
+            string mail = Console.ReadLine();
+            DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
+
+            Cliente modificarCliente = new Cliente(idCliente, activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
+
+            Console.WriteLine("\r\nCliente a modificar:\r\n" + modificarCliente.ToString());
+            string confirmacion = InputHelper.confirmacionABM("cliente", "modificar");
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                clienteServicio.ActualizarClientePorID(modificarCliente);
+
+                Console.WriteLine("\r\nCliente " + idCliente + " modificado!\r\n\r\nResultado final:\r\n" + modificarCliente.ToString());
             }
         }
     }

@@ -13,6 +13,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
             string value;
             int salidaCodigoInt = 0;
             double salidaCodigoDouble = 0;
+            long salidaCodigoLong = 0;
             bool flag;
 
             do
@@ -22,6 +23,10 @@ namespace EjBiblioteca.Consola.ProgramHelper
                 if (typeof(T) == typeof(int))
                 {
                     flag = ValidarHelper.ValidarEntero(value, ref salidaCodigoInt);
+                }
+                else if (typeof(T) == typeof(long))
+                {
+                    flag = ValidarHelper.ValidarLong(value, ref salidaCodigoLong);
                 }
                 else if (typeof(T) == typeof(double)) flag = ValidarHelper.ValidarDouble(value, ref salidaCodigoDouble);
                 else flag = true;
@@ -52,9 +57,9 @@ namespace EjBiblioteca.Consola.ProgramHelper
 
         public static DateTime IngresarFechaPasoAPaso(string input)
         {
-            int dia = IngresarNumero<int>($"\r\nel día {input}:");
-            int mes = IngresarNumero<int>($"\r\nel mes {input}:");
-            int anio = IngresarNumero<int>($"\r\nel año {input}:");
+            int dia = IngresarNumero<int>($"el día {input}");
+            int mes = IngresarNumero<int>($"el mes {input}");
+            int anio = IngresarNumero<int>($"el año {input}");
             DateTime fecha = new DateTime(anio, mes, dia);
             return fecha;
         }
@@ -83,13 +88,14 @@ namespace EjBiblioteca.Consola.ProgramHelper
             bool value = false;
             do
             {
-                int valor = IngresarNumero<int>($"\r\nIngrese 1 para activo o 0 para inactivo {input}:");
-                if (valor == 1)
+                Console.WriteLine("\r\nIngrese 1 para activo o 0 para inactivo");
+                string valor = Console.ReadLine();
+                if (valor == "1")
                 { 
                     value = true;
                     flag = true;
                 }
-                else if (valor == 0)
+                else if (valor == "0")
                 {
                     value = false;
                     flag = true;
@@ -100,29 +106,6 @@ namespace EjBiblioteca.Consola.ProgramHelper
             } while (flag == false);
             return value;
 
-        }
-        public static T IngresarNumeroLong<T>(string input)
-        {
-            string value;
-            long salidaCodigoLong = 0;
-            
-            bool flag;
-
-            do
-            {
-                Console.WriteLine($"\r\nIngrese {input}:");
-                value = Console.ReadLine();
-                if (typeof(T) == typeof(long))
-                {
-                    flag = ValidarHelper.ValidarLong(value, ref salidaCodigoLong);
-                }
-                
-                else flag = true;
-            } while (flag == false);
-
-            T valueReturn = (T)Convert.ChangeType(value, typeof(T));
-
-            return valueReturn;
         }
 
     }

@@ -42,7 +42,7 @@ namespace EjBiblioteca.Entidades
             _tema = tema;
         }
 
-        public int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
         public string Autor { get => _autor; set => _autor = value; }
         public int Edicion { get => _edicion; set => _edicion = value; }

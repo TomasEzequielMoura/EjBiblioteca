@@ -42,11 +42,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABMResult.cs" />
-    <Compile Include="Ejemplar.cs" />
-    <Compile Include="Libro.cs" />
-    <Compile Include="Persona\Cliente.cs" />
-    <Compile Include="Persona\Persona.cs" />
-    <Compile Include="Prestamo.cs" />
+    <Compile Include="Dominio\Ejemplar.cs" />
+    <Compile Include="Dominio\Libro.cs" />
+    <Compile Include="Dominio\Persona\Cliente.cs" />
+    <Compile Include="Dominio\Persona\Persona.cs" />
+    <Compile Include="Dominio\Prestamo.cs" />
+    <Compile Include="Enum\TemasLibro.cs" />
+    <Compile Include="Exceptions\ClienteInexistente.cs" />
+    <Compile Include="Exceptions\EjemplarExistente.cs" />
+    <Compile Include="Exceptions\EjemplarInexistente.cs" />
+    <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
+    <Compile Include="Exceptions\FechaMayorActualException.cs" />
+    <Compile Include="Exceptions\LibroExistente.cs" />
+    <Compile Include="Exceptions\LibroInexistente.cs" />
+    <Compile Include="Exceptions\NoExistenClientes.cs" />
+    <Compile Include="Exceptions\NoExistenEjemplares.cs" />
+    <Compile Include="Exceptions\NoExistenLibros.cs" />
+    <Compile Include="Exceptions\PrestamoInexistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

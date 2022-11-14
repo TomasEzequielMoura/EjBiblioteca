@@ -28,10 +28,10 @@ namespace EjBiblioteca.Datos
             return resultado;
         }
 
-        public List<Cliente> TraerTodosClientesPorTelefono(long telefono)
+        public Cliente GetClientePorTelefono(long telefono)
         {
             string json2 = WebHelper.Get("cliente/" + telefono + "/telefono"); // trae un texto en formato json de una web
-            List<Cliente> resultado = MapList(json2);
+            Cliente resultado = MapObject(json2);
             return resultado;
         }
 
@@ -39,6 +39,12 @@ namespace EjBiblioteca.Datos
         {
             List<Cliente> lst = JsonConvert.DeserializeObject<List<Cliente>>(json); // deserializacion
             return lst;
+        }
+
+        private Cliente MapObject(string json)
+        {
+            Cliente cliente = JsonConvert.DeserializeObject<Cliente>(json); // deserializacion
+            return cliente;
         }
 
         public ABMResult Actualizar(Cliente Cliente)
@@ -56,7 +62,7 @@ namespace EjBiblioteca.Datos
         {
             NameValueCollection obj = ReverseMap(Cliente);
 
-            string json = WebHelper.Put("cliente/" + Cliente.IdCliente, obj);
+            string json = WebHelper.Put("cliente/" + Cliente.Id, obj);
 
             ABMResult lst = JsonConvert.DeserializeObject<ABMResult>(json);
 
@@ -88,16 +94,17 @@ namespace EjBiblioteca.Datos
         private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("IdCliente", cliente.IdCliente.ToString());
-            n.Add("FechaAlta", cliente.FechaAlta.ToString("yyyy-MM-dd"));
-            n.Add("Activo", cliente.Activo.ToString());
-            n.Add("DNI", cliente.DNI.ToString());
-            n.Add("Nombre", cliente.Nombre);
-            n.Add("Apellido", cliente.Apellido);
-            n.Add("Direccion", cliente.Direccion);
-            n.Add("Telefono", cliente.Telefono.ToString());
-            n.Add("Mail", cliente.Mail);
-            n.Add("FechaNacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
+            n.Add("id", cliente.Id.ToString());
+            n.Add("fechaAlta", cliente.FechaAlta.ToString("yyyy-MM-dd"));
+            n.Add("activo", cliente.Activo.ToString());
+            n.Add("dni", cliente.DNI.ToString());
+            n.Add("nombre", cliente.Nombre);
+            n.Add("apellido", cliente.Apellido);
+            n.Add("direccion", cliente.Direccion);
+            n.Add("telefono", cliente.Telefono.ToString());
+            n.Add("email", cliente.Email);
+            n.Add("fechaNacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
+            n.Add("usuario", "895380");
             return n;
         }
     }

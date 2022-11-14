@@ -82,7 +82,19 @@ namespace EjBiblioteca.Consola
                             ClientesTasks.ListarClientes(clienteServicio);
                             break;
                         case "15":
-                            ClientesTasks.AltaClientes(clienteServicio);
+                            ClientesTasks.AltaCliente(clienteServicio);
+                            break;
+                        case "16":
+                            ClientesTasks.ModificarCliente(clienteServicio);
+                            break;
+                        case "17":
+                            ClientesTasks.BajaCliente(clienteServicio);
+                            break;
+                        case "18":
+                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            break;
+                        case "19":
+                            ClientesTasks.ModificarClientePorID(clienteServicio);
                             break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
@@ -108,3 +120,38 @@ namespace EjBiblioteca.Consola
         }
     }
 }
+
+
+// TODO GENERAL
+//-Exceptions en Capa de entidades
+//- .ToString("$ 0.00") en precio
+//- ver como usar enum para los temas {(TipoTarjetaEnum)this.Tipo }
+//-     public enum TipoTarjetaEnum
+//{
+//    SELECCIONE = 0, VISA = 1, MASTER = 2, AMEX = 3
+//}
+
+
+//- Dropdown de temas
+//- Calcular y mostar:
+//	+cantidad de prestamos por persona promedio
+//	+ precio promedio de ejemplar
+// + pattern validar mail
+
+//-Posibles validaciones:
+// precio minimo y precio maximo
+// el cliente debe existir para asignarle un prestamo
+// Podriamos hacer que no se permitan cargar libros de determinados temas o editoriales
+// Limite de cantidad de prestamos por persona
+// tostring mas lindo de cliente
+// revisar todos los textos
+// enum de activo y no activo en cliente
+// validar año que carga
+// validar nombre y apellido no tengan numeros
+// validar strings que no vayan vacios
+// corregir listado de clientes
+// celular, dni, email UNICOS
+// esperar respuesta de los profes con get por telefono
+//Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
+//Igual para la fecha real devolución
+//Posibilidad de no ingresar fecha real de devolución

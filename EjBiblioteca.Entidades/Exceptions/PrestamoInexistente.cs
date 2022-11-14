@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Negocio
 {
-    class PrestamoInexistente : ErrorAlHacerTareaException
+    public class PrestamoInexistente : ErrorAlHacerTareaException
     {
 
            public PrestamoInexistente() : base("El préstamo ingresado no existe") { }

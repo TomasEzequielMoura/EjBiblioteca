@@ -35,7 +35,7 @@ namespace EjBiblioteca.Consola
 
             if (!long.TryParse(numero, out salida))
             {
-                Console.WriteLine("Usted debe ingresar un número entero.");
+                Console.WriteLine("Usted debe ingresar un número tipo long.");
             }
             else if (salida <= 0)
             {

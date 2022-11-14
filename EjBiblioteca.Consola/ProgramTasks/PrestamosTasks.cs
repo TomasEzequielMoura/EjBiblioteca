@@ -29,7 +29,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString() , item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.Id.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString() , item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                     OutputHelper.PrintLine();
                 }
             }
@@ -105,7 +105,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.Id.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                 }
                 OutputHelper.PrintLine();
             }
@@ -119,15 +119,15 @@ namespace EjBiblioteca.Consola.ProgramTasks
         {
             int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); 
 
-            Prestamo insertPrestamo = new Prestamo(id);
+            Prestamo deletePrestamo = new Prestamo(id);
 
-            Console.WriteLine("\r\nPréstamo a dar de baja:\r\n" + insertPrestamo.Id);
+            Console.WriteLine("\r\nPréstamo a dar de baja:\r\n" + deletePrestamo.Id);
             string confirmacion = InputHelper.confirmacionABM("préstamo", "eliminar");
 
             if (confirmacion == "S" || confirmacion == "s")
             {
-                prestamoServicio.EliminarPrestamo(insertPrestamo);
-                Console.WriteLine("\r\nPréstamo elimando " + insertPrestamo.Id);
+                prestamoServicio.EliminarPrestamo(deletePrestamo);
+                Console.WriteLine("\r\nPréstamo elimando " + deletePrestamo.Id);
             }
         }
     }
