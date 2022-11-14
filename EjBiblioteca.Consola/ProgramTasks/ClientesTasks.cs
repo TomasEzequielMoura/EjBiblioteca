@@ -1,5 +1,6 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
@@ -62,17 +63,26 @@ namespace EjBiblioteca.Consola.ProgramTasks
             string mail = Console.ReadLine();
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
 
-            Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
-
-            Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
-            string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
-
-            if (confirmacion == "S" || confirmacion == "s")
+            bool valida = clienteServicio.ValidarClienteporDNI(dni);
+            if (valida)
             {
-                clienteServicio.InsertarCliente(insertCliente);
+                Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
 
-                Console.WriteLine("\r\nNuevo cliente ingresado.\r\nResultado final:\r\n" + insertCliente.ToString());
+                Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
+                string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
+
+                if (confirmacion == "S" || confirmacion == "s")
+                {
+                    clienteServicio.InsertarCliente(insertCliente);
+
+                    Console.WriteLine("\r\nNuevo cliente ingresado.\r\nResultado final:\r\n" + insertCliente.ToString());
+                }
             }
+            else
+            {
+                throw new ClienteYaExiste();
+            }
+            
         }
 
         //Modificación de préstamo

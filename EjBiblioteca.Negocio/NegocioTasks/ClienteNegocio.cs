@@ -59,15 +59,17 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void InsertarCliente(Cliente client)
         {
+
             ABMResult transaction = _clienteDatos.Insertar(client);
 
             // validar que ese ejemplar no este en un prestamo activo y exista
             // validar que el cliente exista
 
+
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
         }
-
+            
         public void ActualizarCliente(Cliente cliente)
         {
             List<Cliente> list = TraerClientesPorRegistro();
@@ -134,6 +136,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
             if (flag == true)
             {
+
                 ABMResult transaction = _clienteDatos.Eliminar(cliente);
 
                 // validar que ese cliente exista
@@ -143,6 +146,23 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             else
                 throw new ClienteInexistente();
+        }
+
+     
+        public bool ValidarClienteporDNI(int dni)
+        {
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+            int conteo = 0;
+            bool valida = false;
+            foreach (var item in list)
+            {
+                if (item.DNI==dni)
+                    conteo =1;
+            }
+
+            if (conteo == 0)
+            valida = true;
+            return valida;
         }
 
     }

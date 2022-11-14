@@ -29,7 +29,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             foreach (var item in listaOrdenadaPorId)
             {
                 OutputHelper.PrintLine();
-                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString(), item.FechaAlta.ToString());
+                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString());
             }
             OutputHelper.PrintLine();
         }
@@ -69,7 +69,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             foreach (var item in listaOrdenadaPorId)
             {
                 OutputHelper.PrintLine();
-                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString(), item.FechaAlta.ToString());
+                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString());
             }
             OutputHelper.PrintLine();
         }

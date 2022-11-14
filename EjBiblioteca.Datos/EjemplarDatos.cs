@@ -65,7 +65,7 @@ namespace EjBiblioteca.Datos
             n.Add("Id", ejem.Id.ToString());
             n.Add("IdLibro", ejem.IdLibro.ToString());
             n.Add("Observaciones", ejem.Observaciones);
-            n.Add("Precio", ejem.Precio.ToString());
+            n.Add("Precio", ejem.Precio.ToString()); // Acá también va .ToString("$ 0.00")?
             n.Add("FechaAlta", ejem.FechaAlta.ToString("yyyy-MM-dd"));
             return n;
         }

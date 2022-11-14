@@ -123,8 +123,8 @@ namespace EjBiblioteca.Consola
 
 
 // TODO GENERAL
-//-Exceptions en Capa de entidades
-//- .ToString("$ 0.00") en precio
+//-Exceptions en Capa de entidades 
+//- .ToString("$ 0.00") en precio - LISTO!
 //- ver como usar enum para los temas {(TipoTarjetaEnum)this.Tipo }
 //-     public enum TipoTarjetaEnum
 //{
@@ -138,7 +138,7 @@ namespace EjBiblioteca.Consola
 //	+ precio promedio de ejemplar
 // + pattern validar mail
 
-//-Posibles validaciones:
+//Posibles validaciones (Se hacen en la capa de negocio):
 // precio minimo y precio maximo
 // el cliente debe existir para asignarle un prestamo
 // Podriamos hacer que no se permitan cargar libros de determinados temas o editoriales
