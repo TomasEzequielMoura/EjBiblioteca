@@ -63,7 +63,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             ABMResult transaction = _clienteDatos.Insertar(client);
 
             // validar que ese ejemplar no este en un prestamo activo y exista
-            // validar que el cliente exista
+            // validar que el cliente exista, hice esta validación en ClienteTask al dar de alta
 
 
             if (!transaction.IsOk)
@@ -152,16 +152,13 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         public bool ValidarClienteporDNI(int dni)
         {
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
-            int conteo = 0;
             bool valida = false;
             foreach (var item in list)
             {
                 if (item.DNI==dni)
-                    conteo =1;
+                valida = true;
             }
 
-            if (conteo == 0)
-            valida = true;
             return valida;
         }
 

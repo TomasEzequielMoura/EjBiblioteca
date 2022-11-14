@@ -64,7 +64,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
 
             bool valida = clienteServicio.ValidarClienteporDNI(dni);
-            if (valida)
+            if (!valida)
             {
                 Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
 
