@@ -52,16 +52,15 @@ namespace EjBiblioteca.Consola.ProgramTasks
             //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
             int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
-            Console.WriteLine("\r\nIngrese el nombre del cliente");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("\r\nIngrese el apellido del cliente");
-            string apellido = Console.ReadLine();
+            string nombre = InputHelper.IngresarString("el nombre del cliente");
+            string apellido = InputHelper.IngresarString("el apellido del cliente");
             Console.WriteLine("\r\nIngrese la dirección del cliente");
             string direccion = Console.ReadLine();
             long telefono= InputHelper.IngresarNumero<long>("el teléfono del cliente");
             Console.WriteLine("\r\nIngrese el mail del cliente");
             string mail = Console.ReadLine();
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
+           
 
             bool valida = clienteServicio.ValidarClienteporDNI(dni);
             if (!valida)

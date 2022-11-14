@@ -146,8 +146,8 @@ namespace EjBiblioteca.Consola
 // tostring mas lindo de cliente
 // revisar todos los textos
 // enum de activo y no activo en cliente
-// validar año que carga
-// validar nombre y apellido no tengan numeros
+// validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
+// validar nombre y apellido no tengan numeros - LISTO!
 // validar strings que no vayan vacios
 // corregir listado de clientes
 // celular, dni, email UNICOS

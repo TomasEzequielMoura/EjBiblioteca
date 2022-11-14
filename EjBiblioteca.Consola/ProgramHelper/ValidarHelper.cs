@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace EjBiblioteca.Consola
 {
@@ -101,6 +102,11 @@ namespace EjBiblioteca.Consola
                 Console.WriteLine("El valor ingresado no corresponde a una 'S' o 'N'.");
 
             return flag;
+        }
+
+        public static bool IsLetter(string input)
+        {
+            return Regex.IsMatch(input, @"^[a-zA-Z]+$");
         }
 
     }

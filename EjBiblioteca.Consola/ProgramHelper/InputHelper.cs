@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EjBiblioteca.Entidades.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,11 +58,22 @@ namespace EjBiblioteca.Consola.ProgramHelper
 
         public static DateTime IngresarFechaPasoAPaso(string input)
         {
-            int dia = IngresarNumero<int>($"el día {input}");
-            int mes = IngresarNumero<int>($"el mes {input}");
-            int anio = IngresarNumero<int>($"el año {input}");
-            DateTime fecha = new DateTime(anio, mes, dia);
-            return fecha;
+           
+                int dia = IngresarNumero<int>($"el día {input}");
+                int mes = IngresarNumero<int>($"el mes {input}");
+                int anio = IngresarNumero<int>($"el año {input}");
+            try
+            {
+                DateTime fecha = new DateTime(anio, mes, dia);
+                return fecha;
+            }
+            catch (Exception)
+            {
+
+                throw new FechaInvalida();
+            }
+                
+                
         }
 
         public static string confirmacionABM(string aValidar, string accion)
@@ -106,6 +118,20 @@ namespace EjBiblioteca.Consola.ProgramHelper
             } while (flag == false);
             return value;
 
+        }
+        public static string IngresarString(string input)
+        {
+            string texto = "";
+            do
+            {
+                Console.WriteLine($"\r\nIngrese {input}");
+                texto = Console.ReadLine();
+                if (!ValidarHelper.IsLetter(texto))
+                {
+                    Console.WriteLine("Ingreso inválido. Por favor, ingrese solo letras");
+                }
+            } while (!ValidarHelper.IsLetter(texto));
+            return texto;
         }
 
     }

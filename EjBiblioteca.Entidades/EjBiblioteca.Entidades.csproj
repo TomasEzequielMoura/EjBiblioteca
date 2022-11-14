@@ -53,6 +53,7 @@
     <Compile Include="Exceptions\EjemplarExistente.cs" />
     <Compile Include="Exceptions\EjemplarInexistente.cs" />
     <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
+    <Compile Include="Exceptions\FechaInvalida.cs" />
     <Compile Include="Exceptions\FechaMayorActualException.cs" />
     <Compile Include="Exceptions\LibroExistente.cs" />
     <Compile Include="Exceptions\LibroInexistente.cs" />
