@@ -148,7 +148,19 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 throw new ClienteInexistente();
         }
 
-     
+        public bool ValidarClientePorId(int id)
+        {
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+            bool valida = false;
+            foreach (var item in list)
+            {
+                if (item.Id == id)
+                    valida = true;
+            }
+
+            return valida;
+        }
+
         public bool ValidarClientePorDNI(int dni)
         {
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
@@ -157,6 +169,27 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             {
                 if (item.DNI==dni)
                 valida = true;
+            }
+
+            return valida;
+        }
+
+        public bool ValidarClientePorIdMasDNI(int id, int dni)
+        {
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+            bool valida = false;
+            foreach (var item in list)
+            {
+                if (item.Id == id)
+                    if (item.DNI == dni)
+                    {
+                        valida = true;
+                    }
+                else
+                    {
+                        Console.WriteLine("El DNI ingresado no corresponde al Id de cliente que ingresado");
+                    }
+                    
             }
 
             return valida;

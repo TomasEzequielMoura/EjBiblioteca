@@ -150,8 +150,9 @@ namespace EjBiblioteca.Consola
 // validar nombre y apellido no tengan numeros - LISTO!
 // validar strings que no vayan vacios
 // corregir listado de clientes
-// celular, dni, email UNICOS
+// celular, dni, email UNICOS / DNI está, validación de formato email está
 // esperar respuesta de los profes con get por telefono
 //Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
 //Igual para la fecha real devolución
 //Posibilidad de no ingresar fecha real de devolución
+//Validé que el dni de cliente ya exista para modificar, pero debería chequear que el id cliente exista y que el dni corresponda al id cliente ingresado
