@@ -48,40 +48,42 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
         public static void AltaCliente(ClienteNegocio clienteServicio)
         {
+            
             //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
-            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
-            string nombre = InputHelper.IngresarString("el nombre del cliente");
-            string apellido = InputHelper.IngresarString("el apellido del cliente");
-            Console.WriteLine("\r\nIngrese la dirección del cliente");
-            string direccion = Console.ReadLine();
-            long telefono= InputHelper.IngresarNumero<long>("el teléfono del cliente");
-            Console.WriteLine("\r\nIngrese el mail del cliente");
-            string mail = Console.ReadLine();
-            DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
-           
-
-            bool valida = clienteServicio.ValidarClienteporDNI(dni);
-            if (!valida)
+            int dni=0;
+            int inputDNI = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            bool validaDNI = clienteServicio.ValidarClientePorDNI(inputDNI);
+            if (!validaDNI)
             {
-                Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
-
-                Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
-                string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
-
-                if (confirmacion == "S" || confirmacion == "s")
-                {
-                    clienteServicio.InsertarCliente(insertCliente);
-
-                    Console.WriteLine("\r\nNuevo cliente ingresado.\r\nResultado final:\r\n" + insertCliente.ToString());
-                }
+                dni = inputDNI;
             }
             else
             {
                 throw new ClienteYaExiste();
             }
+            string nombre = InputHelper.IngresarString("el nombre del cliente");
+            string apellido = InputHelper.IngresarString("el apellido del cliente");
+            Console.WriteLine("\r\nIngrese la dirección del cliente");
+            string direccion = Console.ReadLine();
+            long telefono= InputHelper.IngresarNumero<long>("el teléfono del cliente");
+            string mail = InputHelper.IngresarEmail("el e-mail del cliente");
+            DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
+           
+
             
+            Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
+
+            Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
+            string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                clienteServicio.InsertarCliente(insertCliente);
+
+                Console.WriteLine("\r\nNuevo cliente ingresado.\r\nResultado final:\r\n" + insertCliente.ToString());
+            }
         }
 
         //Modificación de préstamo

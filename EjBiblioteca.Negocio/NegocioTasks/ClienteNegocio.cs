@@ -149,7 +149,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         }
 
      
-        public bool ValidarClienteporDNI(int dni)
+        public bool ValidarClientePorDNI(int dni)
         {
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;

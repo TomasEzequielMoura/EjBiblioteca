@@ -134,5 +134,20 @@ namespace EjBiblioteca.Consola.ProgramHelper
             return texto;
         }
 
+        public static string IngresarEmail(string input)
+        {
+            string email = "";
+            do
+            {
+                Console.WriteLine($"\r\nIngrese {input}");
+                email = Console.ReadLine();
+                if (!ValidarHelper.IsValidEmail(email))
+                {
+                    Console.WriteLine("Ingreso inválido. Por favor, ingrese un email válido");
+                }
+            } while (!ValidarHelper.IsValidEmail(email));
+            return email;
+        }
+
     }
 }
