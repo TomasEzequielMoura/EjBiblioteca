@@ -134,6 +134,21 @@ namespace EjBiblioteca.Consola.ProgramHelper
             return texto;
         }
 
+        public static string IngresarStringYNumeros(string input)
+        {
+            string texto = "";
+            do
+            {
+                Console.WriteLine($"\r\nIngrese {input}");
+                texto = Console.ReadLine();
+                if (!ValidarHelper.EsAlfanumerico(texto))
+                {
+                    Console.WriteLine("Ingreso inválido. Por favor, ingrese solo letras y números");
+                }
+            } while (!ValidarHelper.EsAlfanumerico(texto));
+            return texto;
+        }
+
         public static string IngresarEmail(string input)
         {
             string email = "";

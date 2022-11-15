@@ -148,7 +148,7 @@ namespace EjBiblioteca.Consola
 // enum de activo y no activo en cliente
 // validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
 // validar nombre y apellido no tengan numeros - LISTO!
-// validar strings que no vayan vacios
+// validar strings que no vayan vacios - LISTO para apellido y nombre. Usar IngresarString(string input) para validar strings sin nros,caracteres, ni vacíos
 // corregir listado de clientes
 // celular, dni, email UNICOS / DNI está, validación de formato email está
 // esperar respuesta de los profes con get por telefono

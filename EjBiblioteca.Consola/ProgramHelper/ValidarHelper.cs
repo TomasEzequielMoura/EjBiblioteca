@@ -109,7 +109,30 @@ namespace EjBiblioteca.Consola
         {
             return Regex.IsMatch(input, @"^[a-zA-Z]+$");
         }
+        public static bool EsAlfanumerico(string input)
+        {
+            if (input == "")
+            {
+                Console.WriteLine("No puede dejar este campo vacío");
+                return false;
+            }
+            else
+            {
+                foreach (char c in input)
+                {
+                    if (!(c >= 'A' && c <= 'Z') &&
+                            !(c >= 'a' && c <= 'z') &&
+                            !(c >= '0' && c <= '9')&&
+                            !(c >= ' '))
+                    {
+                        return false;
+                    }
+                }
 
+                return true;
+            }
+            
+         }
 
         public static bool IsValidEmail(string email)
         {

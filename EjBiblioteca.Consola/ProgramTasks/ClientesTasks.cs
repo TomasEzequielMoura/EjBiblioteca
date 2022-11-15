@@ -65,8 +65,8 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
             string nombre = InputHelper.IngresarString("el nombre del cliente");
             string apellido = InputHelper.IngresarString("el apellido del cliente");
-            Console.WriteLine("\r\nIngrese la dirección del cliente");
-            string direccion = Console.ReadLine();
+            //Console.WriteLine("\r\nIngrese la dirección del cliente");
+            string direccion = InputHelper.IngresarStringYNumeros("la dirección del cliente");
             long telefono= InputHelper.IngresarNumero<long>("el teléfono del cliente");
             string mail = InputHelper.IngresarEmail("el e-mail del cliente");
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
