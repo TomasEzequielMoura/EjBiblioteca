@@ -156,6 +156,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorId(int id)
         {
+            if (id == null)
+                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
@@ -169,6 +171,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorDNI(int dni)
         {
+            if (dni == null)
+                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
@@ -182,6 +186,10 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorIdMasDNI(int id, int dni)
         {
+            if (dni == null)
+                return false;
+            if (id == null)
+                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
