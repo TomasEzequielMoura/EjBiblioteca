@@ -155,4 +155,4 @@ namespace EjBiblioteca.Consola
 //Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
 //Igual para la fecha real devolución
 //Posibilidad de no ingresar fecha real de devolución
-//Validé que el dni de cliente ya exista para modificar, pero debería chequear que el id cliente exista y que el dni corresponda al id cliente ingresado
+//Validar que el id de cliente ya exista para modificar - LISTO!
