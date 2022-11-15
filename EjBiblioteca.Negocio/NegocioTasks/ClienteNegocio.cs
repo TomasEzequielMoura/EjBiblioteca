@@ -59,15 +59,21 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void InsertarCliente(Cliente client)
         {
-
-            ABMResult transaction = _clienteDatos.Insertar(client);
-
-            // validar que ese ejemplar no este en un prestamo activo y exista
-            // validar que el cliente exista, hice esta validación en ClienteTask al dar de alta
-
-
-            if (!transaction.IsOk)
-                throw new Exception(transaction.Error);
+           
+        
+            //Validamos que el cliente que se quiere dar de alta no esté ya ingresado. Chequeamos por DNI
+            bool validaDNI = ValidarClientePorDNI(client.DNI);
+            if (!validaDNI)
+            {
+                ABMResult transaction = _clienteDatos.Insertar(client);
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
+            }
+            else
+            {
+                throw new ClienteYaExiste();
+            }
+                       
         }
             
         public void ActualizarCliente(Cliente cliente)

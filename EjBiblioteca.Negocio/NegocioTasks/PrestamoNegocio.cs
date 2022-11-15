@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EjBiblioteca.Datos;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Entidades.Exceptions;
+using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio.Exceptions;
 
 namespace EjBiblioteca.Negocio.NegocioTasks
@@ -12,11 +14,18 @@ namespace EjBiblioteca.Negocio.NegocioTasks
     public class PrestamoNegocio
     {
         private PrestamoDatos _prestamoDatos;
+        //private ClienteNegocio clienteServicio;
 
         public PrestamoNegocio()
         {
             _prestamoDatos = new PrestamoDatos();
         }
+        //public PrestamoNegocio()
+        //{
+        //    _prestamoDatos = new PrestamoDatos();
+        //    clienteServicio = new ClienteNegocio();
+        //}
+
 
         //TODO: Armar reporte por cliente
         //public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
@@ -37,11 +46,36 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         {
             ABMResult transaction = _prestamoDatos.Insertar(prest);
 
-            // validar que ese ejemplar no este en un prestamo activo y exista
-            // validar que el cliente exista
+           
 
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
+
+            // validar que ese ejemplar no este en un prestamo activo y exista
+            // validar que el cliente exista
+
+            //List<Cliente> list = clienteServicio.TraerClientesPorRegistro();
+
+            //bool flag = false;
+
+            //foreach (var item in list)
+            //{
+            //    if (item.Id == prest.Id)
+            //    {
+            //        flag = true;
+            //    }
+            //}
+
+            //if (flag == true)
+            //{
+            //    ABMResult transaction = _prestamoDatos.Insertar(prest);
+
+            //    if (!transaction.IsOk)
+            //        throw new Exception(transaction.Error);
+            //}
+            //else
+            //    throw new ClienteInexistente();
+
         }
 
         public void ActualizarPrestamo(Prestamo prest)

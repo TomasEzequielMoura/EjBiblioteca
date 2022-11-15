@@ -52,17 +52,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
-            int dni=0;
-            int inputDNI = InputHelper.IngresarNumero<int>("el DNI del cliente");
-            bool validaDNI = clienteServicio.ValidarClientePorDNI(inputDNI);
-            if (!validaDNI)
-            {
-                dni = inputDNI;
-            }
-            else
-            {
-                throw new ClienteYaExiste();
-            }
+            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
             string apellido = InputHelper.IngresarString("el apellido del cliente");
             string direccion = InputHelper.IngresarStringYNumeros("la dirección del cliente");
@@ -85,22 +75,10 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
         }
 
-        //Modificación de préstamo
+        //Modificación de cliente
         public static void ModificarCliente(ClienteNegocio clienteServicio)
         {
-            //validar que el cliente exista
-            int idCliente = 0;
-            int id = InputHelper.IngresarNumero<int>("el ID del cliente");
-            bool validaId = clienteServicio.ValidarClientePorId(id);
-            if (validaId)
-            {
-                idCliente = id;
-            }
-            else
-            {
-                throw new ClienteInexistente();
-            }
-
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
             int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
@@ -127,29 +105,17 @@ namespace EjBiblioteca.Consola.ProgramTasks
         public static void BajaCliente(ClienteNegocio clienteServicio)
         {
             //validar que el cliente exista
-            int idCliente = 0;
-            int id = InputHelper.IngresarNumero<int>("el ID del cliente");
-            bool validaId = clienteServicio.ValidarClientePorId(id);
-            if (validaId)
-            {
-                idCliente = id;
-            }
-            else
-            {
-                throw new ClienteInexistente();
-            }
-
-            //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
 
             Cliente deleteCliente = new Cliente(idCliente);
 
-            Console.WriteLine("\r\nCliente a dar de baja:\r\n" + deleteCliente.Id);
+            Console.WriteLine("\r\nCliente a dar de baja:\r\n" + deleteCliente.ToString());
             string confirmacion = InputHelper.confirmacionABM("préstamo", "eliminar");
 
             if (confirmacion == "S" || confirmacion == "s")
             {
                 clienteServicio.EliminarCliente(deleteCliente);
-                Console.WriteLine("\r\nCliente elimando " + deleteCliente.Id);
+                Console.WriteLine("\r\nCliente elimando " + deleteCliente.ToString());
             }
         }
 
@@ -164,18 +130,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
         public static void ModificarClientePorID(ClienteNegocio clienteServicio)
         {
-            int idCliente = 0;
-            int id = InputHelper.IngresarNumero<int>("el ID del cliente");
-            bool validaId = clienteServicio.ValidarClientePorId(id);
-            if (validaId)
-            {
-                idCliente = id;
-            }
-            else
-            {
-                throw new ClienteInexistente();
-            }
-
+            int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
             int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
