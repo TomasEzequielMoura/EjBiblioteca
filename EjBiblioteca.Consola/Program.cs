@@ -156,3 +156,4 @@ namespace EjBiblioteca.Consola
 //Igual para la fecha real devolución
 //Posibilidad de no ingresar fecha real de devolución
 //Validar que el id de cliente ya exista para modificar - LISTO!
+//Dirección sea alfanumérico - LISTO!

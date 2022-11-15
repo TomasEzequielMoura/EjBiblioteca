@@ -105,7 +105,7 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
-        public static bool IsLetter(string input)
+        public static bool EsNumero(string input)
         {
             return Regex.IsMatch(input, @"^[a-zA-Z]+$");
         }
