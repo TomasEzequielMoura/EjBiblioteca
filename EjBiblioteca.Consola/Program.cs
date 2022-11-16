@@ -70,30 +70,33 @@ namespace EjBiblioteca.Consola
                             PrestamosTasks.ListarPrestamosPorLibro(prestamoServicio);
                             break;
                         case "11":
-                            PrestamosTasks.AltaPrestamo(prestamoServicio);
+                            PrestamosTasks.ListarPrestamosPorCliente(prestamoServicio);
                             break;
                         case "12":
-                            PrestamosTasks.ModificarPrestamo(prestamoServicio);
+                            PrestamosTasks.AltaPrestamo(prestamoServicio);
                             break;
                         case "13":
-                            PrestamosTasks.BajaPrestamo(prestamoServicio);
+                            PrestamosTasks.ModificarPrestamo(prestamoServicio);
                             break;
                         case "14":
-                            ClientesTasks.ListarClientes(clienteServicio);
+                            PrestamosTasks.BajaPrestamo(prestamoServicio);
                             break;
                         case "15":
-                            ClientesTasks.AltaCliente(clienteServicio);
+                            ClientesTasks.ListarClientes(clienteServicio);
                             break;
                         case "16":
-                            ClientesTasks.ModificarCliente(clienteServicio);
+                            ClientesTasks.AltaCliente(clienteServicio);
                             break;
                         case "17":
-                            ClientesTasks.BajaCliente(clienteServicio);
+                            ClientesTasks.ModificarCliente(clienteServicio);
                             break;
                         case "18":
-                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            ClientesTasks.BajaCliente(clienteServicio);
                             break;
                         case "19":
+                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            break;
+                        case "20":
                             ClientesTasks.ModificarClientePorID(clienteServicio);
                             break;
                         case "X":
@@ -152,3 +155,6 @@ namespace EjBiblioteca.Consola
 // Validar que el id de cliente ya exista para modificar - LISTO!
 // Dirección sea alfanumérico - LISTO!
 // poner fecha de inicio de actividades y exception en base a eso - LISTO!
+// corregir reporte de prestamos por cliente fecha prestamo
+// corregir alta de prestamo: carga de fechas a la api
+// revisar el seter que sea geter

@@ -90,7 +90,7 @@ namespace EjBiblioteca.Entidades
 
         public DateTime FechaPrestamo { get => _fechaPrestamo; set => _fechaPrestamo = value; }
 
-        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa; set => _fechaDevolucionTentativa = value; }
+        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa; set => _fechaDevolucionTentativa = _fechaPrestamo.AddDays(_plazo); }
 
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
 

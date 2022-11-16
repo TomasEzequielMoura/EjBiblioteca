@@ -59,8 +59,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void InsertarCliente(Cliente client)
         {
-           
-        
             //Validamos que el cliente que se quiere dar de alta no esté ya ingresado. Chequeamos por DNI
             bool validaDNI = ValidarClientePorDNI(client.DNI);
             if (!validaDNI)

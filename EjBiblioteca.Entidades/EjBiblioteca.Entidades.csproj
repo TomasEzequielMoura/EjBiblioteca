@@ -54,6 +54,7 @@
     <Compile Include="Exceptions\EjemplarExistente.cs" />
     <Compile Include="Exceptions\EjemplarInexistente.cs" />
     <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
+    <Compile Include="Exceptions\FechaAltaException.cs" />
     <Compile Include="Exceptions\FechaAnteriorAltaPrest.cs" />
     <Compile Include="Exceptions\FechaInvalida.cs" />
     <Compile Include="Exceptions\FechaMayorActualException.cs" />

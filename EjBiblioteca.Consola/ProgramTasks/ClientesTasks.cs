@@ -49,18 +49,12 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
         public static void AltaCliente(ClienteNegocio clienteServicio)
         {
-            
-            //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
-            //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
-           
-
             Console.WriteLine("\r\nLos estados válidos para cliente son:");
             Console.WriteLine($"{(ActivoNoActivo.StatusCliente)0} = 0,\r\n" +
                 $"{(ActivoNoActivo.StatusCliente)1} = 1"
-                
               );
             bool activo = InputHelper.IngresarStatus("el status del cliente");
-            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            int dni = InputHelper.IngresarDNI("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
             string apellido = InputHelper.IngresarString("el apellido del cliente");
             string direccion = InputHelper.IngresarStringYNumeros("la dirección del cliente");
@@ -85,8 +79,12 @@ namespace EjBiblioteca.Consola.ProgramTasks
         public static void ModificarCliente(ClienteNegocio clienteServicio)
         {
             int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
+            Console.WriteLine("\r\nLos estados válidos para cliente son:");
+            Console.WriteLine($"{(ActivoNoActivo.StatusCliente)0} = 0,\r\n" +
+                $"{(ActivoNoActivo.StatusCliente)1} = 1"
+              );
             bool activo = InputHelper.IngresarStatus("el status del cliente");
-            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            int dni = InputHelper.IngresarDNI("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
             string apellido = InputHelper.IngresarString("el apellido del cliente");
             string direccion = InputHelper.IngresarStringYNumeros("la dirección del cliente");
@@ -138,7 +136,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
         {
             int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             bool activo = InputHelper.IngresarStatus("el status del cliente");
-            int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
+            int dni = InputHelper.IngresarDNI("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");
             string apellido = InputHelper.IngresarString("el apellido del cliente");
             string direccion = InputHelper.IngresarStringYNumeros("la dirección del cliente");
@@ -158,5 +156,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 Console.WriteLine("\r\nCliente " + idCliente + " modificado!\r\n\r\nResultado final:\r\n" + modificarCliente.ToString());
             }
         }
+
+
     }
 }

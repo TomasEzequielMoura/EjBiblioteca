@@ -105,13 +105,40 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.Id.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                 }
                 OutputHelper.PrintLine();
             }
             else
             {
                 Console.WriteLine("\r\nNo se ha encontrado ningun préstamo para el ID: " + idLibro);
+            }
+        }
+
+        public static void ListarPrestamosPorCliente(PrestamoNegocio prestamoServicio)
+        {
+            int idCliente = InputHelper.IngresarNumero<int>("el numero del cliente");
+
+            List<Prestamo> list = prestamoServicio.TraerTodosPrestamosPorCliente(idCliente);
+
+            var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
+
+            OutputHelper.PrintLine();
+            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
+            OutputHelper.PrintLine();
+
+            if (list.Count > 0)
+            {
+                foreach (var item in listaOrdenadaPorId)
+                {
+                    OutputHelper.PrintLine();
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                }
+                OutputHelper.PrintLine();
+            }
+            else
+            {
+                Console.WriteLine("\r\nNo se ha encontrado ningun préstamo para el ID: " + idCliente);
             }
         }
 

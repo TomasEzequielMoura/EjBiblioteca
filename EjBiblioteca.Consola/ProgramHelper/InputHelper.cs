@@ -72,6 +72,26 @@ namespace EjBiblioteca.Consola.ProgramHelper
             }
         }
 
+        public static int IngresarDNI(string input)
+        {
+            bool flagValidacion = false;
+            int dni;
+            do
+            {
+                dni = IngresarNumero<int>(input);
+                if (dni.ToString().Length > 8 || dni.ToString().Length < 7)
+                {
+                    Console.WriteLine("ERROR. El DNI debe ser de 7 u 8 caracteres");
+                }
+                else {
+                    flagValidacion = true;
+                }
+
+            } while (flagValidacion == false);
+
+            return dni;
+        }
+
         public static string confirmacionABM(string aValidar, string accion)
         {
             string value;
@@ -96,7 +116,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
             bool value = false;
             do
             {
-                Console.WriteLine("\r\nIngrese el status del cliente");
+                Console.WriteLine("\r\nIngrese 1 para activo o 0 para inactivo");
                 string valor = Console.ReadLine();
                 if (valor == "1")
                 { 

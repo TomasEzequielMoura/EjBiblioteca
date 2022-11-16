@@ -14,18 +14,13 @@ namespace EjBiblioteca.Negocio.NegocioTasks
     public class PrestamoNegocio
     {
         private PrestamoDatos _prestamoDatos;
-        //private ClienteNegocio clienteServicio;
+        //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
+        DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
 
         public PrestamoNegocio()
         {
             _prestamoDatos = new PrestamoDatos();
         }
-        //public PrestamoNegocio()
-        //{
-        //    _prestamoDatos = new PrestamoDatos();
-        //    clienteServicio = new ClienteNegocio();
-        //}
-
 
         //TODO: Armar reporte por cliente
         //public List<Prestamo> TraerPrestamosPorCliente(int idCliente)
@@ -44,20 +39,18 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void InsertarPrestamo(Prestamo prest)
         {
-            //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
-            DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
-
-            if (prest.FechaPrestamo<fechaInicioAct)
+            if (prest.FechaPrestamo < fechaInicioAct)
             {
-                throw new FechaInvalida();
+                throw new FechaAltaException();
+            }
+            else
+            {
+                ABMResult transaction = _prestamoDatos.Insertar(prest);
+
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
             }
 
-            ABMResult transaction = _prestamoDatos.Insertar(prest);
-
-           
-
-            if (!transaction.IsOk)
-                throw new Exception(transaction.Error);
 
             // validar que ese ejemplar no este en un prestamo activo y exista
             // validar que el cliente exista
@@ -88,42 +81,38 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void ActualizarPrestamo(Prestamo prest)
         {
-            //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
-            DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
 
             if (prest.FechaPrestamo < fechaInicioAct)
             {
-                throw new FechaInvalida();
+                throw new FechaAltaException();
             }
-            if (prest.FechaDevolucionReal<prest.FechaPrestamo)
+            if (prest.FechaDevolucionReal < prest.FechaPrestamo || prest.FechaDevolucionTentativa < prest.FechaPrestamo)
             {
                 throw new FechaAnteriorAltaPrest();
             }
-            if (prest.FechaDevolucionTentativa < prest.FechaPrestamo)
-            {
-                throw new FechaAnteriorAltaPrest();
-            }
-            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
+            else {
+                List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
-            bool flag = false;
+                bool flag = false;
 
-            foreach (var item in list)
-            {
-                if (item.Id == prest.Id)
+                foreach (var item in list)
                 {
-                    flag = true;
+                    if (item.Id == prest.Id)
+                    {
+                        flag = true;
+                    }
                 }
-            }
 
-            if (flag == true)
-            {
-                ABMResult transaction = _prestamoDatos.Actualizar(prest);
+                if (flag == true)
+                {
+                    ABMResult transaction = _prestamoDatos.Actualizar(prest);
 
-                if (!transaction.IsOk)
-                    throw new Exception(transaction.Error);
+                    if (!transaction.IsOk)
+                        throw new Exception(transaction.Error);
+                }
+                else
+                    throw new PrestamoInexistente();
             }
-            else
-                throw new PrestamoInexistente();
         }
 
         public void EliminarPrestamo(Prestamo prest)
@@ -157,6 +146,23 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             // TODO: MUCHAS VALIDACIONES
             return listPrestamoPorLibro;
+        }
+
+        public List<Prestamo> TraerTodosPrestamosPorCliente(int idCliente)
+        {
+            List<Prestamo> listPrestamo = _prestamoDatos.TraerTodosPrestamos();
+
+            List<Prestamo> listPrestamoPorCliente = new List<Prestamo>();
+
+            foreach (var itemPrestamo in listPrestamo)
+            {
+                if (itemPrestamo.IdCliente == idCliente)
+                {
+                    listPrestamoPorCliente.Add(itemPrestamo);
+                }
+            }
+            // TODO: MUCHAS VALIDACIONES
+            return listPrestamoPorCliente;
         }
 
         public List<Prestamo> TraerPrestamosPorCliente()
