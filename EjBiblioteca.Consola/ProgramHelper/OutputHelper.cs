@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Consola.ProgramHelper
 {
-    public class OutputHelper
+    public static class OutputHelper
     {
         public static void PrintLine()
         {
-            Console.WriteLine(new string('-', 150));
+            Console.WriteLine(new string('-', 180));
         }
 
         public static void PrintRow(params string[] columns)
         {
-            int width = (150 - columns.Length) / columns.Length;
+            int width = (180 - columns.Length) / columns.Length;
             string row = "|";
             foreach (string column in columns)
             {
@@ -27,7 +27,13 @@ namespace EjBiblioteca.Consola.ProgramHelper
 
         private static string AlignCentre(string text, int width)
         {
-            if (text == null) return ("         --         ");
+            if (text == null) {
+                string textVacio = "--";
+                string esaciosDerecha = textVacio.PadRight((width+3)/2);
+                string esaciosIzquierda = esaciosDerecha.PadLeft(width);
+
+                return esaciosIzquierda;    
+            }
             else
             {
                 text = text.Length > width ? text.Substring(0, width - 3) + "..." : text;

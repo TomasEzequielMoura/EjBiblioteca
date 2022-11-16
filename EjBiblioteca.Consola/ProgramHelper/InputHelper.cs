@@ -58,10 +58,9 @@ namespace EjBiblioteca.Consola.ProgramHelper
 
         public static DateTime IngresarFechaPasoAPaso(string input)
         {
-           
-                int dia = IngresarNumero<int>($"el día {input}");
-                int mes = IngresarNumero<int>($"el mes {input}");
-                int anio = IngresarNumero<int>($"el año {input}");
+            int dia = IngresarNumero<int>($"el día{input}");
+            int mes = IngresarNumero<int>($"el mes{input}");
+            int anio = IngresarNumero<int>($"el año{input}");
             try
             {
                 DateTime fecha = new DateTime(anio, mes, dia);
@@ -69,11 +68,8 @@ namespace EjBiblioteca.Consola.ProgramHelper
             }
             catch (Exception)
             {
-
                 throw new FechaInvalida();
             }
-                
-                
         }
 
         public static string confirmacionABM(string aValidar, string accion)

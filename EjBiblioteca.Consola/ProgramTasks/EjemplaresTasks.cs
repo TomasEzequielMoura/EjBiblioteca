@@ -77,8 +77,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
         public static void AltaEjemplar(EjemplarNegocio ejemplarServicio)
         {
             int idLibro = InputHelper.IngresarNumero<int>("el ID del libro");
-            Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
-            string observaciones = Console.ReadLine();
+            string observaciones = InputHelper.IngresarStringYNumeros("las observaciones del ejemplar");
             double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
             DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del ejemplar");
 
@@ -98,10 +97,8 @@ namespace EjBiblioteca.Consola.ProgramTasks
         public static void ModificarEjemplar(EjemplarNegocio ejemplarServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del ejemplar");
-            Console.WriteLine("\r\nIngrese las observaciones del ejemplar");
-            string observaciones = Console.ReadLine();
+            string observaciones = InputHelper.IngresarStringYNumeros("las observaciones del ejemplar");
             double precio = InputHelper.IngresarNumero<double>("el precio del ejemplar");
-
             Ejemplar modificarEjemplar = new Ejemplar(id, observaciones, precio);
 
             Console.WriteLine("\r\nEjemplar cargado:\r\n" + modificarEjemplar.ToString());

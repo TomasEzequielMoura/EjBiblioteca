@@ -123,23 +123,17 @@ namespace EjBiblioteca.Consola
 
 
 // TODO GENERAL
-//-Exceptions en Capa de entidades 
+//-Exceptions en Capa de entidades - LISTO!
 //- .ToString("$ 0.00") en precio - LISTO!
-//- ver como usar enum para los temas {(TipoTarjetaEnum)this.Tipo }
-//-     public enum TipoTarjetaEnum
-//{
-//    SELECCIONE = 0, VISA = 1, MASTER = 2, AMEX = 3
-//}
 
-
-//- Dropdown de temas
+//- Dropdown de temas - LISTO!
 //- Calcular y mostar:
 //	+cantidad de prestamos por persona promedio
 //	+ precio promedio de ejemplar
-// + pattern validar mail
+// + pattern validar mail - LISTO!
 
 //Posibles validaciones (Se hacen en la capa de negocio):
-// precio minimo y precio maximo
+// precio minimo y precio maximo - LISTO!
 // el cliente debe existir para asignarle un prestamo
 // Podriamos hacer que no se permitan cargar libros de determinados temas o editoriales
 // Limite de cantidad de prestamos por persona
@@ -149,11 +143,12 @@ namespace EjBiblioteca.Consola
 // validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
 // validar nombre y apellido no tengan numeros - LISTO!
 // validar strings que no vayan vacios - LISTO para apellido y nombre. Usar IngresarString(string input) para validar strings sin nros,caracteres, ni vacíos
-// corregir listado de clientes
+// corregir listado de clientes - LISTO!
 // celular, dni, email UNICOS / DNI está, validación de formato email está
-// esperar respuesta de los profes con get por telefono
-//Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
-//Igual para la fecha real devolución
-//Posibilidad de no ingresar fecha real de devolución
-//Validar que el id de cliente ya exista para modificar - LISTO!
-//Dirección sea alfanumérico - LISTO!
+// cuando da telefono error 500 (Cliente), armar excpetion
+// Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
+// Igual para la fecha real devolución
+// Posibilidad de no ingresar fecha real de devolución
+// Validar que el id de cliente ya exista para modificar - LISTO!
+// Dirección sea alfanumérico - LISTO!
+// poner fecha de inicio de actividades y exception en base a eso

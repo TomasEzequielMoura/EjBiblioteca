@@ -60,8 +60,6 @@ namespace EjBiblioteca.Consola.ProgramTasks
             string mail = InputHelper.IngresarEmail("el e-mail del cliente");
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
            
-
-            
             Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
 
             Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());

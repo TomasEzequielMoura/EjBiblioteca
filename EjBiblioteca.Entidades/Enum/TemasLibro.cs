@@ -10,7 +10,7 @@ namespace EjBiblioteca.Negocio.Enum
     {
         public enum Tema
         {
-            Científicos,
+            Científicos = 1,
             Biografías,
             Monografías,
             Recreativos,

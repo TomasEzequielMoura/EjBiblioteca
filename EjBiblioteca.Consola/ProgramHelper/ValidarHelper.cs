@@ -116,30 +116,17 @@ namespace EjBiblioteca.Consola
                 Console.WriteLine("No puede dejar este campo vacío");
                 return false;
             }
-            else
-            {
-                foreach (char c in input)
-                {
-                    if (!(c >= 'A' && c <= 'Z') &&
-                            !(c >= 'a' && c <= 'z') &&
-                            !(c >= '0' && c <= '9')&&
-                            !(c >= ' '))
-                    {
-                        return false;
-                    }
-                }
-
+            if (input.All(x => char.IsLetterOrDigit(x) || char.IsWhiteSpace(x)))
                 return true;
-            }
-            
-         }
+            else 
+                return false;
+        }
 
         public static bool IsValidEmail(string email)
         {
             //para una validación muy simple sería así:
             //return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
             //lo siguiente valida dominio tmb
-
 
             if (string.IsNullOrWhiteSpace(email))
                 return false;
@@ -180,7 +167,5 @@ namespace EjBiblioteca.Consola
                 return false;
             }
         }
-
-
     }
 }

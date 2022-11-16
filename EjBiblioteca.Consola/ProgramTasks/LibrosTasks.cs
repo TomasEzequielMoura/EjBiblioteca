@@ -1,6 +1,7 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
+using EjBiblioteca.Negocio.Enum;
 using EjBiblioteca.Negocio.Exceptions;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
@@ -37,25 +38,42 @@ namespace EjBiblioteca.Consola.ProgramTasks
         // instertamos el libro que estamos cargando TODO: validadores
         public static void AltaLibro(LibroNegocio libroServicio)
         {
+
             Console.WriteLine("\r\nIngrese el titulo del Libro");
             string titulo = Console.ReadLine();
-            Console.WriteLine("\r\nIngrese el autor del Libro");
-            string autor = Console.ReadLine();
+            string autor = InputHelper.IngresarStringYNumeros("el autor del Libro");
             int edicion = InputHelper.IngresarNumero<int>("la edición del libro");
-            Console.WriteLine("\r\nIngrese la editorial del Libro");
-            string editorial = Console.ReadLine();
+            string editorial = InputHelper.IngresarStringYNumeros("la editorial del Libro");
             int paginas = InputHelper.IngresarNumero<int>("la cantidad de paginas del libro");
-            Console.WriteLine("\r\nIngrese el tema del Libro");
-            string tema = Console.ReadLine();
 
-            Libro insertLibro = new Libro(titulo, autor, edicion, editorial, paginas, tema);
+            Console.WriteLine("\r\nA continuación, se muestran los temas que le puede asignar a su libro");
+            Console.WriteLine($"{(TemasLibro.Tema)1} = 1,\r\n" +
+                $"{(TemasLibro.Tema)2} = 2,\r\n" +
+                $"{(TemasLibro.Tema)3} = 3,\r\n" +
+                $"{(TemasLibro.Tema)4} = 4,\r\n" +
+                $"{(TemasLibro.Tema)5} = 5,\r\n" +
+                $"{(TemasLibro.Tema)6} = 6,\r\n" +
+                $"{(TemasLibro.Tema)7} = 7,\r\n" +
+                $"{(TemasLibro.Tema)8} = 8"
+              );
 
-            Console.WriteLine("Libro cargado:\r\n" + insertLibro.ToString());
+            int tema;
+
+            do
+            {
+                tema = InputHelper.IngresarNumero<int>("el número que corresponda al tema del libro");
+
+                if (tema < 1 || tema > (Enum.GetNames(typeof(TemasLibro.Tema)).Length))
+                    Console.WriteLine("\r\nEl numero ingresado no corresponde con las opciones mostradas");
+            } while (tema < 1 || tema > Enum.GetNames(typeof(TemasLibro.Tema)).Length);
+
+            Libro insertLibro = new Libro(titulo, autor, edicion, editorial, paginas, Enum.GetName(typeof(TemasLibro.Tema), tema));
+
+            Console.WriteLine("\r\nLibro cargado:\r\n" + insertLibro.ToString());
             string confirmacion = InputHelper.confirmacionABM("libro", "insertar");
 
             if (confirmacion == "S" || confirmacion == "s") {
                 libroServicio.InsertarLibro(insertLibro);
-
                 Console.WriteLine("\r\nLibro Insertado!\r\nResultado final:\r\n" + insertLibro.ToString());
             }
         }
