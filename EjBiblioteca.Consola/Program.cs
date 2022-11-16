@@ -139,7 +139,7 @@ namespace EjBiblioteca.Consola
 // Limite de cantidad de prestamos por persona
 // tostring mas lindo de cliente
 // revisar todos los textos
-// enum de activo y no activo en cliente
+// enum de activo y no activo en cliente - LISTO!
 // validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
 // validar nombre y apellido no tengan numeros - LISTO!
 // validar strings que no vayan vacios - LISTO para apellido y nombre. Usar IngresarString(string input) para validar strings sin nros,caracteres, ni vacíos

@@ -1,5 +1,6 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Entidades.Enum;
 using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio.NegocioTasks;
@@ -51,6 +52,13 @@ namespace EjBiblioteca.Consola.ProgramTasks
             
             //int idCliente = InputHelper.IngresarNumero<int>("el ID del cliente");
             //DateTime fechaAlta = InputHelper.IngresarFechaPasoAPaso(" de alta del cliente");
+           
+
+            Console.WriteLine("\r\nLos estados válidos para cliente son:");
+            Console.WriteLine($"{(ActivoNoActivo.StatusCliente)0} = 0,\r\n" +
+                $"{(ActivoNoActivo.StatusCliente)1} = 1"
+                
+              );
             bool activo = InputHelper.IngresarStatus("el status del cliente");
             int dni = InputHelper.IngresarNumero<int>("el DNI del cliente");
             string nombre = InputHelper.IngresarString("el nombre del cliente");

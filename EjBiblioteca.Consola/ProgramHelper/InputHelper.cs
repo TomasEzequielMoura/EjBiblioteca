@@ -96,7 +96,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
             bool value = false;
             do
             {
-                Console.WriteLine("\r\nIngrese 1 para activo o 0 para inactivo");
+                Console.WriteLine("\r\nIngrese el status del cliente");
                 string valor = Console.ReadLine();
                 if (valor == "1")
                 { 
