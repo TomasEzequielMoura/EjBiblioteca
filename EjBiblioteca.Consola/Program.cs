@@ -146,9 +146,9 @@ namespace EjBiblioteca.Consola
 // corregir listado de clientes - LISTO!
 // celular, dni, email UNICOS / DNI está, validación de formato email está
 // cuando da telefono error 500 (Cliente), armar excpetion
-// Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta.
-// Igual para la fecha real devolución
+// Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta. - LISTO!
+// Igual para la fecha real devolución - LISTO!
 // Posibilidad de no ingresar fecha real de devolución
 // Validar que el id de cliente ya exista para modificar - LISTO!
 // Dirección sea alfanumérico - LISTO!
-// poner fecha de inicio de actividades y exception en base a eso
+// poner fecha de inicio de actividades y exception en base a eso - LISTO!

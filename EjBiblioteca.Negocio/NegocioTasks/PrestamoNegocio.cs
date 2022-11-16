@@ -44,6 +44,14 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void InsertarPrestamo(Prestamo prest)
         {
+            //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
+            DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
+
+            if (prest.FechaPrestamo<fechaInicioAct)
+            {
+                throw new FechaInvalida();
+            }
+
             ABMResult transaction = _prestamoDatos.Insertar(prest);
 
            
@@ -80,6 +88,21 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void ActualizarPrestamo(Prestamo prest)
         {
+            //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
+            DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
+
+            if (prest.FechaPrestamo < fechaInicioAct)
+            {
+                throw new FechaInvalida();
+            }
+            if (prest.FechaDevolucionReal<prest.FechaPrestamo)
+            {
+                throw new FechaAnteriorAltaPrest();
+            }
+            if (prest.FechaDevolucionTentativa < prest.FechaPrestamo)
+            {
+                throw new FechaAnteriorAltaPrest();
+            }
             List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
             bool flag = false;

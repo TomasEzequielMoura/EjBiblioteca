@@ -80,6 +80,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         {
             List<Cliente> list = TraerClientesPorRegistro();
 
+            
+
             bool flag = false;
 
             foreach (var item in list)
