@@ -64,7 +64,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 throw new TelefonoNoExisteException();
                 //meter exception
             }
-            
         }
 
         public void InsertarCliente(Cliente client)
@@ -80,15 +79,12 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else
             {
                 throw new ClienteYaExisteException();
-            }
-                       
+            }  
         }
             
         public void ActualizarCliente(Cliente cliente)
         {
             List<Cliente> list = TraerClientesPorRegistro();
-
-            
 
             bool flag = false;
 
