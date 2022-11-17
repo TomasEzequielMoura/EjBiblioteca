@@ -117,12 +117,28 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void EliminarPrestamo(Prestamo prest)
         {
-            ABMResult transaction = _prestamoDatos.Eliminar(prest);
+           //validamos que el préstamo exista
+            List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
-            // validar que ese prestamo exista
+            bool flag = false;
 
-            if (!transaction.IsOk)
-                throw new Exception(transaction.Error);
+            foreach (var item in list)
+            {
+                if (item.Id == prest.Id)
+                {
+                    flag = true;
+                }
+            }
+
+            if (flag == true)
+            {
+                ABMResult transaction = _prestamoDatos.Eliminar(prest);
+
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
+            }
+            else
+                throw new PrestamoInexistente();
         }
 
         public List<Prestamo> TraerTodosPrestamosPorLibro(int idLibro)
