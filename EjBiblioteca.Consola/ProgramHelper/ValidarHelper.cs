@@ -113,7 +113,6 @@ namespace EjBiblioteca.Consola
         {
             if (input == "")
             {
-                Console.WriteLine("No puede dejar este campo vacío");
                 return false;
             }
             if (input.All(x => char.IsLetterOrDigit(x) || char.IsWhiteSpace(x)))

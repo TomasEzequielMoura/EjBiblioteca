@@ -79,24 +79,27 @@ namespace EjBiblioteca.Consola
                             PrestamosTasks.ModificarPrestamo(prestamoServicio);
                             break;
                         case "14":
-                            PrestamosTasks.BajaPrestamo(prestamoServicio);
+                            PrestamosTasks.CerrarPrestamo(prestamoServicio);
                             break;
                         case "15":
-                            ClientesTasks.ListarClientes(clienteServicio);
+                            PrestamosTasks.BajaPrestamo(prestamoServicio);
                             break;
                         case "16":
-                            ClientesTasks.AltaCliente(clienteServicio);
+                            ClientesTasks.ListarClientes(clienteServicio);
                             break;
                         case "17":
-                            ClientesTasks.ModificarCliente(clienteServicio);
+                            ClientesTasks.AltaCliente(clienteServicio);
                             break;
                         case "18":
-                            ClientesTasks.BajaCliente(clienteServicio);
+                            ClientesTasks.ModificarCliente(clienteServicio);
                             break;
                         case "19":
-                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            ClientesTasks.BajaCliente(clienteServicio);
                             break;
                         case "20":
+                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            break;
+                        case "21":
                             ClientesTasks.ModificarClientePorID(clienteServicio);
                             break;
                         case "X":
@@ -112,7 +115,7 @@ namespace EjBiblioteca.Consola
                 catch (ErrorAlHacerTareaException ex)
                 {
                     Console.WriteLine("\r\n" + ex.Message);
-                    Console.WriteLine("\r\nVuelva a elegir otra opción");
+                    Console.WriteLine("\r\nVuelva a intentar otra opción");
                 }
                 catch (Exception ex)
                 {
@@ -128,17 +131,12 @@ namespace EjBiblioteca.Consola
 // TODO GENERAL (PENDIENTES)
 
 //- Calcular y mostar:
-//	+cantidad de prestamos por persona promedio
+//	+ cantidad de prestamos por persona promedio
 //	+ precio promedio de ejemplar
 
 //Posibles validaciones (Se hacen en la capa de negocio):
 // celular, email UNICOS 
-// el cliente debe existir para asignarle un prestamo
-// Podriamos hacer que no se permitan cargar libros de determinados temas o editoriales
-// Limite de cantidad de prestamos por persona
-// tostring mas lindo de cliente
 // revisar todos los textos
-
 
 
 //LISTA DE TAREAS HECHAS:
@@ -166,3 +164,8 @@ namespace EjBiblioteca.Consola
 //-Exceptions en Capa de entidades - LISTO!
 //- .ToString("$ 0.00") en precio - LISTO!
 // validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
+// regla de negocio: un mismo cliente no puede tener mas de 5 prestamos LISTO!
+// no se pueda dar el mismo ejemplar en dos prestamos LISTO!
+// el cliente debe existir para asignarle un prestamo LISTO!
+// Limite de cantidad de prestamos por persona LISTO!
+// tostring mas lindo de cliente LISTO!

@@ -59,8 +59,19 @@ namespace EjBiblioteca.Consola.ProgramHelper
         public static DateTime IngresarFechaPasoAPaso(string input)
         {
             int dia = IngresarNumero<int>($"el día{input}");
+
+            if (dia > 31) {
+                throw new FechaInvalidaException();
+            }
+
             int mes = IngresarNumero<int>($"el mes{input}");
+            if (mes > 12)
+            {
+                throw new FechaInvalidaException();
+            }
+
             int anio = IngresarNumero<int>($"el año{input}");
+
             try
             {
                 DateTime fecha = new DateTime(anio, mes, dia);
@@ -68,7 +79,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
             }
             catch (Exception)
             {
-                throw new FechaInvalida();
+                throw new FechaInvalidaException();
             }
         }
 
@@ -159,7 +170,7 @@ namespace EjBiblioteca.Consola.ProgramHelper
                 texto = Console.ReadLine();
                 if (!ValidarHelper.EsAlfanumerico(texto))
                 {
-                    Console.WriteLine("Ingreso inválido. Por favor, ingrese solo letras y números");
+                    Console.WriteLine("Ingreso inválido. Por favor, el campo debe tener al menos un caracter y solo letras y números");
                 }
             } while (!ValidarHelper.EsAlfanumerico(texto));
             return texto;

@@ -30,7 +30,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 return list;
             }
             else
-                throw new NoExistenClientes();
+                throw new NoExistenClientesException();
         }
 
         public List<Cliente> TraerClientesPorRegistro()
@@ -42,7 +42,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 return list;
             }
             else
-                throw new NoExistenClientes();
+                throw new NoExistenClientesException();
         }
 
         public Cliente TraerClientePorTelefono(long telefono)
@@ -57,11 +57,11 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     return cliente;
                 }
                 else
-                    throw new NoExistenClientes();
+                    throw new NoExistenClientesException();
             }
             else
             {
-                throw new TelefonoNoExiste();
+                throw new TelefonoNoExisteException();
                 //meter exception
             }
             
@@ -79,7 +79,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             else
             {
-                throw new ClienteYaExiste();
+                throw new ClienteYaExisteException();
             }
                        
         }
@@ -108,7 +108,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     throw new Exception(transaction.Error);
             }
             else
-                throw new ClienteInexistente();
+                throw new ClienteInexistenteException();
         }
 
         public void ActualizarClientePorID(Cliente cliente)
@@ -133,7 +133,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     throw new Exception(transaction.Error);
             }
             else
-                throw new ClienteInexistente();
+                throw new ClienteInexistenteException();
         }
 
         public void EliminarCliente(Cliente cliente)
@@ -161,7 +161,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     throw new Exception(transaction.Error);
             }
             else
-                throw new ClienteInexistente();
+                throw new ClienteInexistenteException();
         }
 
         public bool ValidarClientePorId(int id)

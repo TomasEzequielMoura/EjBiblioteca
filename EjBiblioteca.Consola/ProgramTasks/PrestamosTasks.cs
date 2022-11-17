@@ -19,9 +19,8 @@ namespace EjBiblioteca.Consola.ProgramTasks
             var listaOrdenadaPorId = listPrestamos.OrderBy(x => x.Id).ToList();
 
             Console.WriteLine("\r\nLista de Préstamos:");
-
             OutputHelper.PrintLine();
-            OutputHelper.PrintRow("ID Préstamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Préstamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
+            OutputHelper.PrintRow("ID Préstamo", "ID Cliente", "ID Ejemplar", "Plazo", "Abierto", "Fecha Préstamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
             OutputHelper.PrintLine();
 
             if (listPrestamos.Count > 0)
@@ -29,7 +28,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString() , item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                     OutputHelper.PrintLine();
                 }
             }
@@ -37,7 +36,6 @@ namespace EjBiblioteca.Consola.ProgramTasks
             {
                 Console.WriteLine("\r\nNo se han encontrado préstamos");
             }
-
         }
 
         //Dar de alta un préstamo
@@ -49,8 +47,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
             DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso(" de alta del préstamo");
 
-            Prestamo insertPrestamo = new Prestamo(idCliente, idEjemplar, plazo, fechaPrestamo);
-
+            Prestamo insertPrestamo = new Prestamo(idCliente, idEjemplar, plazo, true, fechaPrestamo);
             Console.WriteLine("\r\nPréstamo nuevo cargado:\r\n" + insertPrestamo.ToString());
             string confirmacion = InputHelper.confirmacionABM("préstamo", "insertar");
 
@@ -71,19 +68,31 @@ namespace EjBiblioteca.Consola.ProgramTasks
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
             DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso(" de alta del préstamo");
             //DateTime fechaDevolucionTentativa = InputHelper.IngresarFechaPasoAPaso(" de devolución tentativa del préstamo");
-            DateTime fechaDevolucionReal = InputHelper.IngresarFechaPasoAPaso(" de devolución real del préstamo");
+            //DateTime fechaDevolucionReal = InputHelper.IngresarFechaPasoAPaso(" de devolución real del préstamo");
 
-            Prestamo modificarPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, fechaPrestamo, fechaDevolucionReal);
+            Prestamo modificarPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, true, fechaPrestamo);
 
             Console.WriteLine("\r\nPréstamo nuevo cargado:\r\n" + modificarPrestamo.ToString());
             string confirmacion = InputHelper.confirmacionABM("préstamo", "actualizar");
-
-            
             if (confirmacion == "S" || confirmacion == "s")
             {
                 prestamoServicio.ActualizarPrestamo(modificarPrestamo);
 
                 Console.WriteLine("\r\nPréstamo " + id + " modificado!\r\n\r\nResultado final:\r\n" + modificarPrestamo.ToString());
+            }
+        }
+
+        public static void CerrarPrestamo(PrestamoNegocio prestamoServicio)
+        {
+            int id = InputHelper.IngresarNumero<int>("el ID del préstamo");
+            DateTime now = DateTime.Now;
+
+            string confirmacion = InputHelper.confirmacionABM("préstamo", "cerrar");
+
+            if (confirmacion == "S" || confirmacion == "s")
+            {
+                prestamoServicio.CambiarEstadoPrestamo(id, now);
+                Console.WriteLine("\r\nPréstamo " + id + " cerrado");
             }
         }
 
@@ -97,7 +106,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
             OutputHelper.PrintLine();
-            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
+            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Abierto", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
             OutputHelper.PrintLine();
 
             if (list.Count > 0)
@@ -105,7 +114,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                 }
                 OutputHelper.PrintLine();
             }
@@ -124,7 +133,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             var listaOrdenadaPorId = list.OrderBy(x => x.Id).ToList();
 
             OutputHelper.PrintLine();
-            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
+            OutputHelper.PrintRow("ID Prestamo", "ID Cliente", "ID Ejemplar", "Plazo", "Abierto", "Fecha Prestamo", "Fecha Dev. Tentativa", "Fecha Dev. Real");
             OutputHelper.PrintLine();
 
             if (list.Count > 0)
@@ -132,7 +141,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
                 }
                 OutputHelper.PrintLine();
             }
@@ -157,5 +166,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 Console.WriteLine("\r\nPréstamo elimando " + deletePrestamo.Id);
             }
         }
+
+
     }
 }

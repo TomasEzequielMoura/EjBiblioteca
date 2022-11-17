@@ -28,7 +28,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 return list;
             }
             else
-                throw new NoExistenLibros();
+                throw new NoExistenLibrosException();
         }
 
         public void InsertarLibro(Libro libro)
@@ -60,7 +60,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             if (flag == false)
             {
-                throw new LibroInexistente();
+                throw new LibroInexistenteException();
             }
             else
                 return libro;

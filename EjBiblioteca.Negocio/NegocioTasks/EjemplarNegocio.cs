@@ -29,7 +29,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 return list;
             }
             else
-                throw new NoExistenEjemplares();
+                throw new NoExistenEjemplaresException();
         }
 
         public List<Ejemplar> TraerTodosLosEjemplaresPorLibro(int idLibro)
@@ -41,7 +41,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 return list;
             }
             else
-                throw new NoExistenEjemplares();
+                throw new NoExistenEjemplaresException();
         }
 
         public void InsertarEjemplar(Ejemplar ejem)
@@ -70,7 +70,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                         throw new Exception(transaction.Error);
                 }
                 else
-                    throw new LibroInexistente();
+                    throw new LibroInexistenteException();
             }
 
         }
@@ -102,7 +102,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                         throw new Exception(transaction.Error);
                 }
                 else
-                    throw new EjemplarInexistente();
+                    throw new EjemplarInexistenteException();
             }
         }
     }
