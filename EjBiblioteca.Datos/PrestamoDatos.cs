@@ -68,9 +68,9 @@ namespace EjBiblioteca.Datos
             n.Add("IdCliente", prestamo.IdCliente.ToString());
             n.Add("IdEjemplar", prestamo.IdEjemplar.ToString());
             n.Add("Plazo", prestamo.Plazo.ToString());
-            n.Add("FechaAlta", prestamo.FechaPrestamo.ToString("yyyy-MM-dd"));
-            n.Add("FechaBaja", prestamo.FechaDevolucionTentativa.ToString("yyyy-MM-dd"));
-            n.Add("FechaBajaReal", prestamo.FechaDevolucionReal.ToString("yyyy-MM-dd"));
+            n.Add("fechaPrestamo", prestamo.FechaPrestamo.ToString("yyyy-MM-dd"));
+            n.Add("fechaDevolucionTentativa", prestamo.FechaDevolucionTentativa.ToString("yyyy-MM-dd"));
+            n.Add("fechaDevolucionReal", prestamo.FechaDevolucionReal.ToString("yyyy-MM-dd")); //"yyyy-MM-dd"
             return n;
         }
     }

@@ -70,10 +70,10 @@ namespace EjBiblioteca.Consola.ProgramTasks
             int idEjemplar = InputHelper.IngresarNumero<int>("el ID del ejemplar");
             int plazo = InputHelper.IngresarNumero<int>("el plazo del préstamo");
             DateTime fechaPrestamo = InputHelper.IngresarFechaPasoAPaso(" de alta del préstamo");
-            DateTime fechaDevolucionTentativa = InputHelper.IngresarFechaPasoAPaso(" de devolución tentativa del préstamo");
+            //DateTime fechaDevolucionTentativa = InputHelper.IngresarFechaPasoAPaso(" de devolución tentativa del préstamo");
             DateTime fechaDevolucionReal = InputHelper.IngresarFechaPasoAPaso(" de devolución real del préstamo");
 
-            Prestamo modificarPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, fechaPrestamo, fechaDevolucionTentativa, fechaDevolucionReal);
+            Prestamo modificarPrestamo = new Prestamo(id, idCliente, idEjemplar, plazo, fechaPrestamo, fechaDevolucionReal);
 
             Console.WriteLine("\r\nPréstamo nuevo cargado:\r\n" + modificarPrestamo.ToString());
             string confirmacion = InputHelper.confirmacionABM("préstamo", "actualizar");

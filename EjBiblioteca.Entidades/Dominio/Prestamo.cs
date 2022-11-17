@@ -60,24 +60,15 @@ namespace EjBiblioteca.Entidades
             _fechaPrestamo = alta;
 
         }
-        public Prestamo(int id, int cliente, int ejemplar, int plazo, DateTime alta, DateTime baja)
+        
+        public Prestamo(int id, int cliente, int ejemplar, int plazo, DateTime alta, DateTime bajaReal)
         {
             _id = id;
             _idCliente = cliente;
             _idEjemplar = ejemplar;
             _plazo = plazo;
             _fechaPrestamo = alta;
-            _fechaDevolucionTentativa = baja;
-        }
-
-        public Prestamo(int id, int cliente, int ejemplar, int plazo, DateTime alta, DateTime baja, DateTime bajaReal)
-        {
-            _id = id;
-            _idCliente = cliente;
-            _idEjemplar = ejemplar;
-            _plazo = plazo;
-            _fechaPrestamo = alta;
-            _fechaDevolucionTentativa = baja;
+           
             _fechaDevolucionReal = bajaReal;
         }
         public int Id { get => _id; set => _id = value; }
@@ -90,14 +81,14 @@ namespace EjBiblioteca.Entidades
 
         public DateTime FechaPrestamo { get => _fechaPrestamo; set => _fechaPrestamo = value; }
 
-        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa; set => _fechaDevolucionTentativa = _fechaPrestamo.AddDays(_plazo); }
+        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa = _fechaPrestamo.AddDays(double.Parse(_plazo.ToString())); set => _fechaDevolucionTentativa = _fechaPrestamo.AddDays(double.Parse(_plazo.ToString())); }
 
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
 
         public override string ToString()
         {
             return "Id Préstamo: "+this.Id + "\r\nId cliente: " + this.IdCliente + "\r\nId Ejemplar: " + this.IdEjemplar + "\r\nDías de préstamo: " + this.Plazo + "\r\nFecha préstamo: " + this.FechaPrestamo + "\r\nFecha devolución tentativa: " + this.FechaDevolucionTentativa + "\r\nFecha devolución real: " + this.FechaDevolucionReal;
-            //return $"Titulo: {this.Titulo}\r\nAutor: {this.Autor}\r\nEdición: {this.Edicion}\r\nEditorial: {this.Editorial}\r\nPaginas: {this.Paginas}\r\nTema: {this.Tema}";
+            
         }
 
         //TODO: Metodos para la clase prestamos
