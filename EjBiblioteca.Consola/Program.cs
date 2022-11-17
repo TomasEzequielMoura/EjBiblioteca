@@ -112,12 +112,12 @@ namespace EjBiblioteca.Consola
                 catch (ErrorAlHacerTareaException ex)
                 {
                     Console.WriteLine("\r\n" + ex.Message);
-                    Console.WriteLine("\r\nVuelva a elegir otra opcion");
+                    Console.WriteLine("\r\nVuelva a elegir otra opción");
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("\r\nVolver a empezar");
-                    Console.WriteLine("\r\nOcurrio un error, intente mas tarde");
+                    Console.WriteLine("\r\nOcurrió un error, intente más tarde");
                 }
             } while (tareaARealizar.ToUpper() != "X");
         }
@@ -125,36 +125,44 @@ namespace EjBiblioteca.Consola
 }
 
 
-// TODO GENERAL
-//-Exceptions en Capa de entidades - LISTO!
-//- .ToString("$ 0.00") en precio - LISTO!
+// TODO GENERAL (PENDIENTES)
 
-//- Dropdown de temas - LISTO!
 //- Calcular y mostar:
 //	+cantidad de prestamos por persona promedio
 //	+ precio promedio de ejemplar
-// + pattern validar mail - LISTO!
 
 //Posibles validaciones (Se hacen en la capa de negocio):
-// precio minimo y precio maximo - LISTO!
+// celular, email UNICOS 
 // el cliente debe existir para asignarle un prestamo
 // Podriamos hacer que no se permitan cargar libros de determinados temas o editoriales
 // Limite de cantidad de prestamos por persona
 // tostring mas lindo de cliente
 // revisar todos los textos
-// enum de activo y no activo en cliente - LISTO!
-// validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 
-// validar nombre y apellido no tengan numeros - LISTO!
+
+
+
+//LISTA DE TAREAS HECHAS:
+
+//DNI único en cliente - LISTO!
+//Formato válido email- LISTO!
+//Formato válido DNI- LISTO!
 // validar strings que no vayan vacios - LISTO para apellido y nombre. Usar IngresarString(string input) para validar strings sin nros,caracteres, ni vacíos
+// validar nombre y apellido no tengan numeros - LISTO!
+// precio minimo y precio maximo - LISTO!
+// cuando da telefono error 500 (Cliente), armar excpetion - LISTO!
+// Posibilidad de no ingresar fecha real de devolución
+// + pattern validar mail - LISTO!
+//- Dropdown de temas - LISTO!
 // corregir listado de clientes - LISTO!
-// celular, dni, email UNICOS / DNI está, validación de formato email está
-// cuando da telefono error 500 (Cliente), armar excpetion
 // Deja ingresar cualquier fecha de devolución.Validar que sea posterior a la de alta. - LISTO!
 // Igual para la fecha real devolución - LISTO!
-// Posibilidad de no ingresar fecha real de devolución
 // Validar que el id de cliente ya exista para modificar - LISTO!
 // Dirección sea alfanumérico - LISTO!
 // poner fecha de inicio de actividades y exception en base a eso - LISTO!
-// corregir reporte de prestamos por cliente fecha prestamo
-// corregir alta de prestamo: carga de fechas a la api
-// revisar el seter que sea geter
+// corregir reporte de prestamos por cliente fecha prestamo - LISTO!
+// corregir alta de prestamo: carga de fechas a la api - LISTO!
+// revisar el seter que sea geter - LISTO!
+// enum de activo y no activo en cliente - LISTO!
+//-Exceptions en Capa de entidades - LISTO!
+//- .ToString("$ 0.00") en precio - LISTO!
+// validar año que carga / LISTO. INGRESÉ VALIDAR FECHA EN INGRESAR FECHA PASO A PASO 

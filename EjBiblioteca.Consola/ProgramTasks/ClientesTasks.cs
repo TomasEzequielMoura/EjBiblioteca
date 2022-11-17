@@ -125,7 +125,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
 
         public static void ListarClientePorTelefono(ClienteNegocio clienteServicio)
         {
-            long telefono = InputHelper.IngresarNumero<long>("el telefono del cliente");
+            long telefono = InputHelper.IngresarNumero<long>("el teléfono del cliente");
 
             Cliente Cliente = clienteServicio.TraerClientePorTelefono(telefono);
 

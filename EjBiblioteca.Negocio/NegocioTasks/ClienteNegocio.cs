@@ -47,14 +47,24 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public Cliente TraerClientePorTelefono(long telefono)
         {
-            Cliente cliente = _clienteDatos.GetClientePorTelefono(telefono);
-
-            if (cliente != null)
+            bool valida = ValidarTelefono(telefono);
+            if (valida)
             {
-                return cliente;
+                Cliente cliente = _clienteDatos.GetClientePorTelefono(telefono);
+
+                if (cliente != null)
+                {
+                    return cliente;
+                }
+                else
+                    throw new NoExistenClientes();
             }
             else
-                throw new NoExistenClientes();
+            {
+                throw new TelefonoNoExiste();
+                //meter exception
+            }
+            
         }
 
         public void InsertarCliente(Cliente client)
@@ -179,6 +189,21 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             {
                 if (item.DNI==dni)
                 valida = true;
+            }
+
+            return valida;
+        }
+
+        public bool ValidarTelefono(long tel)
+        {
+            if (tel == null)
+                return false;
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+            bool valida = false;
+            foreach (var item in list)
+            {
+                if (item.Telefono == tel)
+                    valida = true;
             }
 
             return valida;

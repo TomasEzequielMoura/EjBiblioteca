@@ -65,6 +65,7 @@
     <Compile Include="Exceptions\NoExistenLibros.cs" />
     <Compile Include="Exceptions\PrecioFueraDeRangoException.cs" />
     <Compile Include="Exceptions\PrestamoInexistente.cs" />
+    <Compile Include="Exceptions\TelefonoNoExiste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
