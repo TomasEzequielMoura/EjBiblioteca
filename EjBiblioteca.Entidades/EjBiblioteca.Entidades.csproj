@@ -52,6 +52,7 @@
     <Compile Include="Enum\TemasLibro.cs" />
     <Compile Include="Exceptions\ClienteYaExisteException.cs" />
     <Compile Include="Exceptions\ClienteInexistenteException.cs" />
+    <Compile Include="Exceptions\EdadMinimaException.cs" />
     <Compile Include="Exceptions\EjemplarEnPrestamoException.cs" />
     <Compile Include="Exceptions\EjemplarExistenteException.cs" />
     <Compile Include="Exceptions\EjemplarInexistenteException.cs" />

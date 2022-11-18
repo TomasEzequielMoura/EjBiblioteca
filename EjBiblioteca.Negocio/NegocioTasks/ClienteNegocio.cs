@@ -69,9 +69,17 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         public void InsertarCliente(Cliente client)
         {
             //Validamos que el cliente que se quiere dar de alta no esté ya ingresado. Chequeamos por DNI
+            //El cliente debe ser mayor de 12 años
+            //No se puede dar de alta con un teléfono ya registrado
+            //No se puede dar de alta con email ya registrado
+
             bool validaDNI = ValidarClientePorDNI(client.DNI);
             bool validaTel = ValidarTelefono(client.Telefono);
             bool validaEmail = ValidarEmail(client.Email);
+            if(client.FechaNacimiento>DateTime.Today.AddYears(-12))
+            {
+                throw new EdadMinimaException();
+            }
             if (validaTel)
             {
                 throw new TelefonoYaExisteException();
