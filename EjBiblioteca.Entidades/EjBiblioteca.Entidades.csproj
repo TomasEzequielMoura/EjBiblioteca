@@ -48,7 +48,6 @@
     <Compile Include="Dominio\Persona\Persona.cs" />
     <Compile Include="Dominio\Prestamo.cs" />
     <Compile Include="Enum\ActivoNoActivo.cs" />
-    <Compile Include="Enum\Estadisticas.cs" />
     <Compile Include="Enum\TemasLibro.cs" />
     <Compile Include="Exceptions\ClienteYaExisteException.cs" />
     <Compile Include="Exceptions\ClienteInexistenteException.cs" />
