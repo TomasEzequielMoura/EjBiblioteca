@@ -78,6 +78,7 @@ namespace EjBiblioteca.Entidades
             _fechaPrestamo = alta;
             _fechaDevolucionReal = bajaReal;
         }
+
         public int Id { get => _id; set => _id = value; }
         public int IdCliente { get => _idCliente; set => _idCliente = value; }
         public int IdEjemplar { get => _idEjemplar; set => _idEjemplar = value; }
@@ -93,7 +94,5 @@ namespace EjBiblioteca.Entidades
             return "Id Préstamo: "+ this.Id + "\r\nId cliente: " + this.IdCliente + "\r\nId Ejemplar: " + this.IdEjemplar + "\r\nDías de préstamo: " + this.Plazo + "\r\nAbierto: " + this.Abierto + "\r\nFecha préstamo: " + this.FechaPrestamo + "\r\nFecha devolución tentativa: " + this.FechaDevolucionTentativa + "\r\nFecha devolución real: " + this.FechaDevolucionReal;
             
         }
-
-        //TODO: Metodos para la clase prestamos
     }
 }

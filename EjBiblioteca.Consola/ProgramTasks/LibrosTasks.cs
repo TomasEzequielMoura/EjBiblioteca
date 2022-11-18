@@ -35,10 +35,8 @@ namespace EjBiblioteca.Consola.ProgramTasks
             OutputHelper.PrintLine();
         }
 
-        // instertamos el libro que estamos cargando TODO: validadores
         public static void AltaLibro(LibroNegocio libroServicio)
         {
-
             Console.WriteLine("\r\nIngrese el titulo del Libro");
             string titulo = Console.ReadLine();
             string autor = InputHelper.IngresarStringYNumeros("el autor del Libro");

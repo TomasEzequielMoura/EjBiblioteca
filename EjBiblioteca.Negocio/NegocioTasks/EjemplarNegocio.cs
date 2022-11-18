@@ -14,10 +14,12 @@ namespace EjBiblioteca.Negocio.NegocioTasks
     public class EjemplarNegocio
     {
         private EjemplarDatos _ejemplarDatos;
+        private LibroDatos _libroDatos;
 
         public EjemplarNegocio()
         {
             _ejemplarDatos = new EjemplarDatos();
+            _libroDatos = new LibroDatos();
         }
 
         public List<Ejemplar> TraerTodosEjemplares()
@@ -55,13 +57,22 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             {
                 throw new PrecioFueraDeRangoException();
             }
+
+            bool flag = false;
+            foreach (var x in _libroDatos.TraerTodos())
+            {
+                if (x.Id == ejem.IdLibro)
+                {
+                    flag = true;
+                }
+            }
+            if (!flag)
+            {
+                throw new LibroInexistenteException();
+            }
             else
             {
                 List<Ejemplar> list = _ejemplarDatos.TraerTodos();
-
-                bool flag = true;
-
-                // TODO: VALIDAR QUE EL LIBRO EXISTA
 
                 if (flag == true)
                 {
@@ -73,7 +84,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 else
                     throw new LibroInexistenteException();
             }
-
         }
 
         public void ActualizarEjemplar(Ejemplar ejem)
@@ -85,6 +95,18 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             if (ejem.Precio < 300 || ejem.Precio > 20000)
             {
                 throw new PrecioFueraDeRangoException();
+            }
+            bool flagLibro = false;
+            foreach (var x in _libroDatos.TraerTodos())
+            {
+                if (x.Id == ejem.IdLibro)
+                {
+                    flagLibro = true;
+                }
+            }
+            if (!flagLibro)
+            {
+                throw new LibroInexistenteException();
             }
 
             else {

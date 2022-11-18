@@ -15,10 +15,12 @@ namespace EjBiblioteca.Negocio.NegocioTasks
     public class ClienteNegocio
     {
         private ClienteDatos _clienteDatos;
+        private PrestamoDatos _prestamoDatos;
 
         public ClienteNegocio()
         {
             _clienteDatos = new ClienteDatos();
+            _prestamoDatos = new PrestamoDatos();
         }
 
         public List<Cliente> TraerClientes()
@@ -153,6 +155,22 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public void EliminarCliente(Cliente cliente)
         {
+
+            bool flagPrestamo = true;
+            foreach (var x in _prestamoDatos.TraerTodosPrestamos())
+            {
+                if (x.IdCliente == cliente.Id)
+                {
+                    if (!x.Abierto) {
+                        flagPrestamo = false;
+                    }
+                }
+            }
+            if (flagPrestamo)
+            {
+                throw new ClienteConPrestamoAbiertoException();
+            }
+
             List<Cliente> list = TraerClientesPorRegistro();
 
             bool flag = false;
@@ -167,7 +185,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
             if (flag == true)
             {
-
                 ABMResult transaction = _clienteDatos.Eliminar(cliente);
 
                 // validar que ese cliente exista
@@ -260,7 +277,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     }
                     
             }
-
             return valida;
         }
 

@@ -15,15 +15,19 @@ namespace EjBiblioteca.Negocio.NegocioTasks
     {
         private PrestamoDatos _prestamoDatos;
         private ClienteDatos _clienteDatos;
-
-        //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
-        DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
+        private LibroDatos _libroDatos;
+        private EjemplarNegocio _ejemplarNegocio;
 
         public PrestamoNegocio()
         {
             _prestamoDatos = new PrestamoDatos();
             _clienteDatos = new ClienteDatos();
+            _libroDatos = new LibroDatos();
+            _ejemplarNegocio = new EjemplarNegocio();
         }
+
+        //Validación de negocio: Fecha inicio actividades: 01/07/2019. La fecha de alta de préstamo no puede ser anterior
+        DateTime fechaInicioAct = DateTime.Parse("01/07/2019");
 
         public List<Prestamo> TraerPrestamos()
         {
@@ -31,7 +35,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
             return list;
         }
-
         
         public void InsertarPrestamo(Prestamo prest)
         {
@@ -207,12 +210,29 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public List<Prestamo> TraerTodosPrestamosPorLibro(int idLibro)
         {
-            EjemplarNegocio ejemplarServicio = new EjemplarNegocio();
-            List<Ejemplar> listEjemplar = ejemplarServicio.TraerTodosLosEjemplaresPorLibro(idLibro);
+            bool flag = false;
+            foreach (var x in _libroDatos.TraerTodos())
+            {
+                if (x.Id == idLibro)
+                {
+                    flag = true;
+                }
+            }
+            if (!flag)
+            {
+                throw new LibroInexistenteException();
+            }
+
+            List<Ejemplar> listEjemplar = _ejemplarNegocio.TraerTodosLosEjemplaresPorLibro(idLibro);
 
             List<Prestamo> listPrestamo = _prestamoDatos.TraerTodosPrestamos();
 
             List<Prestamo> listPrestamoPorLibro = new List<Prestamo>();
+
+            if (listEjemplar.Count < 1)
+                throw new NoHayEjemplaresParaLibroException();
+            if (listPrestamo.Count < 1)
+                throw new NoHayPrestamosException();
 
             foreach (var itemEjemplar in listEjemplar)
             {
@@ -224,15 +244,38 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     }
                 }
             }
+
+            if (listPrestamoPorLibro.Count() > 0)
+            {
+                return listPrestamoPorLibro;
+            }
+            else {
+                throw new NoHayPrestamosParaLibroException();
+            }
             // TODO: MUCHAS VALIDACIONES
-            return listPrestamoPorLibro;
         }
 
         public List<Prestamo> TraerTodosPrestamosPorCliente(int idCliente)
         {
+            bool flagCliente = true;
+            foreach (var x in _clienteDatos.TraerTodosClientesPorRegistro())
+            {
+                if (x.Id == idCliente)
+                {
+                    flagCliente = false;
+                }
+            }
+            if (flagCliente)
+            {
+                throw new ClienteInexistenteException();
+            }
+
             List<Prestamo> listPrestamo = _prestamoDatos.TraerTodosPrestamos();
 
             List<Prestamo> listPrestamoPorCliente = new List<Prestamo>();
+
+            if (listPrestamo.Count < 1)
+                throw new NoHayPrestamosException();
 
             foreach (var itemPrestamo in listPrestamo)
             {
@@ -242,7 +285,15 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 }
             }
             // TODO: MUCHAS VALIDACIONES
-            return listPrestamoPorCliente;
+
+            if (listPrestamoPorCliente.Count() > 0)
+            {
+                return listPrestamoPorCliente;
+            }
+            else
+            {
+                throw new NoHayPrestamosParaClienteException();
+            }
         }
         
     }
