@@ -66,7 +66,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             foreach (var x in _ejemplarDatos.TraerTodos())
             {
-                if (x.Id == prest.IdCliente)
+                if (x.Id == prest.IdEjemplar)
                 {
                     flagEjemplar = false;
                 }
