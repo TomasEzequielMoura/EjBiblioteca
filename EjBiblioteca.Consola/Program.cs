@@ -141,7 +141,7 @@ namespace EjBiblioteca.Consola
 // TODO GENERAL (PENDIENTES)
 
 //Posibles validaciones (Se hacen en la capa de negocio):
-// celular, email UNICOS 
+
 // revisar todos los textos
 
 
@@ -178,3 +178,5 @@ namespace EjBiblioteca.Consola
 //- Calcular y mostar:
 //	+ cantidad de prestamos por persona promedio- LISTO!
 //	+ precio promedio de ejemplar- LISTO!
+// celular, email UNICOS - LISTO! Lo puse solo en alta. Si lo pongo en modificación, no daría siempre error?
+// Validación de negocio: solo pueden retirar libros los mayores de 12 años. -LISTO!
