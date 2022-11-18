@@ -16,6 +16,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         private PrestamoDatos _prestamoDatos;
         private ClienteDatos _clienteDatos;
         private LibroDatos _libroDatos;
+        private EjemplarDatos _ejemplarDatos;
+
         private EjemplarNegocio _ejemplarNegocio;
 
         public PrestamoNegocio()
@@ -23,6 +25,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             _prestamoDatos = new PrestamoDatos();
             _clienteDatos = new ClienteDatos();
             _libroDatos = new LibroDatos();
+            _ejemplarDatos = new EjemplarDatos();
+
             _ejemplarNegocio = new EjemplarNegocio();
         }
 
@@ -40,7 +44,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         {
             //validamos que el cliente no tenga mas de 5 préstamos
             int cantidadPrestamos = 0;
-            bool flag = true;
+            bool flagCliente = true;
+            bool flagEjemplar = true;
 
             foreach (var x in TraerPrestamos())
             {
@@ -56,16 +61,27 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             {
                 if (x.Id == prest.IdCliente)
                 {
-                    flag = false;
+                    flagCliente = false;
+                }
+            }
+            foreach (var x in _ejemplarDatos.TraerTodos())
+            {
+                if (x.Id == prest.IdCliente)
+                {
+                    flagEjemplar = false;
                 }
             }
             if (cantidadPrestamos >= 5)
             {
                 throw new MaximoPrestamosException();
             }
-            if (flag)
+            if (flagCliente)
             {
                 throw new ClienteInexistenteException();
+            }
+            if (flagEjemplar)
+            {
+                throw new EjemplarInexistenteException();
             }
             if (prest.FechaPrestamo < fechaInicioAct)
             {
@@ -252,7 +268,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else {
                 throw new NoHayPrestamosParaLibroException();
             }
-            // TODO: MUCHAS VALIDACIONES
         }
 
         public List<Prestamo> TraerTodosPrestamosPorCliente(int idCliente)
@@ -284,7 +299,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                     listPrestamoPorCliente.Add(itemPrestamo);
                 }
             }
-            // TODO: MUCHAS VALIDACIONES
 
             if (listPrestamoPorCliente.Count() > 0)
             {

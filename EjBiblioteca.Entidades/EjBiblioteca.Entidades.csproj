@@ -49,6 +49,7 @@
     <Compile Include="Dominio\Prestamo.cs" />
     <Compile Include="Enum\ActivoNoActivo.cs" />
     <Compile Include="Enum\TemasLibro.cs" />
+    <Compile Include="Exceptions\ClienteConPrestamoAbiertoException.cs" />
     <Compile Include="Exceptions\ClienteYaExisteException.cs" />
     <Compile Include="Exceptions\ClienteInexistenteException.cs" />
     <Compile Include="Exceptions\EdadMinimaException.cs" />
@@ -68,6 +69,10 @@
     <Compile Include="Exceptions\NoExistenClientesException.cs" />
     <Compile Include="Exceptions\NoExistenEjemplaresException.cs" />
     <Compile Include="Exceptions\NoExistenLibrosException.cs" />
+    <Compile Include="Exceptions\NoHayEjemplaresParaLibroException.cs" />
+    <Compile Include="Exceptions\NoHayPrestamosException.cs" />
+    <Compile Include="Exceptions\NoHayPrestamosParaClienteException.cs" />
+    <Compile Include="Exceptions\NoHayPrestamosParaLibroException.cs" />
     <Compile Include="Exceptions\PrecioFueraDeRangoException.cs" />
     <Compile Include="Exceptions\PrestamoCerradoException.cs" />
     <Compile Include="Exceptions\PrestamoInexistenteException.cs" />
