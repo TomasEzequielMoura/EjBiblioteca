@@ -55,7 +55,9 @@
     <Compile Include="Exceptions\EjemplarEnPrestamoException.cs" />
     <Compile Include="Exceptions\EjemplarExistenteException.cs" />
     <Compile Include="Exceptions\EjemplarInexistenteException.cs" />
+    <Compile Include="Exceptions\EmailYaExisteException.cs" />
     <Compile Include="Exceptions\ErrorAlHacerTareaException.cs" />
+    <Compile Include="Exceptions\ErrorDeCalculoException.cs" />
     <Compile Include="Exceptions\FechaAltaExceptionException.cs" />
     <Compile Include="Exceptions\FechaAnteriorAltaPrestamoException.cs" />
     <Compile Include="Exceptions\FechaInvalidaException.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Exceptions\PrestamoCerradoException.cs" />
     <Compile Include="Exceptions\PrestamoInexistenteException.cs" />
     <Compile Include="Exceptions\TelefonoNoExisteException.cs" />
+    <Compile Include="Exceptions\TelefonoYaExisteException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

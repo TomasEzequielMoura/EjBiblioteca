@@ -105,7 +105,7 @@ namespace EjBiblioteca.Consola
                         case "22":
                             ClientesTasks.ModificarClientePorID(clienteServicio);
                             break;
-                       // estadísticas: cantidad de prestamos por persona promedio,  precio promedio de ejemplar
+                       // estadísticas: cantidad de préstamos por persona (promedio),  precio promedio por ejemplar
                         case "23":
                             PrestamosTasks.PromPrestamosPorCliente(prestamoServicio, clienteServicio);
                             break;

@@ -1,7 +1,9 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio;
+using EjBiblioteca.Negocio.Exceptions;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
@@ -173,27 +175,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
         }
 
-        public static void PromPrestamosPorCliente(PrestamoNegocio prestamoServicio, ClienteNegocio clienteServicio)
-        {
-            int countPrestamos = 0;
-            int countClientes = 0;
-            int prom = countPrestamos/countClientes;
-     
-            List<Prestamo> list = prestamoServicio.TraerPrestamos();
-            List<Cliente> list2 = clienteServicio.TraerClientesPorRegistro();
-
-            foreach (var item in list)
-            {
-                countPrestamos++;
-            }
-            foreach (var item in list2)
-            {
-                countClientes++;
-            }
-                        
-                Console.WriteLine($"El promedio de préstamos por cliente es {prom}");
-                        
-        }
+        
         public static void BajaPrestamo(PrestamoNegocio prestamoServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); 
@@ -210,6 +192,30 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
         }
 
+        public static void PromPrestamosPorCliente(PrestamoNegocio prestamoServicio, ClienteNegocio clienteServicio)
+        {
+            int countPrestamos = 0;
+            int countClientes = 0;
 
+            List<Prestamo> lisPrest = prestamoServicio.TraerPrestamos();
+            List<Cliente> listClient = clienteServicio.TraerClientesPorRegistro();
+
+            foreach (var p in lisPrest)
+            {
+                countPrestamos++;
+            }
+            foreach (var c in listClient)
+            {
+                countClientes++;
+            }
+            double prom = countPrestamos / countClientes;
+            if (countPrestamos > 0 && countClientes > 0)
+            {
+                Console.WriteLine($"El promedio de préstamos por cliente es {prom}");
+            }
+            else
+                throw new ErrorDeCalculoException();
+
+        }
     }
 }

@@ -70,15 +70,26 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         {
             //Validamos que el cliente que se quiere dar de alta no esté ya ingresado. Chequeamos por DNI
             bool validaDNI = ValidarClientePorDNI(client.DNI);
-            if (!validaDNI)
+            bool validaTel = ValidarTelefono(client.Telefono);
+            bool validaEmail = ValidarEmail(client.Email);
+            if (validaTel)
             {
-                ABMResult transaction = _clienteDatos.Insertar(client);
-                if (!transaction.IsOk)
-                    throw new Exception(transaction.Error);
+                throw new TelefonoYaExisteException();
+            }    
+            if (validaDNI)
+            {
+                throw new ClienteYaExisteException();
+            }
+            if (validaEmail)
+            {
+                throw new EmailYaExisteException();
             }
             else
             {
-                throw new ClienteYaExisteException();
+                
+                ABMResult transaction = _clienteDatos.Insertar(client);
+                if (!transaction.IsOk)
+                    throw new Exception(transaction.Error);
             }  
         }
             
@@ -189,7 +200,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
             return valida;
         }
-
+       
         public bool ValidarTelefono(long tel)
         {
             if (tel == null)
@@ -199,6 +210,21 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             foreach (var item in list)
             {
                 if (item.Telefono == tel)
+                    valida = true;
+            }
+
+            return valida;
+        }
+
+        public bool ValidarEmail(string email)
+        {
+            if (email == null)
+                return false;
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+            bool valida = false;
+            foreach (var item in list)
+            {
+                if (item.Email == email)
                     valida = true;
             }
 

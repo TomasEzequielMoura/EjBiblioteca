@@ -9,7 +9,7 @@ namespace EjBiblioteca.Negocio.Exceptions
 
     public class LibroExistenteException : ErrorAlHacerTareaException
     {
-        public LibroExistenteException() : base("Libro ya existe") { }
+        public LibroExistenteException() : base("El libro ya existe") { }
         public LibroExistenteException(string msg) : base(msg) { }
     }
 }

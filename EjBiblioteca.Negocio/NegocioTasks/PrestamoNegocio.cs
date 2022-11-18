@@ -32,6 +32,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             return list;
         }
 
+        
         public void InsertarPrestamo(Prestamo prest)
         {
             //validamos que el cliente no tenga mas de 5 préstamos
@@ -243,5 +244,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             // TODO: MUCHAS VALIDACIONES
             return listPrestamoPorCliente;
         }
+        
     }
 }
