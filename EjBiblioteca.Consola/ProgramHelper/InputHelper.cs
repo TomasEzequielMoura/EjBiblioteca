@@ -142,10 +142,10 @@ namespace EjBiblioteca.Consola.ProgramHelper
             {
                 Console.WriteLine($"\r\nIngrese {input}");
                 texto = Console.ReadLine();
-                if (!ValidarHelper.EsNumero(texto))
+                if (!ValidarHelper.EsAlfabetico(texto))
                     Console.WriteLine("Ingreso inválido. Por favor, ingrese solo letras");
 
-            } while (!ValidarHelper.EsNumero(texto));
+            } while (!ValidarHelper.EsAlfabetico(texto));
             return texto;
         }
 

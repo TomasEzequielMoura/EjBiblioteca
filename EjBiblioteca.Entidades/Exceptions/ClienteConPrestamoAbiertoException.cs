@@ -8,7 +8,7 @@ namespace EjBiblioteca.Entidades.Exceptions
 {
     public class ClienteConPrestamoAbiertoException : ErrorAlHacerTareaException
     {
-        public ClienteConPrestamoAbiertoException() : base("El cliente ingresado no existe") { }
+        public ClienteConPrestamoAbiertoException() : base("Cliente con prestamo abierto") { }
         public ClienteConPrestamoAbiertoException(string msg) : base(msg) { }
     }
 }

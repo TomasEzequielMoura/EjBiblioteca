@@ -104,25 +104,41 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             
         public void ActualizarCliente(Cliente cliente)
         {
-            List<Cliente> list = TraerClientesPorRegistro();
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
 
-            bool flag = false;
+            bool flagExiste = false;
 
-            foreach (var item in list)
+            bool validaDNI = ValidarClientePorDNIMenosASiMismo(cliente);
+            bool validaTel = ValidarTelefono(cliente.Telefono);
+            bool validaEmail = ValidarEmail(cliente.Email);
+            if (cliente.FechaNacimiento > DateTime.Today.AddYears(-12))
             {
-                if (item.Id == cliente.Id)
-                {
-                    flag = true;
-                }
+                throw new EdadMinimaException();
             }
-
+            if (validaTel)
+            {
+                throw new TelefonoYaExisteException();
+            }
+            if (validaDNI)
+            {
+                throw new ClienteYaExisteException();
+            }
+            if (validaEmail)
+            {
+                throw new EmailYaExisteException();
+            }
             if (cliente.FechaNacimiento > DateTime.Today.AddYears(-12))
             {
                 throw new EdadMinimaException();
             }
 
-            if (flag == true)
+            foreach (var item in list)
             {
+                if (item.Id == cliente.Id)
+                    flagExiste = true;
+            }
+
+            if (flagExiste) {
                 ABMResult transaction = _clienteDatos.Actualizar(cliente);
 
                 if (!transaction.IsOk)
@@ -132,30 +148,30 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 throw new ClienteInexistenteException();
         }
 
-        public void ActualizarClientePorID(Cliente cliente)
-        {
-            List<Cliente> list = TraerClientesPorRegistro();
+        //public void ActualizarClientePorID(Cliente cliente)
+        //{
+        //    List<Cliente> list = TraerClientesPorRegistro();
 
-            bool flag = false;
+        //    bool flag = false;
 
-            foreach (var item in list)
-            {
-                if (item.Id == cliente.Id)
-                {
-                    flag = true;
-                }
-            }
+        //    foreach (var item in list)
+        //    {
+        //        if (item.Id == cliente.Id)
+        //        {
+        //            flag = true;
+        //        }
+        //    }
 
-            if (flag == true)
-            {
-                ABMResult transaction = _clienteDatos.ActualizarPorId(cliente);
+        //    if (flag == true)
+        //    {
+        //        ABMResult transaction = _clienteDatos.ActualizarPorId(cliente);
 
-                if (!transaction.IsOk)
-                    throw new Exception(transaction.Error);
-            }
-            else
-                throw new ClienteInexistenteException();
-        }
+        //        if (!transaction.IsOk)
+        //            throw new Exception(transaction.Error);
+        //    }
+        //    else
+        //        throw new ClienteInexistenteException();
+        //}
 
         public void EliminarCliente(Cliente cliente)
         {
@@ -225,7 +241,24 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
             return valida;
         }
-       
+
+        public bool ValidarClientePorDNIMenosASiMismo(Cliente cliente)
+        {
+            List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
+
+            bool valida = false;
+
+            foreach (var item in list)
+            {
+                if (item.DNI == cliente.DNI)
+                    if (item.Id != cliente.Id)
+                        valida = true;
+            }
+
+            return valida;
+
+        }
+
         public bool ValidarTelefono(long tel)
         {
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();

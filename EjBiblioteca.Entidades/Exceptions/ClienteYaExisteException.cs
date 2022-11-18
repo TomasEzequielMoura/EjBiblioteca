@@ -9,7 +9,7 @@ namespace EjBiblioteca.Entidades.Exceptions
     public class ClienteYaExisteException : ErrorAlHacerTareaException
     {
 
-        public ClienteYaExisteException() : base("El cliente que intenta dar de alta ya existe") { }
+        public ClienteYaExisteException() : base("El cliente ya existe") { }
         public ClienteYaExisteException(string msg) : base(msg) { }
 
     }

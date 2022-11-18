@@ -105,9 +105,9 @@ namespace EjBiblioteca.Consola
             return flag;
         }
 
-        public static bool EsNumero(string input)
+        public static bool EsAlfabetico(string input)
         {
-            return Regex.IsMatch(input, @"^[a-zA-Z]+$");
+            return Regex.IsMatch(input, @"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$");
         }
         public static bool EsAlfanumerico(string input)
         {
