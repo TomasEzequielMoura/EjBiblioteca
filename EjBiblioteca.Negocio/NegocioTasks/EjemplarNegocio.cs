@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Entidades.Exceptions;
-using EjBiblioteca.Negocio.Exceptions;
 
 namespace EjBiblioteca.Negocio.NegocioTasks
 {
@@ -67,7 +66,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 }
             }
             if (!flag)
-            {
+            {   
                 throw new LibroInexistenteException();
             }
             else
@@ -89,6 +88,13 @@ namespace EjBiblioteca.Negocio.NegocioTasks
         public void ActualizarEjemplar(Ejemplar ejem)
         {
             List<Ejemplar> list = _ejemplarDatos.TraerTodos();
+
+            if (!list.Any(ejemplar => ejemplar.Id == ejem.Id))
+            {
+                throw new EjemplarInexistenteException();
+            }
+
+            ejem.IdLibro = list.Find(ejemplar => ejemplar.Id == ejem.Id).IdLibro;
 
             bool flag = false;
 

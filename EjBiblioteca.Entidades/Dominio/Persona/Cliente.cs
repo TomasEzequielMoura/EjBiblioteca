@@ -52,7 +52,7 @@ namespace EjBiblioteca.Entidades.Persona
 
         public override string ToString()
         {
-            return $"ID: {this.Id}\r\nFecha Alta: {this.FechaAlta}\r\nActivo: {this.Activo}\r\nDNI: {this.DNI}\r\nNombre: {this.Nombre}\r\nApellido: {this.Apellido}\r\nDireccion: {this.Direccion}\r\nTelefono: {this.Telefono}\r\nMail: {this.Email}\r\nFecha Nacimiento: {this.FechaNacimiento}";
+            return $"ID: {this.Id}\r\nFecha Alta: {this.FechaAlta}\r\nActivo: {this.Activo}\r\nDNI: {this.DNI}\r\nNombre: {this.Nombre}\r\nApellido: {this.Apellido}\r\nDireccion: {this.Direccion}\r\nTelefono: {this.Telefono}\r\nMail: {this.Email}\r\nFecha Nacimiento: {this.FechaNacimiento.ToString("dd/MM/yyyy")}";
         }
 
     }

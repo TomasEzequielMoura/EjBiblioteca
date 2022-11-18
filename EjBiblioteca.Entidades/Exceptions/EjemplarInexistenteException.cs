@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EjBiblioteca.Negocio.Exceptions
+namespace EjBiblioteca.Entidades.Exceptions
 {
     public class EjemplarInexistenteException : ErrorAlHacerTareaException
     {

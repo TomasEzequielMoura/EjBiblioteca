@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using EjBiblioteca.Entidades;
-using EjBiblioteca.Negocio.Exceptions;
+using EjBiblioteca.Entidades.Exceptions;
 
 namespace EjBiblioteca.Negocio.NegocioTasks
 {

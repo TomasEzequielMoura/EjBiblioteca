@@ -1,9 +1,5 @@
 ﻿using EjBiblioteca.Entidades.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EjBiblioteca.Consola.ProgramHelper
 {
@@ -60,15 +56,12 @@ namespace EjBiblioteca.Consola.ProgramHelper
         {
             int dia = IngresarNumero<int>($"el día{input}");
 
-            if (dia > 31) {
+            if (dia > 31)
                 throw new FechaInvalidaException();
-            }
 
             int mes = IngresarNumero<int>($"el mes{input}");
             if (mes > 12)
-            {
                 throw new FechaInvalidaException();
-            }
 
             int anio = IngresarNumero<int>($"el año{input}");
 
@@ -91,12 +84,9 @@ namespace EjBiblioteca.Consola.ProgramHelper
             {
                 dni = IngresarNumero<int>(input);
                 if (dni.ToString().Length > 8 || dni.ToString().Length < 7)
-                {
                     Console.WriteLine("ERROR. El DNI debe ser de 7 u 8 caracteres");
-                }
-                else {
+                else
                     flagValidacion = true;
-                }
 
             } while (flagValidacion == false);
 
@@ -122,7 +112,6 @@ namespace EjBiblioteca.Consola.ProgramHelper
         }
         public static bool IngresarStatus(string input)
         {
-                      
             bool flag = false;
             bool value = false;
             do
@@ -154,9 +143,8 @@ namespace EjBiblioteca.Consola.ProgramHelper
                 Console.WriteLine($"\r\nIngrese {input}");
                 texto = Console.ReadLine();
                 if (!ValidarHelper.EsNumero(texto))
-                {
                     Console.WriteLine("Ingreso inválido. Por favor, ingrese solo letras");
-                }
+
             } while (!ValidarHelper.EsNumero(texto));
             return texto;
         }
@@ -169,9 +157,8 @@ namespace EjBiblioteca.Consola.ProgramHelper
                 Console.WriteLine($"\r\nIngrese {input}");
                 texto = Console.ReadLine();
                 if (!ValidarHelper.EsAlfanumerico(texto))
-                {
                     Console.WriteLine("Ingreso inválido. Por favor, el campo debe tener al menos un caracter y solo letras y números");
-                }
+
             } while (!ValidarHelper.EsAlfanumerico(texto));
             return texto;
         }
@@ -184,9 +171,8 @@ namespace EjBiblioteca.Consola.ProgramHelper
                 Console.WriteLine($"\r\nIngrese {input}");
                 email = Console.ReadLine();
                 if (!ValidarHelper.IsValidEmail(email))
-                {
                     Console.WriteLine("Ingreso inválido. Por favor, ingrese un email válido");
-                }
+
             } while (!ValidarHelper.IsValidEmail(email));
             return email;
         }

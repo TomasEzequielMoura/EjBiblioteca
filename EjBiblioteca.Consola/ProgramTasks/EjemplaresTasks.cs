@@ -1,13 +1,9 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
-using EjBiblioteca.Negocio;
-using EjBiblioteca.Negocio.Exceptions;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EjBiblioteca.Consola.ProgramTasks
 {
@@ -29,7 +25,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             foreach (var item in listaOrdenadaPorId)
             {
                 OutputHelper.PrintLine();
-                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString());
+                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString("dd/MM/yyyy"));
             }
             OutputHelper.PrintLine();
         }
@@ -68,10 +64,10 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 totalPrecio = totalPrecio + item.Precio;
                 count++;
             }
-            if (count >0)
+            if (count > 0)
             {
                 prom = totalPrecio / count;
-                Console.WriteLine("\r\nEl precio promedio por ejemplar es: " + prom);
+                Console.WriteLine("\r\nEl precio promedio por ejemplar es: " + prom.ToString("$ 0.00"));
             }
             else
             {
@@ -98,7 +94,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             foreach (var item in listaOrdenadaPorId)
             {
                 OutputHelper.PrintLine();
-                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString());
+                OutputHelper.PrintRow(item.Id.ToString(), item.IdLibro.ToString(), item.Observaciones, item.Precio.ToString("$ 0.00"), item.FechaAlta.ToString("dd/MM/yyyy"));
             }
             OutputHelper.PrintLine();
         }

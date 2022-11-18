@@ -91,7 +91,7 @@ namespace EjBiblioteca.Entidades
 
         public override string ToString()
         {
-            return "Id Préstamo: "+ this.Id + "\r\nId cliente: " + this.IdCliente + "\r\nId Ejemplar: " + this.IdEjemplar + "\r\nDías de préstamo: " + this.Plazo + "\r\nAbierto: " + this.Abierto + "\r\nFecha préstamo: " + this.FechaPrestamo + "\r\nFecha devolución tentativa: " + this.FechaDevolucionTentativa + "\r\nFecha devolución real: " + this.FechaDevolucionReal;
+            return "Id Préstamo: "+ this.Id + "\r\nId cliente: " + this.IdCliente + "\r\nId Ejemplar: " + this.IdEjemplar + "\r\nDías de préstamo: " + this.Plazo + "\r\nAbierto: " + this.Abierto + "\r\nFecha préstamo: " + this.FechaPrestamo.ToString("dd/MM/yyyy") + "\r\nFecha devolución tentativa: " + this.FechaDevolucionTentativa.ToString("dd/MM/yyyy") + "\r\nFecha devolución real: " + this.FechaDevolucionReal.ToString("dd/MM/yyyy");
             
         }
     }

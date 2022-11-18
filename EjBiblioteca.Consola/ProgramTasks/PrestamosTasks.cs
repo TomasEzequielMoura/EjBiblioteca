@@ -3,7 +3,6 @@ using EjBiblioteca.Entidades;
 using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio;
-using EjBiblioteca.Negocio.Exceptions;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
@@ -31,7 +30,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString() , item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString("dd/MM/yyyy"), item.FechaDevolucionTentativa.ToString("dd/MM/yyyy"), item.FechaDevolucionReal.ToString("dd/MM/yyyy"));
                     OutputHelper.PrintLine();
                 }
             }
@@ -117,7 +116,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString("dd/MM/yyyy"), item.FechaDevolucionTentativa.ToString("dd/MM/yyyy"), item.FechaDevolucionReal.ToString("dd/MM/yyyy"));
                 }
                 OutputHelper.PrintLine();
             }
@@ -144,7 +143,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString(), item.FechaDevolucionTentativa.ToString(), item.FechaDevolucionReal.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.IdCliente.ToString(), item.IdEjemplar.ToString(), item.Plazo.ToString(), item.Abierto.ToString(), item.FechaPrestamo.ToString("dd/MM/yyyy"), item.FechaDevolucionTentativa.ToString("dd/MM/yyyy"), item.FechaDevolucionReal.ToString("dd/MM/yyyy"));
                 }
                 OutputHelper.PrintLine();
             }
@@ -192,30 +191,17 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
         }
 
-        public static void PromPrestamosPorCliente(PrestamoNegocio prestamoServicio, ClienteNegocio clienteServicio)
+        public static void PromPrestamosPorCliente(PrestamoNegocio prestamoServicio)
         {
-            int countPrestamos = 0;
-            int countClientes = 0;
+            double prom = prestamoServicio.TraerPromedioPrestamosPorCliente();
 
-            List<Prestamo> lisPrest = prestamoServicio.TraerPrestamos();
-            List<Cliente> listClient = clienteServicio.TraerClientesPorRegistro();
+            if (prom > 0)
+            {
+                Console.WriteLine($"El promedio de préstamos por cliente es {prom.ToString("0.00")}");
+            }
 
-            foreach (var p in lisPrest)
-            {
-                countPrestamos++;
-            }
-            foreach (var c in listClient)
-            {
-                countClientes++;
-            }
-            double prom = countPrestamos / countClientes;
-            if (countPrestamos > 0 && countClientes > 0)
-            {
-                Console.WriteLine($"El promedio de préstamos por cliente es {prom}");
-            }
             else
                 throw new ErrorDeCalculoException();
-
         }
     }
 }

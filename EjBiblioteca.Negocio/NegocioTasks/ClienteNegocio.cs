@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using EjBiblioteca.Entidades;
-using EjBiblioteca.Negocio.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Entidades.Exceptions;
 
@@ -96,8 +95,8 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             }
             else
             {
-                
                 ABMResult transaction = _clienteDatos.Insertar(client);
+
                 if (!transaction.IsOk)
                     throw new Exception(transaction.Error);
             }  
@@ -115,6 +114,11 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 {
                     flag = true;
                 }
+            }
+
+            if (cliente.FechaNacimiento > DateTime.Today.AddYears(-12))
+            {
+                throw new EdadMinimaException();
             }
 
             if (flag == true)
@@ -198,8 +202,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorId(int id)
         {
-            if (id == null)
-                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
@@ -213,8 +215,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorDNI(int dni)
         {
-            if (dni == null)
-                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
@@ -228,8 +228,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
        
         public bool ValidarTelefono(long tel)
         {
-            if (tel == null)
-                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)
@@ -258,10 +256,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
 
         public bool ValidarClientePorIdMasDNI(int id, int dni)
         {
-            if (dni == null)
-                return false;
-            if (id == null)
-                return false;
             List<Cliente> list = _clienteDatos.TraerTodosClientesPorRegistro();
             bool valida = false;
             foreach (var item in list)

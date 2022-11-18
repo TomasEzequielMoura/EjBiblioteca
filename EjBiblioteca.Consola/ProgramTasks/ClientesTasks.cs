@@ -1,24 +1,13 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
-using EjBiblioteca.Entidades;
 using EjBiblioteca.Entidades.Enum;
-using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace EjBiblioteca.Consola.ProgramTasks
 {
-
-
-//* Otros:*
-//https://cai-api.azurewebsites.net/api/v1/cliente/895380
-//Está dando de alta en la base clientes general, pero no en cliente/895380. Esto está en ClienteDatos. Tendríamos que insertar solo en nuestra base?
-
     public class ClientesTasks
     {
         public static void ListarClientes(ClienteNegocio clienteServicio)
@@ -37,7 +26,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 foreach (var item in listaOrdenadaPorId)
                 {
                     OutputHelper.PrintLine();
-                    OutputHelper.PrintRow(item.Id.ToString(), item.DNI.ToString(), item.Nombre, item.Apellido, item.Direccion, item.Email, item.Telefono.ToString(), item.FechaNacimiento.ToString(), item.FechaAlta.ToString(), item.Activo.ToString());
+                    OutputHelper.PrintRow(item.Id.ToString(), item.DNI.ToString(), item.Nombre, item.Apellido, item.Direccion, item.Email, item.Telefono.ToString(), item.FechaNacimiento.ToString("dd/MM/yyyy"), item.FechaAlta.ToString("dd/MM/yyyy"), item.Activo.ToString());
                     OutputHelper.PrintLine();
                 }
             }
@@ -62,8 +51,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             string mail = InputHelper.IngresarEmail("el e-mail del cliente");
             DateTime fechaNac = InputHelper.IngresarFechaPasoAPaso(" de nacimiento del cliente");
            
-            
-                Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
+            Cliente insertCliente = new Cliente(activo, dni, nombre, apellido, direccion, telefono, mail, fechaNac);
 
             Console.WriteLine("\r\nCliente nuevo ingresado:\r\n" + insertCliente.ToString());
             string confirmacion = InputHelper.confirmacionABM("cliente", "insertar");
@@ -115,7 +103,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             Cliente deleteCliente = new Cliente(idCliente);
 
             Console.WriteLine("\r\nCliente a dar de baja:\r\n" + deleteCliente.ToString());
-            string confirmacion = InputHelper.confirmacionABM("préstamo", "eliminar");
+            string confirmacion = InputHelper.confirmacionABM("cliente", "eliminar");
 
             if (confirmacion == "S" || confirmacion == "s")
             {

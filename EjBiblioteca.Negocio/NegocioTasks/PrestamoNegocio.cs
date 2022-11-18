@@ -7,7 +7,6 @@ using EjBiblioteca.Datos;
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Entidades.Persona;
-using EjBiblioteca.Negocio.Exceptions;
 
 namespace EjBiblioteca.Negocio.NegocioTasks
 {
@@ -54,7 +53,9 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 }
                 if (x.IdEjemplar == prest.IdEjemplar)
                 {
-                    throw new EjemplarEnPrestamoException();
+                    if (x.Abierto) {
+                        throw new EjemplarEnPrestamoException();
+                    }
                 }
             }
             foreach (var x in _clienteDatos.TraerTodosClientesPorRegistro())
@@ -309,6 +310,33 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 throw new NoHayPrestamosParaClienteException();
             }
         }
-        
+
+        public double TraerPromedioPrestamosPorCliente() {
+            int countPrestamos = 0;
+            int countClientes = 0;
+
+            List<Prestamo> listPrest = _prestamoDatos.TraerTodosPrestamos();
+            List<Cliente> listClient = _clienteDatos.TraerTodosClientesPorRegistro();
+
+            foreach (var p in listPrest)
+            {
+                countPrestamos++;
+            }
+            foreach (var c in listClient)
+            {
+                countClientes++;
+            }
+
+            double prom = (double)countPrestamos / (double)countClientes;
+
+            if (countPrestamos == 0 || countClientes == 0)
+            {
+                throw new ErrorDeCalculoException();
+            }
+
+            else
+                return prom;
+        }
+
     }
 }

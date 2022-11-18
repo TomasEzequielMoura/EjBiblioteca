@@ -2,7 +2,7 @@
 using EjBiblioteca.Entidades;
 using EjBiblioteca.Negocio;
 using EjBiblioteca.Negocio.Enum;
-using EjBiblioteca.Negocio.Exceptions;
+using EjBiblioteca.Entidades.Exceptions;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
 using System.Collections.Generic;

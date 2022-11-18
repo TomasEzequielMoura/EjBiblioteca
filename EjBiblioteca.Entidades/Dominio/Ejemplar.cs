@@ -71,7 +71,7 @@ namespace EjBiblioteca.Entidades
         {
             if (this.IdLibro != 0)
             {
-                return $"ID del Libro: {this.IdLibro}\r\nObservaciones: {this.Observaciones}\r\nPrecio: {this.Precio.ToString("$ 0.00")}\r\nFechaAlta: {this.FechaAlta}";
+                return $"ID del Libro: {this.IdLibro}\r\nObservaciones: {this.Observaciones}\r\nPrecio: {this.Precio.ToString("$ 0.00")}\r\nFechaAlta: {this.FechaAlta.ToString("dd/MM/yyyy")}"; 
             }
             else {
                 return $"Observaciones: {this.Observaciones}\r\nPrecio: {this.Precio.ToString("$ 0.00")}";
