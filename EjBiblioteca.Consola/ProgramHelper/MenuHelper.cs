@@ -17,7 +17,7 @@ namespace EjBiblioteca.Consola
         public static void DesplegarOpcionesMenu()
         {
             Console.Write("\r\nPara continuar, seleccione la opción deseada y presione Enter: \r\n");
-            Console.Write("1. Listar Ejemplares \r\n2. Contar Ejemplares Por Libro \r\n3. Listar Ejemplares Por Libro \r\n4. Alta Ejemplar\r\n5. Modificar Ejemplar \r\n6. Listar Libros \r\n7. Listar Libro por ID \r\n8. Alta Libro \r\n9. Listar Prestamos \r\n10. Listar Prestamos por Libro \r\n11. Listar Prestamos por Cliente \r\n12. Alta Préstamo \r\n13. Modificar Préstamo \r\n14. Cerrar Prestamo \r\n15. Baja Préstamo\r\n16. Listar Clientes\r\n17. Alta Cliente \r\n18. Modificar Cliente \r\n19. Baja Cliente\r\n20. Listar Cliente Por Telefono\r\n21. Modificar Cliente por ID\r\nX. Para salir \r\n"); 
+            Console.Write("1. Listar Ejemplares \r\n2. Contar Ejemplares Por Libro \r\n3. Listar Ejemplares Por Libro \r\n4. Alta Ejemplar\r\n5. Modificar Ejemplar \r\n6. Listar Libros \r\n7. Listar Libro por ID \r\n8. Alta Libro \r\n9. Listar Prestamos \r\n10. Listar Prestamos por Libro \r\n11. Listar Prestamos por Cliente\r\n12. Contar Prestamos por Cliente \r\n13. Alta Préstamo \r\n14. Modificar Préstamo \r\n15. Cerrar Prestamo \r\n16. Baja Préstamo\r\n17. Listar Clientes\r\n18. Alta Cliente \r\n19. Modificar Cliente \r\n20. Baja Cliente\r\n21. Listar Cliente Por Telefono\r\n22. Modificar Cliente por ID\r\n\r\nESTADÍSTICAS:\r\n23. Promedio de préstamos por cliente\r\n24. Promedio precio por ejemplar\r\nX. Para salir \r\n"); 
         }
     }
 }

@@ -44,6 +44,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
                 throw new NoExistenEjemplaresException();
         }
 
+
         public void InsertarEjemplar(Ejemplar ejem)
         {
             if (ejem.FechaAlta > DateTime.Today.AddDays(1))

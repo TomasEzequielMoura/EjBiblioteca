@@ -73,34 +73,44 @@ namespace EjBiblioteca.Consola
                             PrestamosTasks.ListarPrestamosPorCliente(prestamoServicio);
                             break;
                         case "12":
-                            PrestamosTasks.AltaPrestamo(prestamoServicio);
+                            PrestamosTasks.ContarPrestamosPorCliente(prestamoServicio);
                             break;
                         case "13":
-                            PrestamosTasks.ModificarPrestamo(prestamoServicio);
+                            PrestamosTasks.AltaPrestamo(prestamoServicio);
                             break;
                         case "14":
-                            PrestamosTasks.CerrarPrestamo(prestamoServicio);
+                            PrestamosTasks.ModificarPrestamo(prestamoServicio);
                             break;
                         case "15":
-                            PrestamosTasks.BajaPrestamo(prestamoServicio);
+                            PrestamosTasks.CerrarPrestamo(prestamoServicio);
                             break;
                         case "16":
-                            ClientesTasks.ListarClientes(clienteServicio);
+                            PrestamosTasks.BajaPrestamo(prestamoServicio);
                             break;
                         case "17":
-                            ClientesTasks.AltaCliente(clienteServicio);
+                            ClientesTasks.ListarClientes(clienteServicio);
                             break;
                         case "18":
-                            ClientesTasks.ModificarCliente(clienteServicio);
+                            ClientesTasks.AltaCliente(clienteServicio);
                             break;
                         case "19":
-                            ClientesTasks.BajaCliente(clienteServicio);
+                            ClientesTasks.ModificarCliente(clienteServicio);
                             break;
                         case "20":
-                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            ClientesTasks.BajaCliente(clienteServicio);
                             break;
                         case "21":
+                            ClientesTasks.ListarClientePorTelefono(clienteServicio);
+                            break;
+                        case "22":
                             ClientesTasks.ModificarClientePorID(clienteServicio);
+                            break;
+                       // estadísticas: cantidad de prestamos por persona promedio,  precio promedio de ejemplar
+                        case "23":
+                            PrestamosTasks.PromPrestamosPorCliente(prestamoServicio, clienteServicio);
+                            break;
+                        case "24":
+                            EjemplaresTasks.PromedioPrecioEjemplares(ejemplarServicio);
                             break;
                         case "X":
                             Console.Write("Fin del programa. Saludos!");
@@ -129,10 +139,6 @@ namespace EjBiblioteca.Consola
 
 
 // TODO GENERAL (PENDIENTES)
-
-//- Calcular y mostar:
-//	+ cantidad de prestamos por persona promedio
-//	+ precio promedio de ejemplar
 
 //Posibles validaciones (Se hacen en la capa de negocio):
 // celular, email UNICOS 
@@ -169,3 +175,6 @@ namespace EjBiblioteca.Consola
 // el cliente debe existir para asignarle un prestamo LISTO!
 // Limite de cantidad de prestamos por persona LISTO!
 // tostring mas lindo de cliente LISTO!
+//- Calcular y mostar:
+//	+ cantidad de prestamos por persona promedio- LISTO!
+//	+ precio promedio de ejemplar- LISTO!

@@ -114,7 +114,7 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else {
                 List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
-                bool flag = false;
+                //bool flag = false;
 
                 foreach (var item in list)
                 {

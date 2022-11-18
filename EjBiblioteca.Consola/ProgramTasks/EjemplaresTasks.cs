@@ -53,6 +53,35 @@ namespace EjBiblioteca.Consola.ProgramTasks
                 Console.WriteLine("\r\nNo se ha encontrado ningun ejemplar para el libro con ID: " + idLibro);
         }
 
+        public static void PromedioPrecioEjemplares(EjemplarNegocio ejemplarServicio)
+        {
+            int count = 0;
+            double totalPrecio = 0;
+            double prom = 0;
+
+            List <Ejemplar> list = ejemplarServicio.TraerTodosEjemplares();
+           
+            //totalPrecio = list.Sum(item => item.Precio);
+            
+            foreach (var item in list)
+            {
+                totalPrecio = totalPrecio + item.Precio;
+                count++;
+            }
+            if (count >0)
+            {
+                prom = totalPrecio / count;
+                Console.WriteLine("\r\nEl precio promedio por ejemplar es: " + prom);
+            }
+            else
+            {
+                Console.WriteLine("\r\nNo hay ejemplares dados de alta");
+            }
+            
+            //calculamos el precio promedio por ejemplar para mostrarlo como estadistica
+            
+        }
+
         // traemos por consola todo el listado de ejemplares para un libro
         public static void ListarEjemplaresPorLibro(EjemplarNegocio ejemplarServicio)
         {

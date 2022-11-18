@@ -1,5 +1,6 @@
 ﻿using EjBiblioteca.Consola.ProgramHelper;
 using EjBiblioteca.Entidades;
+using EjBiblioteca.Entidades.Persona;
 using EjBiblioteca.Negocio;
 using EjBiblioteca.Negocio.NegocioTasks;
 using System;
@@ -151,6 +152,48 @@ namespace EjBiblioteca.Consola.ProgramTasks
             }
         }
 
+        public static void ContarPrestamosPorCliente(PrestamoNegocio prestamoServicio)
+        {
+            int count = 0;
+            int idCliente = InputHelper.IngresarNumero<int>("el numero del cliente");
+
+            List<Prestamo> list = prestamoServicio.TraerTodosPrestamosPorCliente(idCliente);
+
+            foreach (var item in list)
+            {
+               count++;
+            }
+
+            if (count > 0)
+                Console.WriteLine("\r\nEl cliente ID " + idCliente + " tiene " + count + " préstamos\r\n");
+                       
+            else
+            {
+                Console.WriteLine("\r\nNo se ha encontrado ningun préstamo para el ID: " + idCliente);
+            }
+        }
+
+        public static void PromPrestamosPorCliente(PrestamoNegocio prestamoServicio, ClienteNegocio clienteServicio)
+        {
+            int countPrestamos = 0;
+            int countClientes = 0;
+            int prom = countPrestamos/countClientes;
+     
+            List<Prestamo> list = prestamoServicio.TraerPrestamos();
+            List<Cliente> list2 = clienteServicio.TraerClientesPorRegistro();
+
+            foreach (var item in list)
+            {
+                countPrestamos++;
+            }
+            foreach (var item in list2)
+            {
+                countClientes++;
+            }
+                        
+                Console.WriteLine($"El promedio de préstamos por cliente es {prom}");
+                        
+        }
         public static void BajaPrestamo(PrestamoNegocio prestamoServicio)
         {
             int id = InputHelper.IngresarNumero<int>("el ID del préstamo"); 
