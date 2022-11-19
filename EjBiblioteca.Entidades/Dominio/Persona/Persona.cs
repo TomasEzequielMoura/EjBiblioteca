@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades.Persona
 {
-    // Tomas
-
     public abstract class Persona
     {
         private int _id;

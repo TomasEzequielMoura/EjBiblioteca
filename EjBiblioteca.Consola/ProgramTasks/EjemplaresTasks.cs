@@ -73,9 +73,7 @@ namespace EjBiblioteca.Consola.ProgramTasks
             {
                 Console.WriteLine("\r\nNo hay ejemplares dados de alta");
             }
-            
             //calculamos el precio promedio por ejemplar para mostrarlo como estadistica
-            
         }
 
         // traemos por consola todo el listado de ejemplares para un libro

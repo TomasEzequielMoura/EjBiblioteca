@@ -63,7 +63,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else
             {
                 throw new TelefonoNoExisteException();
-                //meter exception
             }
         }
 

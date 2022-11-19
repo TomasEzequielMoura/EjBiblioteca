@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades
 {
-    // Juanse
 
     public class Libro
     {

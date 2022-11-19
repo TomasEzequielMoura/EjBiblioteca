@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace EjBiblioteca.Entidades
 {
-    // Sabri
-    //Armado datos básicos de Préstamo
-
-    // TODO: matar constructores que nunca se usan
-
     public class Prestamo
     {
         private int _id;

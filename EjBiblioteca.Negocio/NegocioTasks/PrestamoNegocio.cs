@@ -135,8 +135,6 @@ namespace EjBiblioteca.Negocio.NegocioTasks
             else {
                 List<Prestamo> list = _prestamoDatos.TraerTodosPrestamos();
 
-                //bool flag = false;
-
                 foreach (var item in list)
                 {
                     if (item.Id == prest.Id)

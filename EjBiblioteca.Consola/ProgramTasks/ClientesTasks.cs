@@ -145,7 +145,5 @@ namespace EjBiblioteca.Consola.ProgramTasks
         //        Console.WriteLine("\r\nCliente " + idCliente + " modificado!\r\n\r\nResultado final:\r\n" + modificarCliente.ToString());
         //    }
         //}
-
-
     }
 }
